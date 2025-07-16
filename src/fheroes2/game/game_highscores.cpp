@@ -275,20 +275,23 @@ fheroes2::GameMode Game::DisplayHighScores( const bool isCampaign )
     const bool isDefaultScreenSize = display.isDefaultSize();
 
     if ( isAfterGameCompletion ) {
-        //std::cout << "Current player color? " << static_cast<int>(Settings::Get().CurrentColor()) << "\n";
-        //std::cout << "Cheat active? " << GameCheats::isActivePlayerCheater() << "\n";
         const auto inputPlayerName = []( std::string & playerName ) {
-            Dialog::inputString( fheroes2::Text{}, fheroes2::Text{ _( "Your Name" ), fheroes2::FontType::normalWhite() }, playerName, 15, false, {} );
             if ( GameCheats::isPlayersCheating() ) {
-                if ( playerName.length() > 9 ) {
-                    playerName = playerName.substr( 0, 9 );
+                Dialog::inputString( fheroes2::Text{}, fheroes2::Text{ _( "Your Name" ), fheroes2::FontType::normalWhite() }, playerName, 9, false, {} );
+                if ( playerName.empty() ) {
+                    playerName = _( "Unknown Cheater" );
                 }
+                else {
                 playerName += " cheat";
+                }
+                GameCheats::gameCheatsReset();
             }
-            else if ( playerName.empty() ) {
-                playerName = _( "Unknown Hero" );
+            else {
+                Dialog::inputString( fheroes2::Text{}, fheroes2::Text{ _( "Your Name" ), fheroes2::FontType::normalWhite() }, playerName, 15, false, {} );
+                if ( playerName.empty() ) {
+                    playerName = _( "Unknown Hero" );
+                }
             }
-        GameCheats::gameCheatsReset();
         };
 
         const uint32_t completionTime = fheroes2::HighscoreData::generateCompletionTime();
