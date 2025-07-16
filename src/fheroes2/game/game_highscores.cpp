@@ -26,6 +26,7 @@
 #include <cstddef>
 #include <cstdint>
 #include <functional>
+#include <iostream>
 #include <optional>
 #include <string>
 #include <utility>
@@ -36,6 +37,7 @@
 #include "campaign_scenariodata.h"
 #include "cursor.h"
 #include "dialog.h"
+#include "game_cheats.h"
 #include "game.h" // IWYU pragma: associated
 #include "game_delays.h"
 #include "game_hotkeys.h"
@@ -273,11 +275,20 @@ fheroes2::GameMode Game::DisplayHighScores( const bool isCampaign )
     const bool isDefaultScreenSize = display.isDefaultSize();
 
     if ( isAfterGameCompletion ) {
+        //std::cout << "Current player color? " << static_cast<int>(Settings::Get().CurrentColor()) << "\n";
+        //std::cout << "Cheat active? " << GameCheats::isActivePlayerCheater() << "\n";
         const auto inputPlayerName = []( std::string & playerName ) {
             Dialog::inputString( fheroes2::Text{}, fheroes2::Text{ _( "Your Name" ), fheroes2::FontType::normalWhite() }, playerName, 15, false, {} );
-            if ( playerName.empty() ) {
+            if ( GameCheats::isPlayersCheating() ) {
+                if ( playerName.length() > 9 ) {
+                    playerName = playerName.substr( 0, 9 );
+                }
+                playerName += " cheat";
+            }
+            else if ( playerName.empty() ) {
                 playerName = _( "Unknown Hero" );
             }
+        GameCheats::gameCheatsReset();
         };
 
         const uint32_t completionTime = fheroes2::HighscoreData::generateCompletionTime();

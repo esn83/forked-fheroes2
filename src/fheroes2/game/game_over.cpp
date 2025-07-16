@@ -36,6 +36,7 @@
 #include "castle.h"
 #include "dialog.h"
 #include "game.h"
+#include "game_cheats.h"
 #include "game_io.h"
 #include "game_video.h"
 #include "game_video_type.h"
@@ -412,6 +413,39 @@ void GameOver::Result::Reset()
     result = GameOver::COND_NONE;
 }
 
+void GameOver::Result::updateWinningPlayersColors() {
+    GameCheats::winningColors.clear();
+
+    const auto allColors = Color::allPlayerColors();
+
+    for (PlayerColor color : PlayerColorsVector(allColors))
+    {
+        const Kingdom & kingdom = world.GetKingdom(color);
+
+        const Player * player = Players::Get(color);
+        if (!player) continue;
+
+#if defined(WITH_DEBUG)
+        const bool isAIAutoControlMode = player->isAIAutoControlMode();
+#else
+        const bool isAIAutoControlMode = false;
+#endif
+
+        if (!(kingdom.isControlHuman() || isAIAutoControlMode))
+            continue;
+
+        if (!kingdom.isPlay())
+            continue;
+
+        uint32_t condition = world.CheckKingdomWins(kingdom);
+
+        if (condition != GameOver::COND_NONE)
+        {
+            GameCheats::winningColors.insert(static_cast<uint8_t>(color));
+        }
+    }
+}
+
 fheroes2::GameMode GameOver::Result::checkGameOver()
 {
     const PlayerColorsSet humanColors = Players::HumanColors();
@@ -481,6 +515,8 @@ fheroes2::GameMode GameOver::Result::checkGameOver()
             result = world.CheckKingdomWins( kingdom );
 
             if ( result != GameOver::COND_NONE ) {
+                updateWinningPlayersColors();
+                
                 DialogWins( result );
 
                 if ( conf.isCampaignGameType() ) {
@@ -599,6 +635,8 @@ fheroes2::GameMode GameOver::Result::checkGameOver()
             }
         }
         else if ( result & GameOver::WINS ) {
+            updateWinningPlayersColors();
+
             DialogWins( result );
 
             AudioManager::ResetAudio();
