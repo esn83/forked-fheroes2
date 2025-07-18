@@ -47,6 +47,8 @@ namespace GameCheats
     // logic can be implemented around it later if it needs to be switched on/off
     // is on by default as the original homm2.
     bool cheatsEnabled = true;
+    
+    bool redrawHeroesDialogFlag = false;
 
     const size_t MAX_BUFFER = 32;
 
@@ -62,7 +64,7 @@ namespace GameCheats
     "99999"     // All spells + max spell points
     };
 
-    std::unordered_set<uint8_t> cheatingColors; // list of cheaters
+    std::unordered_set<uint8_t> cheatingColors; // list of cheaters colors
     std::unordered_set<uint8_t> winningColors; // list of human player colors
 
     void checkBuffer()
@@ -128,29 +130,61 @@ namespace GameCheats
                 DEBUG_LOG(DBG_GAME, DBG_INFO, "Cheat activated: upgraded army");
                 if (hero) {
                     const int race = hero->GetRace();
-                    const uint32_t dwellings[] = { DWELLING_UPGRADE2, DWELLING_UPGRADE3, DWELLING_UPGRADE4, DWELLING_UPGRADE5, DWELLING_UPGRADE7 };
                     Army & army = hero->GetArmy();
 
-                    for ( size_t i = 0; i < Army::maximumTroopCount; ++i ) {
-                        Troop * troop = army.GetTroop(i);
-                        if ( troop && troop->isValid() ) {
-                            bool keep = false;
-                            for ( const uint32_t dw : dwellings ) {
-                                if ( troop->isMonster(Monster(race, dw).GetID()) ) {
-                                    keep = true;
-                                    break;
-                                }
+                    // Base dwellings: tier 2–6
+                    std::vector<uint32_t> dwellings = {
+                        DWELLING_UPGRADE2,
+                        DWELLING_UPGRADE3,
+                        DWELLING_UPGRADE4,
+                        DWELLING_UPGRADE5,
+                        DWELLING_UPGRADE6
+                    };
+
+                    // Special case for Warlock: include tier 7 instead of 6
+                    if (race == Race::WRLK) {
+                        dwellings.pop_back(); // remove tier 6
+                        dwellings.push_back(DWELLING_UPGRADE7); // add tier 7
+                    }
+
+                    std::unordered_set<uint32_t> allowedIDs;
+                    for (const uint32_t dw : dwellings) {
+                        Monster m(race, dw);
+                        if (m.isValid())
+                            allowedIDs.insert(m.GetID());
+                    }
+
+                    // Remove any non-upgraded troops
+                    for (size_t i = 0; i < Army::maximumTroopCount; ++i) {
+                        Troop* troop = army.GetTroop(i);
+                        if (troop && troop->isValid()) {
+                            if (allowedIDs.find(troop->GetMonster().GetID()) == allowedIDs.end()) {
+                                troop->Reset();
                             }
-                            if ( !keep ) troop->Reset();
                         }
                     }
 
+                    // Add or top-up each upgraded troop
                     for (const uint32_t dw : dwellings) {
-                        Monster monster(race, dw);
-                        if (monster.isValid()) {
-                            army.JoinTroop(monster, 5, true);
+                        Monster m(race, dw);
+                        if (!m.isValid())
+                            continue;
+
+                        bool found = false;
+                        for (size_t i = 0; i < Army::maximumTroopCount; ++i) {
+                            Troop* troop = army.GetTroop(i);
+                            if (troop && troop->isValid() && troop->GetMonster().GetID() == m.GetID()) {
+                                troop->SetCount(troop->GetCount() + 5);
+                                found = true;
+                                break;
+                            }
+                        }
+
+                        if (!found) {
+                            army.JoinTroop(m, 5, true);
                         }
                     }
+
                     Interface::AdventureMap::Get().redraw(Interface::REDRAW_STATUS);
                 }
             }},
@@ -169,14 +203,44 @@ namespace GameCheats
                     hero->setDefenseBaseValue(99);
                     hero->setPowerBaseValue(99);
                     hero->setKnowledgeBaseValue(99);
+                    redrawHeroesDialogFlag = true;
                 }
             }},
             { "77777", [&]() {
+                /*{
+                UNKNOWN = 0,
+                PATHFINDING = 1,
+                ARCHERY = 2,
+                LOGISTICS = 3,
+                SCOUTING = 4,
+                DIPLOMACY = 5,
+                NAVIGATION = 6,
+                LEADERSHIP = 7,
+                WISDOM = 8,
+                MYSTICISM = 9,
+                LUCK = 10,
+                BALLISTICS = 11,
+                EAGLE_EYE = 12,
+                NECROMANCY = 13,
+                ESTATES = 14
+                };*/
+
+                int default_secondary_skills[8] = {3, 1, 2, 5, 7, 10, 8, 11};
+                int necro_secondary_skills[8] = {13, 1, 2, 5, 11, 10, 8, 3};
                 DEBUG_LOG(DBG_GAME, DBG_INFO, "Cheat activated: max secondary skills");
                 if (hero) {
-                    for (int skill = 1; skill <= Skill::Secondary::ESTATES; ++skill) {
-                        hero->LearnSkill(Skill::Secondary(skill, Skill::Level::EXPERT));
+                    // Clear all learned secondary skills manually
+                    hero->ClearAllSecondarySkills();
+
+                    const int race = hero->GetRace();
+                    const int* selected_skills = (race == Race::NECR) ? necro_secondary_skills : default_secondary_skills;
+
+                    // Add selected skills at EXPERT level
+                    for (int i = 0; i < 8; ++i) {
+                        hero->LearnSkill(Skill::Secondary(selected_skills[i], Skill::Level::EXPERT));
                     }
+
+                    redrawHeroesDialogFlag = true;
                 }
             }},
             { "88888", [&]() {
@@ -188,6 +252,11 @@ namespace GameCheats
             { "99999", [&]() {
                 DEBUG_LOG(DBG_GAME, DBG_INFO, "Cheat activated: all spells");
                 if (hero) {
+                    if (!hero->HaveSpellBook()) {
+                        Artifact magicBook(Artifact::MAGIC_BOOK);
+                        hero->GetBagArtifacts().PushArtifact(magicBook);
+                    }
+
                     SpellStorage storage;
                     for (int spellId : Spell::getAllSpellIdsSuitableForSpellBook()) {
                         storage.Append(Spell(spellId));
@@ -225,8 +294,18 @@ namespace GameCheats
     {
         for (uint8_t color : winningColors)
         {
-            if (cheatingColors.count(color))
+            if ( cheatingColors.count(color) )
                 return true;
+        }
+        return false;
+    }
+
+    bool redrawHeroesDialog()
+    {
+        if ( redrawHeroesDialogFlag )
+        {
+            redrawHeroesDialogFlag = false;
+            return true;
         }
         return false;
     }

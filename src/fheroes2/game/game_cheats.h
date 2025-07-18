@@ -34,6 +34,7 @@ namespace GameCheats
     void enableCheats( bool cheatsEnabled );
     bool areCheatsEnabled();
     bool isPlayersCheating();
+    bool redrawHeroesDialog();
     void onKeyPressed( const fheroes2::Key key, const int32_t modifier );
     void gameCheatsReset();
 }

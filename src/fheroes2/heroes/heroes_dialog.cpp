@@ -38,6 +38,7 @@
 #include "cursor.h"
 #include "dialog.h"
 #include "dialog_selectitems.h"
+#include "game_cheats.h"
 #include "game_hotkeys.h"
 #include "game_interface.h"
 #include "game_language.h"
@@ -486,6 +487,16 @@ int Heroes::OpenDialog( const bool readonly, const bool fade, const bool disable
             if ( le.MouseClickLeft( buttonNextHero.area() ) || HotKeyPressEvent( Game::HotKeyEvent::DEFAULT_RIGHT ) || timedButtonNextHero.isDelayPassed() ) {
                 return Dialog::NEXT;
             }
+        }
+
+        // Check if cheat has been activated and redraw is needed.
+        if ( GameCheats::redrawHeroesDialog() )
+        {
+            primarySkillsBar.Redraw( display );                     // Cheat 66666 = level 99 primary skill levels
+            spellPointsInfo.Redraw();                               // Cheat 66666 = level 99 primary skill levels
+            secskill_bar.SetContent( secondary_skills.ToVector() ); // Cheat 77777 = max secondary skills set
+            secskill_bar.Redraw( display );                         // Cheat 77777 = max secondary skills set
+            needRedraw = true;
         }
 
         if ( le.isMouseCursorPosInArea( moraleIndicator.GetArea() ) ) {
