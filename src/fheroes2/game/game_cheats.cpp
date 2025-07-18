@@ -124,6 +124,7 @@ namespace GameCheats
                 if (hero) {
                     hero->GetArmy().JoinTroop(Monster::BLACK_DRAGON, 5, true);
                     Interface::AdventureMap::Get().redraw(Interface::REDRAW_STATUS);
+                    redrawHeroesDialogFlag = true;
                 }
             }},
             { "44444", [&]() {
@@ -186,6 +187,7 @@ namespace GameCheats
                     }
 
                     Interface::AdventureMap::Get().redraw(Interface::REDRAW_STATUS);
+                    redrawHeroesDialogFlag = true;
                 }
             }},
             { "55555", [&]() {
@@ -194,6 +196,7 @@ namespace GameCheats
                     Monster monster = Monster::Rand(Monster::LevelType::LEVEL_ANY);
                     hero->GetArmy().JoinTroop(monster, 5, true);
                     Interface::AdventureMap::Get().redraw(Interface::REDRAW_STATUS);
+                    redrawHeroesDialogFlag = true;
                 }
             }},
             { "66666", [&]() {
@@ -263,6 +266,7 @@ namespace GameCheats
                     }
                     hero->AppendSpellsToBook(storage, true);
                     hero->SetSpellPoints(hero->GetMaxSpellPoints());
+                    redrawHeroesDialogFlag = true;
                 }
             }},
         };
