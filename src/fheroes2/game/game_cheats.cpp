@@ -60,7 +60,7 @@ namespace GameCheats
     "55555",    // Add random troop
     "66666",    // Max primary skills
     "77777",    // Max secondary skills
-    "88888",    // Infinite movement
+    "88888",    // Big movement bonus
     "99999"     // All spells + max spell points
     };
 
@@ -165,24 +165,26 @@ namespace GameCheats
                         }
                     }
 
-                    // Add or top-up each upgraded troop
+                    // Add or top-up each upgraded troop with their actual weekly growth amount
                     for (const uint32_t dw : dwellings) {
                         Monster m(race, dw);
                         if (!m.isValid())
                             continue;
 
+                        const uint32_t growth = m.GetGrown() + 2;  // Use actual weekly growth + 2 from well
+
                         bool found = false;
                         for (size_t i = 0; i < Army::maximumTroopCount; ++i) {
                             Troop* troop = army.GetTroop(i);
                             if (troop && troop->isValid() && troop->GetMonster().GetID() == m.GetID()) {
-                                troop->SetCount(troop->GetCount() + 5);
+                                troop->SetCount(troop->GetCount() + growth);
                                 found = true;
                                 break;
                             }
                         }
 
                         if (!found) {
-                            army.JoinTroop(m, 5, true);
+                            army.JoinTroop(m, growth, true);
                         }
                     }
 
@@ -247,9 +249,9 @@ namespace GameCheats
                 }
             }},
             { "88888", [&]() {
-                DEBUG_LOG(DBG_GAME, DBG_INFO, "Cheat activated: infinite movement");
+                DEBUG_LOG(DBG_GAME, DBG_INFO, "Cheat activated: big movement bonus");
                 if (hero) {
-                    hero->IncreaseMovePoints(hero->GetMaxMovePoints() * 10);
+                    hero->IncreaseMovePoints(hero->GetMaxMovePoints() * 50);
                 }
             }},
             { "99999", [&]() {
