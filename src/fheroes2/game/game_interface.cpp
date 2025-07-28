@@ -30,6 +30,7 @@
 #include "cursor.h"
 #include "dialog.h"
 #include "game.h"
+#include "game_cheats.h"
 #include "game_delays.h"
 #include "game_hotkeys.h"
 #include "icn.h"
@@ -159,6 +160,12 @@ void Interface::AdventureMap::redraw( const uint32_t force )
     }
 
     if ( ( hideInterface && conf.ShowStatus() ) || ( combinedRedraw & REDRAW_STATUS ) ) {
+        _statusPanel._redraw();
+    }
+
+    Interface::StatusType cheat_status = GameCheats::redrawStatus();
+    if ( cheat_status != Interface::StatusType::STATUS_UNKNOWN ) {
+        _statusPanel.SetState(cheat_status);
         _statusPanel._redraw();
     }
 

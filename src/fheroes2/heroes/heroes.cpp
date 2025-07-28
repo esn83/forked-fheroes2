@@ -2177,6 +2177,21 @@ std::string Heroes::String() const
     return os.str();
 }
 
+void Heroes::ClearAllSecondarySkills()
+{
+    auto& secSkills = GetSecondarySkills(); // Skill::SecSkills&
+    auto& vec = secSkills.ToVector(); // std::vector<Skill::Secondary>&
+
+    for (auto& skill : vec) {
+        skill.SetLevel(Skill::Level::NONE);
+    }
+
+    if (vec.size() < maxNumOfSecSkills) {
+        Skill::Secondary noneSkill; // default invalid skill
+        vec.resize(maxNumOfSecSkills, noneSkill);
+    }
+}
+
 Heroes::HeroSeedsForLevelUp Heroes::_getSeedsForLevelUp() const
 {
     /* We generate seeds based on the hero and global world map seed

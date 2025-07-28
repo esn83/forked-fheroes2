@@ -26,6 +26,7 @@
 #include <cstddef>
 #include <cstdint>
 #include <functional>
+#include <iostream>
 #include <optional>
 #include <string>
 #include <utility>
@@ -36,6 +37,7 @@
 #include "campaign_scenariodata.h"
 #include "cursor.h"
 #include "dialog.h"
+#include "game_cheats.h"
 #include "game.h" // IWYU pragma: associated
 #include "game_delays.h"
 #include "game_hotkeys.h"
@@ -274,9 +276,21 @@ fheroes2::GameMode Game::DisplayHighScores( const bool isCampaign )
 
     if ( isAfterGameCompletion ) {
         const auto inputPlayerName = []( std::string & playerName ) {
-            Dialog::inputString( fheroes2::Text{}, fheroes2::Text{ _( "Your Name" ), fheroes2::FontType::normalWhite() }, playerName, 15, false, {} );
-            if ( playerName.empty() ) {
-                playerName = _( "Unknown Hero" );
+            if ( GameCheats::isPlayersCheating() ) {
+                Dialog::inputString( fheroes2::Text{}, fheroes2::Text{ _( "Your Name" ), fheroes2::FontType::normalWhite() }, playerName, 9, false, {} );
+                if ( playerName.empty() ) {
+                    playerName = _( "Unknown Cheater" );
+                }
+                else {
+                playerName += " cheat";
+                }
+                GameCheats::gameCheatsReset();
+            }
+            else {
+                Dialog::inputString( fheroes2::Text{}, fheroes2::Text{ _( "Your Name" ), fheroes2::FontType::normalWhite() }, playerName, 15, false, {} );
+                if ( playerName.empty() ) {
+                    playerName = _( "Unknown Hero" );
+                }
             }
         };
 

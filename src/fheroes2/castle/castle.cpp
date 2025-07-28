@@ -42,6 +42,7 @@
 #include "difficulty.h"
 #include "direction.h"
 #include "game.h"
+#include "game_cheats.h"
 #include "game_io.h"
 #include "game_static.h"
 #include "ground.h"
@@ -1222,7 +1223,8 @@ BuildingStatus Castle::CheckBuyBuilding( const uint32_t build ) const
         }
     }
 
-    if ( !GetKingdom().AllowPayment( PaymentConditions::BuyBuilding( _race, build ) ) ) {
+    if ( !GameCheats::freeBuildings &&
+         !GetKingdom().AllowPayment( PaymentConditions::BuyBuilding( _race, build ) ) ) {
         return BuildingStatus::LACK_RESOURCES;
     }
 
@@ -1259,7 +1261,9 @@ bool Castle::BuyBuilding( const uint32_t buildingType )
         return false;
     }
 
-    GetKingdom().OddFundsResource( PaymentConditions::BuyBuilding( _race, buildingType ) );
+    if ( !GameCheats::freeBuildings ) {
+        GetKingdom().OddFundsResource( PaymentConditions::BuyBuilding( _race, buildingType ) );
+    }
 
     _constructedBuildings |= buildingType;
 

@@ -34,6 +34,7 @@
 #include "campaign_scenariodata.h"
 #include "dialog.h"
 #include "game.h"
+#include "game_cheats.h"
 #include "game_language.h"
 #include "game_over.h"
 #include "logging.h"
@@ -138,7 +139,8 @@ bool Game::Save( const std::string & filePath, const bool autoSave /* = false */
     RWStreamBuf dataStream;
     dataStream.setBigendian( true );
 
-    dataStream << World::Get() << Settings::Get() << GameOver::Result::Get();
+    // dataStream << World::Get() << Settings::Get() << GameOver::Result::Get();
+    dataStream << World::Get() << Settings::Get() << GameOver::Result::Get() << GameCheats::cheatingColors;
     if ( dataStream.fail() ) {
         return false;
     }
@@ -243,7 +245,8 @@ fheroes2::GameMode Game::Load( const std::string & filePath )
         return fheroes2::GameMode::CANCEL;
     }
 
-    dataStream >> World::Get() >> conf >> GameOver::Result::Get();
+    // dataStream >> World::Get() >> conf >> GameOver::Result::Get();
+    dataStream >> World::Get() >> conf >> GameOver::Result::Get() >> GameCheats::cheatingColors;
     if ( dataStream.fail() ) {
         showGenericErrorMessage();
         return fheroes2::GameMode::CANCEL;

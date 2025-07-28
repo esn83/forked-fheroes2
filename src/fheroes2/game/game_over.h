@@ -81,6 +81,8 @@ namespace GameOver
             return result;
         }
 
+        void updateWinningPlayersColors();
+
         fheroes2::GameMode checkGameOver();
 
     private:

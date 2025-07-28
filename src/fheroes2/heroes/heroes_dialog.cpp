@@ -38,6 +38,7 @@
 #include "cursor.h"
 #include "dialog.h"
 #include "dialog_selectitems.h"
+#include "game_cheats.h"
 #include "game_hotkeys.h"
 #include "game_interface.h"
 #include "game_language.h"
@@ -486,6 +487,26 @@ int Heroes::OpenDialog( const bool readonly, const bool fade, const bool disable
             if ( le.MouseClickLeft( buttonNextHero.area() ) || HotKeyPressEvent( Game::HotKeyEvent::DEFAULT_RIGHT ) || timedButtonNextHero.isDelayPassed() ) {
                 return Dialog::NEXT;
             }
+        }
+
+        // Check if cheat has been activated and redraw is needed.
+        if ( GameCheats::redrawHeroesDialog() )
+        {
+            primarySkillsBar.Redraw( display );                     // Cheat 66666 = level 99 primary skill levels
+            spellPointsInfo.Redraw();                               // Cheat 66666 = level 99 primary skill levels
+            secskill_bar.SetContent( _secondarySkills.ToVector() ); // Cheat 77777 = max secondary skills set
+            secskill_bar.Redraw( display );                         // Cheat 77777 = max secondary skills set
+            selectArmy.Redraw( display );                           // Cheat 32167 + 44444 + 55555 adds units to the hero army
+            selectArtifacts.Redraw( display );                      // Cheat 99999 adds a spellbook if not owned
+            needRedraw = true;
+        }
+        // If cheat 66666 is used set experience to max to prevent further level ups.
+        if (GameCheats::setMaxExperience())
+        {
+            _experience = static_cast<int32_t>( Heroes::getExperienceMaxValue() );
+            experienceInfo.Redraw();
+            drawTitleText( _name, _race, true );
+            needRedraw = true;
         }
 
         if ( le.isMouseCursorPosInArea( moraleIndicator.GetArea() ) ) {

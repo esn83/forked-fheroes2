@@ -240,6 +240,8 @@ public:
         CHAMPION
     };
 
+    void ClearAllSecondarySkills();
+
     // This class is used to update a flag for an AI hero to make him available to meet other heroes.
     // Such cases happen after battles, reinforcements or collecting artifacts.
     class AIHeroMeetingUpdater

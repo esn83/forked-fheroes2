@@ -37,6 +37,7 @@
 
 #include "battle_arena.h"
 #include "dialog.h"
+#include "game_cheats.h"
 #include "game_interface.h"
 #include "game_language.h"
 #include "interface_gamearea.h"
@@ -493,6 +494,8 @@ void Game::globalKeyDownEvent( const fheroes2::Key key, const int32_t modifier )
     if ( ( modifier & fheroes2::KeyModifier::KEY_MODIFIER_ALT ) || ( modifier & fheroes2::KeyModifier::KEY_MODIFIER_CTRL ) ) {
         return;
     }
+
+    GameCheats::onKeyPressed( key, modifier );
 
     Settings & conf = Settings::Get();
 
