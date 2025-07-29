@@ -492,11 +492,11 @@ int Heroes::OpenDialog( const bool readonly, const bool fade, const bool disable
         // Check if cheat has been activated and redraw is needed.
         if ( GameCheats::redrawHeroesDialog() )
         {
-            primarySkillsBar.Redraw( display );                     // Cheat 66666 = level 99 primary skill levels
-            spellPointsInfo.Redraw();                               // Cheat 66666 = level 99 primary skill levels
-            secskill_bar.SetContent( _secondarySkills.ToVector() ); // Cheat 77777 = max secondary skills set
-            secskill_bar.Redraw( display );                         // Cheat 77777 = max secondary skills set
-            selectArmy.Redraw( display );                           // Cheat 32167 + 44444 + 55555 adds units to the hero army
+            primarySkillsBar.Redraw( display );                     // Cheat 66666 = level 99 primary skill levels + max secondary skills set
+            spellPointsInfo.Redraw();                               // Cheat 66666 = level 99 primary skill levels + max secondary skills set
+            secskill_bar.SetContent( _secondarySkills.ToVector() ); // Cheat 66666 = level 99 primary skill levels + max secondary skills set
+            secskill_bar.Redraw( display );                         // Cheat 66666 = level 99 primary skill levels + max secondary skills set
+            selectArmy.Redraw( display );                           // Cheat 32167 + 44444 adds units to the hero army
             selectArtifacts.Redraw( display );                      // Cheat 99999 adds a spellbook if not owned
             needRedraw = true;
         }

@@ -63,8 +63,8 @@ namespace GameCheats
     "8675309",  // Reveal all fog
     "32167",    // Add 5 black dragons
     "44444",    // Give upgraded army to selected hero or castle
-    "55555",    // Build all buildings of selected castle or town
     "66666",    // Max primary skills and full set of expert secondary skills and max level
+    "77777",    // Build all buildings of selected castle or town
     "88888",    // Big movement bonus
     "99999"     // All spells + max spell points
     };
@@ -256,7 +256,59 @@ namespace GameCheats
                     redrawStatusFlagSetArmy = true;
                 }
             }},
-            { "55555", [&]() {
+            /*{ "55555", [&]() {
+                DEBUG_LOG(DBG_GAME, DBG_INFO, "Cheat activated: random troop");
+                if (hero) {
+                    Monster monster = Monster::Rand(Monster::LevelType::LEVEL_ANY);
+                    hero->GetArmy().JoinTroop(monster, 5, true);
+                    redrawStatusFlagSetArmy = true;
+                    redrawHeroesDialogFlag = true;
+                }
+            }},*/
+            { "66666", [&]() {
+                DEBUG_LOG(DBG_GAME, DBG_INFO, "Cheat activated: max primary skills and max secondary skills");
+                if (hero) {
+                    hero->setAttackBaseValue(99);
+                    hero->setDefenseBaseValue(99);
+                    hero->setPowerBaseValue(99);
+                    hero->setKnowledgeBaseValue(99);
+                    
+                    /*{
+                    UNKNOWN = 0,
+                    PATHFINDING = 1,
+                    ARCHERY = 2,
+                    LOGISTICS = 3,
+                    SCOUTING = 4,
+                    DIPLOMACY = 5,
+                    NAVIGATION = 6,
+                    LEADERSHIP = 7,
+                    WISDOM = 8,
+                    MYSTICISM = 9,
+                    LUCK = 10,
+                    BALLISTICS = 11,
+                    EAGLE_EYE = 12,
+                    NECROMANCY = 13,
+                    ESTATES = 14
+                    };*/
+                    int default_secondary_skills[8] = {3, 1, 2, 5, 7, 10, 8, 11};
+                    int necro_secondary_skills[8] = {13, 1, 2, 5, 11, 10, 8, 3};
+                    
+                    // Clear all learned secondary skills manually
+                    hero->clearAllSecondarySkills();
+
+                    const int race = hero->GetRace();
+                    const int* selected_skills = (race == Race::NECR) ? necro_secondary_skills : default_secondary_skills;
+
+                    // Add selected skills at EXPERT level
+                    for (int i = 0; i < 8; ++i) {
+                        hero->LearnSkill(Skill::Secondary(selected_skills[i], Skill::Level::EXPERT));
+                    }
+
+                    setMaxExperienceFlag = true;
+                    redrawHeroesDialogFlag = true;
+                }
+            }},
+            { "77777", [&]() {
                 DEBUG_LOG(DBG_GAME, DBG_INFO, "Cheat activated: build all castle buildings");
                 Castle* castle = Interface::GetFocusCastle();
                 if ( !castle ) return;
@@ -323,58 +375,6 @@ namespace GameCheats
                 }
                 
                 freeBuildings = false;
-            }},
-            /*{ "55555", [&]() {
-                DEBUG_LOG(DBG_GAME, DBG_INFO, "Cheat activated: random troop");
-                if (hero) {
-                    Monster monster = Monster::Rand(Monster::LevelType::LEVEL_ANY);
-                    hero->GetArmy().JoinTroop(monster, 5, true);
-                    redrawStatusFlagSetArmy = true;
-                    redrawHeroesDialogFlag = true;
-                }
-            }},*/
-            { "66666", [&]() {
-                DEBUG_LOG(DBG_GAME, DBG_INFO, "Cheat activated: max primary skills and max secondary skills");
-                if (hero) {
-                    hero->setAttackBaseValue(99);
-                    hero->setDefenseBaseValue(99);
-                    hero->setPowerBaseValue(99);
-                    hero->setKnowledgeBaseValue(99);
-                    
-                    /*{
-                    UNKNOWN = 0,
-                    PATHFINDING = 1,
-                    ARCHERY = 2,
-                    LOGISTICS = 3,
-                    SCOUTING = 4,
-                    DIPLOMACY = 5,
-                    NAVIGATION = 6,
-                    LEADERSHIP = 7,
-                    WISDOM = 8,
-                    MYSTICISM = 9,
-                    LUCK = 10,
-                    BALLISTICS = 11,
-                    EAGLE_EYE = 12,
-                    NECROMANCY = 13,
-                    ESTATES = 14
-                    };*/
-                    int default_secondary_skills[8] = {3, 1, 2, 5, 7, 10, 8, 11};
-                    int necro_secondary_skills[8] = {13, 1, 2, 5, 11, 10, 8, 3};
-                    
-                    // Clear all learned secondary skills manually
-                    hero->ClearAllSecondarySkills();
-
-                    const int race = hero->GetRace();
-                    const int* selected_skills = (race == Race::NECR) ? necro_secondary_skills : default_secondary_skills;
-
-                    // Add selected skills at EXPERT level
-                    for (int i = 0; i < 8; ++i) {
-                        hero->LearnSkill(Skill::Secondary(selected_skills[i], Skill::Level::EXPERT));
-                    }
-
-                    setMaxExperienceFlag = true;
-                    redrawHeroesDialogFlag = true;
-                }
             }},
             { "88888", [&]() {
                 DEBUG_LOG(DBG_GAME, DBG_INFO, "Cheat activated: big movement bonus");

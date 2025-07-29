@@ -2177,7 +2177,7 @@ std::string Heroes::String() const
     return os.str();
 }
 
-void Heroes::ClearAllSecondarySkills()
+void Heroes::clearAllSecondarySkills()
 {
     auto& secSkills = GetSecondarySkills(); // Skill::SecSkills&
     auto& vec = secSkills.ToVector(); // std::vector<Skill::Secondary>&
