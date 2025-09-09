@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fheroes2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-31 14:45+0000\n"
+"POT-Creation-Date: 2025-09-09 00:04+0000\n"
 "PO-Revision-Date: 2025-08-26 00:09+0200\n"
 "Last-Translator: Berda Jenő <big4billy@gmail.com>\n"
 "Language-Team: fheroes2 team <fhomm2@gmail.com>\n"
@@ -35,6 +35,21 @@ msgstr "XL"
 
 msgid "ALL"
 msgstr "MIND"
+
+msgid "1"
+msgstr ""
+
+msgid "2"
+msgstr ""
+
+msgid "3"
+msgstr ""
+
+msgid "4"
+msgstr ""
+
+msgid "5"
+msgstr ""
 
 msgid "EXIT"
 msgstr "KILÉP"
@@ -3569,6 +3584,10 @@ msgstr "Lény kiválasztása:"
 msgid "Select Hero:"
 msgstr "Hős kiválasztása:"
 
+#, fuzzy
+msgid "Select Monsters:"
+msgstr "Lény kiválasztása:"
+
 msgid "race|Random"
 msgstr "Véletlen"
 
@@ -3946,6 +3965,28 @@ msgstr "Véletlenszerű vár név"
 msgid "Random Town Name"
 msgstr "Véletlenszerű város neve"
 
+msgid "BANNED SPELLS"
+msgstr ""
+
+msgid "Click to accept the changes made."
+msgstr "Kattints a változtatások elfogadásához."
+
+msgid "Exit this dialog, discarding the changes made."
+msgstr "Kilépés a párbeszédablakból és a változtatások elvetése."
+
+msgid "Click to ban spells from appearing in the Mage Guild."
+msgstr ""
+
+#, fuzzy
+msgid "Banned Spells"
+msgstr "Véletlenszerű varázslat"
+
+msgid "Select spells that will appear in the Mage Guild."
+msgstr ""
+
+msgid "SET SPELLS"
+msgstr ""
+
 msgid "Allow Castle build"
 msgstr "Vár építhetőség"
 
@@ -3995,11 +4036,12 @@ msgstr "Sereg alaphelyzetbe állítása."
 msgid "Set custom Castle Army."
 msgstr "Várvédők egyéni beállítása."
 
-msgid "Click to accept the changes made."
-msgstr "Kattints a változtatások elfogadásához."
+msgid "Set spells to appear in the Mage Guild."
+msgstr ""
 
-msgid "Exit this dialog, discarding the changes made."
-msgstr "Kilépés a párbeszédablakból és a változtatások elvetése."
+#, fuzzy
+msgid "Set Spells"
+msgstr "Varázslat kiválasztása:"
 
 msgid "Castle Settings"
 msgstr "Vár-beállítások"
@@ -4143,6 +4185,10 @@ msgstr ""
 "Ha ez a jelölőnégyzet meg van jelölve, akkor az esemény csak egyszer "
 "váltódik ki. Ha nincs bejelölve, akkor mindahányszor a megadott játékos "
 "rálép területre."
+
+#, fuzzy
+msgid "Click to make selection."
+msgstr "Kattints a szín kiválasztásához."
 
 msgid "%{objects} cannot be placed on water."
 msgstr "Vízen nem helyezhetők el %{objects}."
@@ -4814,6 +4860,12 @@ msgstr ""
 "több vagy erősebb ellenfelet, kevesebb erőforrást, vagy egyéb speciális "
 "nehezítő feltételt tartalmazhatnak az emberi játékos számára."
 
+#, fuzzy
+msgid ""
+"editor|%{object}\n"
+"(%{color} player)"
+msgstr "%{color} játékos"
+
 msgid "editor|%{count} %{resource}"
 msgstr "%{count} %{resource}"
 
@@ -4882,6 +4934,13 @@ msgstr "Térkép mentése:"
 
 msgid "Click to save the current map."
 msgstr "Kattints az aktuális térkép mentéséhez."
+
+msgid "Click to show only level %{level} spells."
+msgstr ""
+
+#, fuzzy
+msgid "Spells level"
+msgstr "Varázsige tekercs"
 
 msgid "Riddle:"
 msgstr "Találós kérdés:"

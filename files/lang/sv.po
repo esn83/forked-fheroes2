@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fheroes2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-31 14:45+0000\n"
+"POT-Creation-Date: 2025-09-09 00:04+0000\n"
 "PO-Revision-Date: 2025-08-01 14:47+0200\n"
 "Last-Translator: fheroes2 team <fhomm2@gmail.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
@@ -35,6 +35,21 @@ msgstr "XL"
 
 msgid "ALL"
 msgstr "ALLA"
+
+msgid "1"
+msgstr ""
+
+msgid "2"
+msgstr ""
+
+msgid "3"
+msgstr ""
+
+msgid "4"
+msgstr ""
+
+msgid "5"
+msgstr ""
 
 msgid "EXIT"
 msgstr "LÄMNA"
@@ -3569,6 +3584,10 @@ msgstr "Välj Varelse:"
 msgid "Select Hero:"
 msgstr "Välj Hjälte:"
 
+#, fuzzy
+msgid "Select Monsters:"
+msgstr "Välj Varelse:"
+
 msgid "race|Random"
 msgstr "Slumpad"
 
@@ -3949,6 +3968,28 @@ msgstr "Slumpat Borgnamn"
 msgid "Random Town Name"
 msgstr "Slumpat Stadsnamn"
 
+msgid "BANNED SPELLS"
+msgstr ""
+
+msgid "Click to accept the changes made."
+msgstr "Klicka för att acceptera ändringarna."
+
+msgid "Exit this dialog, discarding the changes made."
+msgstr "Stäng denna menyn, eventuella ändringar sparas ej."
+
+msgid "Click to ban spells from appearing in the Mage Guild."
+msgstr ""
+
+#, fuzzy
+msgid "Banned Spells"
+msgstr "Slumpad Besvärjelse"
+
+msgid "Select spells that will appear in the Mage Guild."
+msgstr ""
+
+msgid "SET SPELLS"
+msgstr ""
+
 msgid "Allow Castle build"
 msgstr "Tillåt Borgbygge"
 
@@ -3999,11 +4040,12 @@ msgstr "Återställ armén."
 msgid "Set custom Castle Army."
 msgstr "Anpassa Borgarmén."
 
-msgid "Click to accept the changes made."
-msgstr "Klicka för att acceptera ändringarna."
+msgid "Set spells to appear in the Mage Guild."
+msgstr ""
 
-msgid "Exit this dialog, discarding the changes made."
-msgstr "Stäng denna menyn, eventuella ändringar sparas ej."
+#, fuzzy
+msgid "Set Spells"
+msgstr "Välj Besvärjelse"
 
 msgid "Castle Settings"
 msgstr "Borginställningar"
@@ -4147,6 +4189,10 @@ msgstr ""
 "Om denna checkruta är ifylld så kommer händelsen bara aktiveras en gång. Om "
 "den inte är ifylld så kommer händelsen aktiveras när de valda spelarna "
 "kliver i rutan."
+
+#, fuzzy
+msgid "Click to make selection."
+msgstr "Klicka här för att välja denna färgen."
 
 msgid "%{objects} cannot be placed on water."
 msgstr "%{objects}  kan inte placeras på vatten."
@@ -4809,6 +4855,12 @@ msgstr ""
 "svårare fiender, färre resurser eller andra särskilda villkor som gör det "
 "svårare för en mänsklig spelare."
 
+#, fuzzy
+msgid ""
+"editor|%{object}\n"
+"(%{color} player)"
+msgstr "%{color} spelare"
+
 msgid "editor|%{count} %{resource}"
 msgstr "%{count} %{resource}"
 
@@ -4879,6 +4931,13 @@ msgstr "Spara Karta:"
 
 msgid "Click to save the current map."
 msgstr "Klicka för att spara nuvarande karta."
+
+msgid "Click to show only level %{level} spells."
+msgstr ""
+
+#, fuzzy
+msgid "Spells level"
+msgstr "Besvärjelserulle"
 
 msgid "Riddle:"
 msgstr "Gåta:"
