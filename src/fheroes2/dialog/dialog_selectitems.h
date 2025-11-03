@@ -43,6 +43,12 @@
 
 class Kingdom;
 
+namespace fheroes2
+{
+    struct LocalizedString;
+    class TextBase;
+}
+
 namespace Dialog
 {
     class ItemSelectionWindow : public Interface::ListBox<int>
@@ -91,11 +97,12 @@ namespace Dialog
             // Do nothing.
         }
 
-        void updateScrollBarImage();
-
         // An image with text should have offset of 10 pixels from all left and right edges.
         void renderItem( const fheroes2::Sprite & itemSprite, std::string itemText, const fheroes2::Point & destination, const int32_t middleImageOffsetX,
                          const int32_t textOffsetX, const int32_t itemOffsetY, const bool current ) const;
+
+        void renderItem( const fheroes2::Sprite & itemSprite, std::vector<fheroes2::LocalizedString> itemText, const fheroes2::Point & destination,
+                         const int32_t middleImageOffsetX, const int32_t textOffsetX, const int32_t itemOffsetY, const bool current ) const;
 
         int32_t selectItemsEventProcessing();
 
@@ -118,17 +125,33 @@ namespace Dialog
             _buttonOk.draw();
         }
 
+        void enableToggleButtons();
+
+        virtual void onToggleOn()
+        {
+            // Do nothing.
+        }
+
+        virtual void onToggleOff()
+        {
+            // Do nothing.
+        }
+
     private:
         bool _isDoubleClicked{ false };
         std::unique_ptr<fheroes2::StandardWindow> _window;
         std::unique_ptr<fheroes2::ImageRestorer> _backgroundRestorer;
         fheroes2::Button _buttonOk;
         fheroes2::Button _buttonCancel;
+        fheroes2::Button _buttonToggleOn;
+        fheroes2::Button _buttonToggleOff;
 
         virtual bool isDoubleClicked()
         {
             return _isDoubleClicked;
         }
+
+        void renderText( fheroes2::TextBase & text, const fheroes2::Point & destination, const int32_t textOffsetX, const int32_t itemOffsetY ) const;
     };
 
     Monster selectMonster( const int monsterId );

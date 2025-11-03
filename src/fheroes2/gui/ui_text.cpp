@@ -525,6 +525,44 @@ namespace fheroes2
         _text += truncationSymbol;
     }
 
+    void Text::fitToArea( const int32_t maxWidth, const int32_t maxHeight )
+    {
+        assert( maxWidth > 0 && maxHeight > 1 ); // Why is the limit less than 1?
+        if ( maxWidth <= 0 || maxHeight <= 0 ) {
+            return;
+        }
+
+        if ( _text.empty() ) {
+            // Nothing needs to be done.
+            return;
+        }
+
+        const auto languageSwitcher = getLanguageSwitcher( *this );
+        const FontCharHandler charHandler( _fontType );
+
+        if ( height( maxWidth ) <= maxHeight ) {
+            // Nothing we need to do as the text fits to the area.
+            return;
+        }
+
+        while ( !_text.empty() && ( height( maxWidth ) > maxHeight ) ) {
+            _text.pop_back();
+        }
+
+        // We need to add truncation symbol.
+        _text += truncationSymbol;
+        while ( height( maxWidth ) > maxHeight ) {
+            // Remove the truncation symbol and one more character before it.
+            for ( size_t i = 0; i < truncationSymbol.size(); ++i ) {
+                _text.pop_back();
+            }
+
+            _text.pop_back();
+
+            _text += truncationSymbol;
+        }
+    }
+
     void Text::_getTextLineInfos( std::vector<TextLineInfo> & textLineInfos, const int32_t maxWidth, const int32_t rowHeight, const bool keepTextTrailingSpaces ) const
     {
         assert( !_text.empty() );
@@ -987,6 +1025,8 @@ namespace fheroes2
             fitToOneRow( _maxTextWidth );
         }
 
+        const auto langugeSwitcher = getLanguageSwitcher( *this );
+
         const FontCharHandler charHandler( _fontType );
 
         const Sprite & charSprite = charHandler.getSprite( cursorChar );
@@ -1004,8 +1044,6 @@ namespace fheroes2
             }
             return;
         }
-
-        const auto langugeSwitcher = getLanguageSwitcher( *this );
 
         int32_t textLineBegin = _visibleTextBeginPos;
 
@@ -1225,6 +1263,46 @@ namespace fheroes2
             }
 
             --widthIter;
+        }
+    }
+
+    void MultiFontText::fitToOneRow( const int32_t maxWidth )
+    {
+        int32_t widthLeft = maxWidth;
+
+        for ( size_t i = 0; i < _texts.size(); ++i ) {
+            const auto languageSwitcher = getLanguageSwitcher( _texts[i] );
+
+            const FontCharHandler charHandler( _texts[i]._fontType );
+
+            const int32_t originalTextWidth
+                = getLineWidth( reinterpret_cast<const uint8_t *>( _texts[i]._text.data() ), static_cast<int32_t>( _texts[i]._text.size() ), charHandler, true );
+
+            if ( ( i + 1 == _texts.size() ) && originalTextWidth <= widthLeft ) {
+                // This is the last text and all texts fit the given width.
+                break;
+            }
+
+            // This is not the last text and we need to keep space for the possible truncation symbol.
+            const int32_t correctedWidthLeft = widthLeft - getTruncationSymbolWidth( _texts[i]._fontType );
+            if ( originalTextWidth > correctedWidthLeft ) {
+                // The text does not fit the given width.
+
+                const int32_t maxCharacterCount = getMaxCharacterCount( reinterpret_cast<const uint8_t *>( _texts[i]._text.data() ),
+                                                                        static_cast<int32_t>( _texts[i]._text.size() ), charHandler, correctedWidthLeft );
+
+                // Remove the characters that do not fit the given width.
+                _texts[i]._text.resize( maxCharacterCount );
+                _texts[i]._text += truncationSymbol;
+
+                // Remove other texts that do not fit the given width.
+                _texts.resize( i + 1 );
+
+                break;
+            }
+
+            // The text is not longer than the provided maximum width. Go to the next text.
+            widthLeft -= originalTextWidth;
         }
     }
 

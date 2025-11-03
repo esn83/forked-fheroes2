@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fheroes2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-22 01:29+0000\n"
+"POT-Creation-Date: 2025-11-02 13:40+0000\n"
 "PO-Revision-Date: 2022-10-25 08:56+0200\n"
 "Last-Translator: fheroes2 team <fhomm2@gmail.com>\n"
 "Language-Team: \n"
@@ -174,12 +174,23 @@ msgstr ""
 "ÎNCARCĂ\n"
 "JOCUL"
 
+#, fuzzy
+msgid ""
+"RESTART\n"
+"GAME"
+msgstr "RESTART"
+
 msgid ""
 "SAVE\n"
 "GAME"
 msgstr ""
 "SALVEAZĂ\n"
 "JOCUL"
+
+msgid ""
+"QUICK\n"
+"SAVE"
+msgstr ""
 
 msgid "QUIT"
 msgstr "ÎNCHIDE"
@@ -317,6 +328,9 @@ msgid ""
 "L"
 msgstr ""
 
+msgid "army|Few"
+msgstr "(1-4)"
+
 msgid "Warrior"
 msgstr "Războinic"
 
@@ -328,6 +342,12 @@ msgstr "Explorator"
 
 msgid "None"
 msgstr "Nimic"
+
+#, fuzzy
+msgid ""
+"%{monster}\n"
+"%{range}"
+msgstr "Zboară %{monster} aici"
 
 msgid ""
 "A few\n"
@@ -391,9 +411,6 @@ msgid ""
 msgstr ""
 "O legiune de\n"
 "%{monster}"
-
-msgid "army|Few"
-msgstr "(1-4)"
 
 msgid "army|Several"
 msgstr "(4-9)"
@@ -2659,13 +2676,13 @@ msgid ""
 "no room for a spell book. Try giving one of your artifacts to another hero."
 msgstr ""
 
-msgid "Click to show next town."
+msgid "Click to show the next town."
 msgstr ""
 
 msgid "Show next town"
 msgstr ""
 
-msgid "Click to show previous town."
+msgid "Click to show the previous town."
 msgstr ""
 
 msgid "Show previous town"
@@ -2693,6 +2710,9 @@ msgid "The above spells are available here."
 msgstr ""
 
 msgid "The spells the hero can learn have been added to their book."
+msgstr ""
+
+msgid "Exit Mage Guild"
 msgstr ""
 
 msgid "A generous tip for the barkeep yields the following rumor:"
@@ -2726,17 +2746,9 @@ msgid ""
 "of the castle's side of the battlefield."
 msgstr ""
 
-msgid "Spread Formation"
-msgstr ""
-
-msgid "Grouped Formation"
-msgstr ""
-
-msgid "Click to show the next town."
-msgstr ""
-
-msgid "Click to show the previous town."
-msgstr ""
+#, fuzzy
+msgid "Castle Options. Month: %{month}, Week: %{week}, Day: %{day}"
+msgstr "Luna: %{month}, Săptămâna: %{week}, Ziua: %{day}"
 
 msgid "Set garrison combat formation to 'Spread'"
 msgstr ""
@@ -2747,7 +2759,10 @@ msgstr ""
 msgid "Exit Castle Options"
 msgstr ""
 
-msgid "Castle Options"
+msgid "Spread Formation"
+msgstr ""
+
+msgid "Grouped Formation"
 msgstr ""
 
 msgid "Not enough resources to recruit creatures."
@@ -2943,6 +2958,12 @@ msgstr ""
 msgid "Need: "
 msgstr ""
 
+msgid "Restart Game"
+msgstr ""
+
+msgid "There was an issue during saving."
+msgstr ""
+
 msgid "New Game"
 msgstr ""
 
@@ -2955,10 +2976,21 @@ msgstr "Încarcă jocul"
 msgid "Load a previously saved game."
 msgstr ""
 
+#, fuzzy
+msgid "Restart the scenario."
+msgstr "Întoarce-te la luptă."
+
 msgid "Save Game"
 msgstr "Salvează jocul"
 
 msgid "Save the current game."
+msgstr ""
+
+#, fuzzy
+msgid "Quick Save"
+msgstr "Luptă automată"
+
+msgid "Save the current game without name selection."
 msgstr ""
 
 msgid "Quit"
@@ -3033,6 +3065,10 @@ msgid ""
 "Loss\n"
 "Conditions"
 msgstr ""
+
+#, fuzzy
+msgid "Map Description"
+msgstr "Designeri de hărți"
 
 msgid "First select recipients!"
 msgstr ""
@@ -3115,6 +3151,16 @@ msgstr "Arată"
 msgid "Interface"
 msgstr "Interfață"
 
+#, fuzzy
+msgid "Army Estimation"
+msgstr "Anexare"
+
+msgid "Canonical"
+msgstr ""
+
+msgid "Numeric"
+msgstr ""
+
 msgid "Interface Type"
 msgstr "Tipul interfeței"
 
@@ -3128,6 +3174,15 @@ msgid "Scroll Speed"
 msgstr "Viteză de defilare"
 
 msgid "Sets the speed at which you scroll the window."
+msgstr ""
+
+msgid ""
+"Toggle how army sizes are displayed when right-clicking armies on the "
+"adventure map. \n"
+"\n"
+"Canonical: Army sizes are shown as descriptive text (e.g. \"Few\").\n"
+"\n"
+"Numeric: Army sizes are shown as numeric ranges (e.g. \"1-4\")."
 msgstr ""
 
 msgid "Select Game Language:"
@@ -3416,6 +3471,22 @@ msgstr ""
 msgid "Accept the choice made."
 msgstr ""
 
+#, fuzzy
+msgid "Click to enable all items."
+msgstr "Ești sigur că vrei să termini bătălia în modul automat?"
+
+#, fuzzy
+msgid "Enable All Items"
+msgstr "Vrajă aleatorie"
+
+#, fuzzy
+msgid "Click to disable all items."
+msgstr "Dați click pentru a reîncepe bătălia în mod manual."
+
+#, fuzzy
+msgid "Disable All Items"
+msgstr "Vrajă aleatorie"
+
 msgid "Select Skill:"
 msgstr ""
 
@@ -3628,6 +3699,10 @@ msgstr "Dificultatea hărții:"
 msgid "N"
 msgstr ""
 
+#, fuzzy
+msgid "Are you sure you want to delete the map:"
+msgstr "Ești sigur că vrei să te retragi?"
+
 msgid "No maps exist at that size."
 msgstr ""
 
@@ -3677,11 +3752,9 @@ msgid ""
 "things tougher for the human player."
 msgstr ""
 
-msgid "Selected Description"
-msgstr ""
-
-msgid "The description of the currently selected map."
-msgstr ""
+#, fuzzy
+msgid "Selected Map Description"
+msgstr "Designeri de hărți"
 
 msgid "Jump"
 msgstr "Instant"
@@ -4063,6 +4136,9 @@ msgstr ""
 msgid "A maximum of %{count} %{objects} can be placed on the map."
 msgstr ""
 
+msgid "Not able to generate a map with given parameters."
+msgstr ""
+
 msgid ""
 "Do you wish to return to the game's Main Menu? All unsaved changes will be "
 "lost."
@@ -4185,6 +4261,12 @@ msgid "Only one Random Ultimate Artifact can be placed on the map."
 msgstr ""
 
 msgid "A maximum of %{count} obelisks can be placed on the map."
+msgstr ""
+
+msgid "Pick player count"
+msgstr ""
+
+msgid "Limit region size"
 msgstr ""
 
 #, fuzzy
@@ -4447,9 +4529,17 @@ msgstr ""
 msgid "View the editor system options, which let you customize the editor."
 msgstr ""
 
+msgid ""
+"Create a new map, either from scratch or using the random map generator."
+msgstr ""
+
 #, fuzzy
 msgid "Exit the Editor and return to the game's Main Menu."
 msgstr "Întoarce-te la luptă."
+
+#, fuzzy
+msgid "Warning!"
+msgstr "Atenție"
 
 msgid "From Scratch"
 msgstr ""
@@ -4470,8 +4560,16 @@ msgstr ""
 msgid "Return to the Editor's main menu options."
 msgstr "Întoarce-te la luptă."
 
+msgid ""
+"Generate a random map that is %{size} squares wide and %{size} squares high."
+msgstr ""
+
 msgid "Create a map that is %{size} squares wide and %{size} squares high."
 msgstr ""
+
+#, fuzzy
+msgid "Return to the previous menu options."
+msgstr "Întoarce-te la luptă."
 
 msgid "No maps available!"
 msgstr ""
@@ -4485,19 +4583,19 @@ msgid "[%{pos}]: %{name}, %{race} hero"
 msgstr "%{race1} %{name1}"
 
 #, fuzzy
-msgid "[%{pos}]: %{race} town"
-msgstr "%{name} cel %{race}"
-
-#, fuzzy
 msgid "[%{pos}]: %{race} castle"
 msgstr "%{name} cel %{race}"
 
 #, fuzzy
-msgid "[%{pos}]: %{name}, %{race} town"
-msgstr "%{race1} %{name1}"
+msgid "[%{pos}]: %{race} town"
+msgstr "%{name} cel %{race}"
 
 #, fuzzy
 msgid "[%{pos}]: %{name}, %{race} castle"
+msgstr "%{race1} %{name1}"
+
+#, fuzzy
+msgid "[%{pos}]: %{name}, %{race} town"
 msgstr "%{race1} %{name1}"
 
 #, fuzzy
@@ -4598,10 +4696,6 @@ msgstr "Dați click pentru a reîncepe bătălia în mod manual."
 msgid "Map Difficulty"
 msgstr "Dificultatea hărții:"
 
-#, fuzzy
-msgid "Map Description"
-msgstr "Designeri de hărți"
-
 msgid "RUMORS"
 msgstr ""
 
@@ -4612,11 +4706,6 @@ msgid "LANGUAGE"
 msgstr ""
 
 msgid "ABOUT"
-msgstr ""
-
-msgid ""
-"The entered map description exceeds the maximum allowed 5 rows. It will be "
-"shortened to fit the map description field."
 msgstr ""
 
 msgid ""
@@ -4761,12 +4850,43 @@ msgstr "Salvează harta"
 msgid "Click to save the current map."
 msgstr "Dați click pentru a reîncepe bătălia în mod manual."
 
+#, fuzzy
+msgid "Click to enable all secondary skills."
+msgstr "Ești sigur că vrei să termini bătălia în modul automat?"
+
+#, fuzzy
+msgid "Enable All Secondary Skills"
+msgstr "Vrajă aleatorie"
+
+#, fuzzy
+msgid "Click to disable all secondary skills."
+msgstr "Dați click pentru a reîncepe bătălia în mod manual."
+
+#, fuzzy
+msgid "Disable All Secondary Skills"
+msgstr "Vrajă aleatorie"
+
 msgid "Click to show only level %{level} spells."
 msgstr ""
 
 #, fuzzy
 msgid "Spells level"
 msgstr "Pergament magic"
+
+#, fuzzy
+msgid "Click to enable all spells."
+msgstr "Ești sigur că vrei să termini bătălia în modul automat?"
+
+#, fuzzy
+msgid "Enable All Spells"
+msgstr "Vrajă aleatorie"
+
+#, fuzzy
+msgid "Click to disable all spells."
+msgstr "Dați click pentru a reîncepe bătălia în mod manual."
+
+msgid "Disable All Spells"
+msgstr ""
 
 msgid "Riddle:"
 msgstr ""
@@ -4803,6 +4923,9 @@ msgid "Delete Answer"
 msgstr ""
 
 msgid "Delete an existing answer for the question."
+msgstr ""
+
+msgid "Riddle"
 msgstr ""
 
 msgid "No artifact will be given as a reward."
@@ -5212,6 +5335,12 @@ msgstr "Personalizează opțiunile sistemului"
 msgid "hotkey|toggle passability"
 msgstr ""
 
+msgid "hotkey|re-generate random map"
+msgstr ""
+
+msgid "hotkey|re-configure random map"
+msgstr ""
+
 msgid "hotkey|roland campaign"
 msgstr ""
 
@@ -5274,6 +5403,9 @@ msgid "hotkey|world map down right"
 msgstr ""
 
 msgid "hotkey|save game"
+msgstr ""
+
+msgid "hotkey|quick save"
 msgstr ""
 
 msgid "hotkey|next hero"
@@ -5854,6 +5986,10 @@ msgstr ""
 msgid "Click to return to the main menu."
 msgstr ""
 
+#, fuzzy
+msgid "The map is corrupted or doesn't exist."
+msgstr "Acest fișier este corupt."
+
 msgid "Astrologers proclaim the Month of the %{name}."
 msgstr ""
 
@@ -6034,9 +6170,6 @@ msgid "Are you sure you want to overwrite the save with this name?"
 msgstr ""
 
 msgid "Game saved successfully."
-msgstr ""
-
-msgid "There was an issue during saving."
 msgstr ""
 
 msgid ""
@@ -7699,6 +7832,35 @@ msgid ""
 msgstr ""
 
 msgid "%{name1} meets %{name2}"
+msgstr ""
+
+msgid "hero|Level %{level}"
+msgstr ""
+
+msgid "Move all artifacts from %{from_hero_name} to %{to_hero_name}."
+msgstr ""
+
+#, fuzzy
+msgid "Artifact Transfer"
+msgstr "Artefacte"
+
+#, fuzzy
+msgid "Swap Artifacts"
+msgstr "Artefacte"
+
+msgid "Swap all artifacts between heroes."
+msgstr ""
+
+msgid "Move army from %{from_hero_name} to %{to_hero_name}."
+msgstr ""
+
+msgid "Army Transfer"
+msgstr ""
+
+msgid "Swap Armies"
+msgstr ""
+
+msgid "Swap armies between heroes."
 msgstr ""
 
 msgid "Enemy heroes are now fully identifiable."
@@ -10955,10 +11117,12 @@ msgstr ""
 msgid "Dimension Door"
 msgstr ""
 
-msgid "Returns the caster to any town or castle currently owned."
+msgid "Town Gate"
 msgstr ""
 
-msgid "Town Gate"
+msgid ""
+"Returns the caster to the nearest town or castle currently owned. This spell "
+"cannot be cast if the hero is already in a town or a castle."
 msgstr ""
 
 msgid ""

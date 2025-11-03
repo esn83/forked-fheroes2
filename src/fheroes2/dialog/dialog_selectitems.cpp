@@ -27,6 +27,7 @@
 #include <array>
 #include <cassert>
 #include <cstddef>
+#include <initializer_list>
 #include <iterator>
 #include <numeric>
 #include <utility>
@@ -38,6 +39,7 @@
 #include "cursor.h"
 #include "dialog.h"
 #include "game_hotkeys.h"
+#include "game_string.h"
 #include "ground.h"
 #include "heroes_base.h"
 #include "icn.h"
@@ -59,7 +61,6 @@
 #include "ui_constants.h"
 #include "ui_dialog.h"
 #include "ui_map_object.h"
-#include "ui_scrollbar.h"
 #include "ui_text.h"
 #include "ui_tool.h"
 #include "world.h"
@@ -151,6 +152,8 @@ namespace
             SetListContent( _ids );
             // For multi-selection we don't have any current item.
             SetCurrent( 0 );
+
+            enableToggleButtons();
         }
 
         std::vector<int> getSelected() const
@@ -166,6 +169,25 @@ namespace
         void ActionListDoubleClick( int & id ) override
         {
             updateStatus( id );
+        }
+
+    protected:
+        void onToggleOn() override
+        {
+            _selected = {};
+
+            for ( const int id : _ids ) {
+                _selected.emplace( id );
+            }
+
+            setButtonOkayStatus( true );
+        }
+
+        void onToggleOff() override
+        {
+            _selected = {};
+
+            setButtonOkayStatus( false );
         }
 
     private:
@@ -677,11 +699,6 @@ namespace
             fheroes2::showStandardTextMessage( MP2::StringObject( info.objectType ), "", Dialog::ZERO );
         }
 
-        int getCurrentId() const
-        {
-            return _currentId;
-        }
-
         void initListBackgroundRestorer( fheroes2::Rect roi )
         {
             _listBackground = std::make_unique<fheroes2::ImageRestorer>( fheroes2::Display::instance(), roi.x, roi.y, roi.width, roi.height );
@@ -690,15 +707,6 @@ namespace
         bool isDoubleClicked() const
         {
             return _isDoubleClicked;
-        }
-
-        void updateScrollBarImage()
-        {
-            const int32_t scrollBarWidth = _scrollbar.width();
-
-            setScrollBarImage( fheroes2::generateScrollbarSlider( _scrollbar, false, _scrollbar.getArea().height, VisibleItemCount(), _size(),
-                                                                  { 0, 0, scrollBarWidth, 8 }, { 0, 7, scrollBarWidth, 8 } ) );
-            _scrollbar.moveToIndex( _topId );
         }
 
         void RedrawItem( const Maps::ObjectInfo & info, int32_t dstx, int32_t dsty, bool current ) override
@@ -831,16 +839,6 @@ namespace Dialog
         _window->renderOkayCancelButtons( _buttonOk, _buttonCancel );
     }
 
-    void ItemSelectionWindow::updateScrollBarImage()
-    {
-        const int32_t scrollBarWidth = _scrollbar.width();
-
-        setScrollBarImage( fheroes2::generateScrollbarSlider( _scrollbar, false, _scrollbar.getArea().height, VisibleItemCount(), _size(), { 0, 0, scrollBarWidth, 8 },
-                                                              { 0, 7, scrollBarWidth, 8 } ) );
-        _scrollbar.moveToIndex( _topId );
-    }
-
-    // An image with text should have offset of 10 pixels from all left and right edges.
     void ItemSelectionWindow::renderItem( const fheroes2::Sprite & itemSprite, std::string itemText, const fheroes2::Point & destination,
                                           const int32_t middleImageOffsetX, const int32_t textOffsetX, const int32_t itemOffsetY, const bool current ) const
     {
@@ -849,8 +847,28 @@ namespace Dialog
         fheroes2::Blit( itemSprite, display, destination.x + middleImageOffsetX - ( itemSprite.width() / 2 ), destination.y + itemOffsetY - ( itemSprite.height() / 2 ) );
 
         fheroes2::Text text( std::move( itemText ), current ? fheroes2::FontType::normalYellow() : fheroes2::FontType::normalWhite() );
+        renderText( text, destination, textOffsetX, itemOffsetY );
+    }
+
+    void ItemSelectionWindow::renderItem( const fheroes2::Sprite & itemSprite, std::vector<fheroes2::LocalizedString> itemText, const fheroes2::Point & destination,
+                                          const int32_t middleImageOffsetX, const int32_t textOffsetX, const int32_t itemOffsetY, const bool current ) const
+    {
+        fheroes2::Display & display = fheroes2::Display::instance();
+
+        fheroes2::Blit( itemSprite, display, destination.x + middleImageOffsetX - ( itemSprite.width() / 2 ), destination.y + itemOffsetY - ( itemSprite.height() / 2 ) );
+
+        auto text = fheroes2::getLocalizedText( std::move( itemText ), current ? fheroes2::FontType::normalYellow() : fheroes2::FontType::normalWhite() );
+        renderText( *text, destination, textOffsetX, itemOffsetY );
+    }
+
+    void ItemSelectionWindow::renderText( fheroes2::TextBase & text, const fheroes2::Point & destination, const int32_t textOffsetX, const int32_t itemOffsetY ) const
+    {
+        fheroes2::Display & display = fheroes2::Display::instance();
+
         text.fitToOneRow( _window->activeArea().width - textOffsetX - 55 );
-        text.draw( destination.x + textOffsetX, destination.y + itemOffsetY - ( text.height() / 2 ) + 2, display );
+        const fheroes2::Rect & roi = _window->activeArea();
+        text.drawInRoi( destination.x + textOffsetX, destination.y + itemOffsetY - ( text.height() / 2 ) + 2, display,
+                        { destination.x + textOffsetX, roi.y, roi.width - textOffsetX - 55, roi.height } );
     }
 
     int32_t ItemSelectionWindow::selectItemsEventProcessing()
@@ -873,6 +891,13 @@ namespace Dialog
             _buttonOk.drawOnState( le.isMouseLeftButtonPressedAndHeldInArea( _buttonOk.area() ) );
             _buttonCancel.drawOnState( le.isMouseLeftButtonPressedAndHeldInArea( _buttonCancel.area() ) );
 
+            if ( _buttonToggleOn.isEnabled() ) {
+                _buttonToggleOn.drawOnState( le.isMouseLeftButtonPressedAndHeldInArea( _buttonToggleOn.area() ) );
+            }
+            else if ( _buttonToggleOff.isEnabled() ) {
+                _buttonToggleOff.drawOnState( le.isMouseLeftButtonPressedAndHeldInArea( _buttonToggleOff.area() ) );
+            }
+
             if ( _buttonOk.isEnabled() && ( le.MouseClickLeft( _buttonOk.area() ) || Game::HotKeyPressEvent( Game::HotKeyEvent::DEFAULT_OKAY ) ) ) {
                 return Dialog::OK;
             }
@@ -880,11 +905,36 @@ namespace Dialog
                 return Dialog::CANCEL;
             }
 
+            if ( _buttonToggleOn.isEnabled() && le.MouseClickLeft( _buttonToggleOn.area() ) ) {
+                needRedraw = true;
+
+                onToggleOn();
+
+                _buttonToggleOn.disable();
+                _buttonToggleOff.enable();
+                _buttonToggleOff.draw();
+            }
+            else if ( _buttonToggleOff.isEnabled() && le.MouseClickLeft( _buttonToggleOff.area() ) ) {
+                needRedraw = true;
+
+                onToggleOff();
+
+                _buttonToggleOff.disable();
+                _buttonToggleOn.enable();
+                _buttonToggleOn.draw();
+            }
+
             if ( le.isMouseRightButtonPressedInArea( _buttonOk.area() ) ) {
                 fheroes2::showStandardTextMessage( _( "Okay" ), _( "Accept the choice made." ), Dialog::ZERO );
             }
             else if ( le.isMouseRightButtonPressedInArea( _buttonCancel.area() ) ) {
                 fheroes2::showStandardTextMessage( _( "Cancel" ), _( "Exit this menu without doing anything." ), Dialog::ZERO );
+            }
+            else if ( _buttonToggleOn.isEnabled() && le.isMouseRightButtonPressedInArea( _buttonToggleOn.area() ) ) {
+                fheroes2::showStandardTextMessage( _( "Enable All Items" ), _( "Click to enable all items." ), Dialog::ZERO );
+            }
+            else if ( _buttonToggleOff.isEnabled() && le.isMouseRightButtonPressedInArea( _buttonToggleOff.area() ) ) {
+                fheroes2::showStandardTextMessage( _( "Disable All Items" ), _( "Click to disable all items." ), Dialog::ZERO );
             }
 
             QueueEventProcessing();
@@ -908,6 +958,21 @@ namespace Dialog
     {
         assert( _window );
         return _window->totalArea();
+    }
+
+    void ItemSelectionWindow::enableToggleButtons()
+    {
+        _buttonToggleOn.enable();
+        _buttonToggleOff.enable();
+
+        const bool isEvilInterface = Settings::Get().isEvilInterfaceEnabled();
+
+        _window->renderButton( _buttonToggleOn, isEvilInterface ? ICN::BUTTON_TOGGLE_ALL_ON_EVIL : ICN::BUTTON_TOGGLE_ALL_ON_GOOD, 0, 1, { 0, 7 },
+                               fheroes2::StandardWindow::Padding::BOTTOM_CENTER );
+        _buttonToggleOn.disable();
+
+        _window->renderButton( _buttonToggleOff, isEvilInterface ? ICN::BUTTON_TOGGLE_ALL_OFF_EVIL : ICN::BUTTON_TOGGLE_ALL_OFF_GOOD, 0, 1, { 0, 7 },
+                               fheroes2::StandardWindow::Padding::BOTTOM_CENTER );
     }
 }
 
@@ -1060,7 +1125,7 @@ int Dialog::selectHeroes( const int heroId /* = Heroes::UNKNOWN */ )
 
 void Dialog::multiSelectMonsters( std::vector<int> allowed, std::vector<int> & selected )
 {
-    MultiMonsterSelection monsterList( { 320, fheroes2::Display::instance().height() - dialogHeightDeduction }, _( "Select Monsters:" ) );
+    MultiMonsterSelection monsterList( { 380, fheroes2::Display::instance().height() - dialogHeightDeduction }, _( "Select Monsters:" ) );
     monsterList.setup( std::move( allowed ), selected );
 
     const int32_t result = monsterList.selectItemsEventProcessing();

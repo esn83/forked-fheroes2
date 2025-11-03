@@ -171,6 +171,13 @@ namespace
         hotKeyEventInfo[hotKeyEventToInt( Game::HotKeyEvent::EDITOR_TOGGLE_PASSABILITY )]
             = { Game::HotKeyCategory::EDITOR, gettext_noop( "hotkey|toggle passability" ), fheroes2::Key::KEY_P };
 
+#if defined( WITH_DEBUG )
+        hotKeyEventInfo[hotKeyEventToInt( Game::HotKeyEvent::EDITOR_RANDOM_MAP_REGENERATE )]
+            = { Game::HotKeyCategory::WORLD_MAP, gettext_noop( "hotkey|re-generate random map" ), fheroes2::Key::KEY_F5 };
+        hotKeyEventInfo[hotKeyEventToInt( Game::HotKeyEvent::EDITOR_RANDOM_MAP_RECONFIGURE )]
+            = { Game::HotKeyCategory::WORLD_MAP, gettext_noop( "hotkey|re-configure random map" ), fheroes2::Key::KEY_F6 };
+#endif
+
         hotKeyEventInfo[hotKeyEventToInt( Game::HotKeyEvent::CAMPAIGN_ROLAND )]
             = { Game::HotKeyCategory::CAMPAIGN, gettext_noop( "hotkey|roland campaign" ), fheroes2::Key::KEY_1 };
         hotKeyEventInfo[hotKeyEventToInt( Game::HotKeyEvent::CAMPAIGN_ARCHIBALD )]
@@ -214,6 +221,8 @@ namespace
             = { Game::HotKeyCategory::WORLD_MAP, gettext_noop( "hotkey|world map down right" ), fheroes2::Key::KEY_KP_3 };
         hotKeyEventInfo[hotKeyEventToInt( Game::HotKeyEvent::WORLD_SAVE_GAME )]
             = { Game::HotKeyCategory::WORLD_MAP, gettext_noop( "hotkey|save game" ), fheroes2::Key::KEY_S };
+        hotKeyEventInfo[hotKeyEventToInt( Game::HotKeyEvent::WORLD_QUICK_SAVE )]
+            = { Game::HotKeyCategory::WORLD_MAP, gettext_noop( "hotkey|quick save" ), fheroes2::Key::KEY_F2 };
         hotKeyEventInfo[hotKeyEventToInt( Game::HotKeyEvent::WORLD_NEXT_HERO )]
             = { Game::HotKeyCategory::WORLD_MAP, gettext_noop( "hotkey|next hero" ), fheroes2::Key::KEY_H };
         hotKeyEventInfo[hotKeyEventToInt( Game::HotKeyEvent::WORLD_QUICK_SELECT_HERO )]

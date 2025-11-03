@@ -22,6 +22,7 @@
 
 #include <algorithm>
 #include <array>
+#include <cstddef>
 #include <cstdint>
 #include <map>
 #include <string>
@@ -52,11 +53,8 @@ namespace Maps::Map_Format
         std::vector<TileObjectInfo> objects;
     };
 
-    // This structure is deprecated. We are keeping it for backward compatibility.
-    struct StandardObjectMetadata
-    {
-        std::array<int32_t, 3> metadata{ 0 };
-    };
+    constexpr size_t messageCharLimit{ 999 };
+    constexpr size_t nameCharLimit{ 30 };
 
     struct CastleMetadata
     {

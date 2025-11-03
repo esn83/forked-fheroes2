@@ -21,33 +21,21 @@
 #pragma once
 
 #include <cstdint>
-#include <optional>
-#include <string>
-#include <utility>
 
-class IStreamBase;
-class OStreamBase;
-
-namespace fheroes2
+namespace Maps::Map_Format
 {
-    enum class SupportedLanguage : uint8_t;
-
-    struct LocalizedString
-    {
-        LocalizedString() = default;
-
-        LocalizedString( std::string text_, std::optional<SupportedLanguage> language_ )
-            : text( std::move( text_ ) )
-            , language( language_ )
-        {
-            // Do nothing.
-        }
-
-        std::string text;
-
-        std::optional<SupportedLanguage> language;
-    };
+    struct MapFormat;
 }
 
-OStreamBase & operator<<( OStreamBase & stream, const fheroes2::LocalizedString & string );
-IStreamBase & operator>>( IStreamBase & stream, fheroes2::LocalizedString & string );
+namespace Maps::Random_Generator
+{
+    struct Configuration final
+    {
+        int32_t playerCount{ 2 };
+        int32_t regionSizeLimit{ 300 };
+        // TODO: remove this member once random map generator is good enough.
+        bool basicOnly{ true };
+    };
+
+    bool generateMap( Map_Format::MapFormat & mapFormat, const Configuration & config, const int32_t width, const int32_t height );
+}

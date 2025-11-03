@@ -986,7 +986,9 @@ namespace Interface
                 continue;
             }
 
-            // Hotkeys
+            bool isCursorOverGameArea = false;
+
+            // Hotkeys' press event processing.
             if ( le.isAnyKeyPressed() ) {
                 if ( HotKeyPressEvent( Game::HotKeyEvent::MAIN_MENU_QUIT ) || HotKeyPressEvent( Game::HotKeyEvent::DEFAULT_CANCEL ) ) {
                     res = EventExit();
@@ -1009,24 +1011,58 @@ namespace Interface
                 else if ( HotKeyPressEvent( Game::HotKeyEvent::WORLD_VIEW_WORLD ) ) {
                     eventViewWorld();
                 }
+#if defined( WITH_DEBUG )
+                else if ( HotKeyPressEvent( Game::HotKeyEvent::EDITOR_RANDOM_MAP_REGENERATE ) ) {
+                    fheroes2::ActionCreator action( _historyManager, _mapFormat );
+
+                    if ( Maps::Random_Generator::generateMap( _mapFormat, _randomMapConfig, _mapFormat.width, _mapFormat.width ) ) {
+                        _redraw |= mapUpdateFlags;
+
+                        action.commit();
+                    }
+                    else {
+                        _warningMessage.reset( _( "Not able to generate a map with given parameters." ) );
+                    }
+                }
+                else if ( HotKeyPressEvent( Game::HotKeyEvent::EDITOR_RANDOM_MAP_RECONFIGURE ) ) {
+                    fheroes2::ActionCreator action( _historyManager, _mapFormat );
+
+                    if ( generateRandomMap( _mapFormat.width ) ) {
+                        _redraw |= mapUpdateFlags;
+
+                        action.commit();
+                    }
+                    else {
+                        _warningMessage.reset( _( "Not able to generate a map with given parameters." ) );
+                    }
+                }
+#endif
                 else if ( HotKeyPressEvent( Game::HotKeyEvent::WORLD_SCROLL_LEFT ) ) {
                     if ( !_gameArea.isDragScroll() ) {
                         _gameArea.SetScroll( SCROLL_LEFT );
+
+                        isCursorOverGameArea = le.isMouseCursorPosInArea( _gameArea.GetROI() );
                     }
                 }
                 else if ( HotKeyPressEvent( Game::HotKeyEvent::WORLD_SCROLL_RIGHT ) ) {
                     if ( !_gameArea.isDragScroll() ) {
                         _gameArea.SetScroll( SCROLL_RIGHT );
+
+                        isCursorOverGameArea = le.isMouseCursorPosInArea( _gameArea.GetROI() );
                     }
                 }
                 else if ( HotKeyPressEvent( Game::HotKeyEvent::WORLD_SCROLL_UP ) ) {
                     if ( !_gameArea.isDragScroll() ) {
                         _gameArea.SetScroll( SCROLL_TOP );
+
+                        isCursorOverGameArea = le.isMouseCursorPosInArea( _gameArea.GetROI() );
                     }
                 }
                 else if ( HotKeyPressEvent( Game::HotKeyEvent::WORLD_SCROLL_DOWN ) ) {
                     if ( !_gameArea.isDragScroll() ) {
                         _gameArea.SetScroll( SCROLL_BOTTOM );
+
+                        isCursorOverGameArea = le.isMouseCursorPosInArea( _gameArea.GetROI() );
                     }
                 }
                 else if ( HotKeyPressEvent( Game::HotKeyEvent::EDITOR_UNDO_LAST_ACTION ) ) {
@@ -1057,8 +1093,6 @@ namespace Interface
             if ( res != fheroes2::GameMode::CANCEL ) {
                 break;
             }
-
-            bool isCursorOverGameArea = false;
 
             // Mouse is captured by radar
             if ( _radar.isMouseCaptured() ) {
@@ -1195,7 +1229,7 @@ namespace Interface
                         fheroes2::ActionCreator action( _historyManager, _mapFormat );
 
                         const int groundId = _editorPanel.selectedGroundType();
-                        Maps::setTerrainOnTiles( _mapFormat, _areaSelectionStartTileId, _tileUnderCursor, groundId );
+                        Maps::setTerrainWithTransition( _mapFormat, _areaSelectionStartTileId, _tileUnderCursor, groundId );
                         _validateObjectsOnTerrainUpdate();
 
                         action.commit();
@@ -1491,7 +1525,8 @@ namespace Interface
                     std::string signText = originalMessage;
 
                     const fheroes2::Text body{ std::move( header ), fheroes2::FontType::normalWhite() };
-                    if ( Dialog::inputString( fheroes2::Text{}, body, signText, 0, true, _mapFormat.mainLanguage ) && originalMessage != signText ) {
+                    if ( Dialog::inputString( fheroes2::Text{}, body, signText, Maps::Map_Format::messageCharLimit, true, _mapFormat.mainLanguage )
+                         && originalMessage != signText ) {
                         fheroes2::ActionCreator action( _historyManager, _mapFormat );
                         originalMessage = std::move( signText );
                         action.commit();
@@ -1753,13 +1788,13 @@ namespace Interface
             if ( brushSize.width > 0 ) {
                 const fheroes2::Point indices = getBrushAreaIndicies( brushSize, tileIndex );
 
-                Maps::setTerrainOnTiles( _mapFormat, indices.x, indices.y, groundId );
+                Maps::setTerrainWithTransition( _mapFormat, indices.x, indices.y, groundId );
             }
             else {
                 assert( brushSize.width == 0 );
 
                 // This is a case when area was not selected but a single tile was clicked.
-                Maps::setTerrainOnTiles( _mapFormat, tileIndex, tileIndex, groundId );
+                Maps::setTerrainWithTransition( _mapFormat, tileIndex, tileIndex, groundId );
 
                 _areaSelectionStartTileId = -1;
             }
@@ -1972,56 +2007,11 @@ namespace Interface
                 return;
             }
 
-            const int groundType = Maps::Ground::getGroundByImageIndex( tile.getTerrainImageIndex() );
-            const int32_t basementId = fheroes2::getTownBasementId( groundType );
-
-            const auto & townObjectInfo = Maps::getObjectInfo( groupType, type );
-
             fheroes2::ActionCreator action( _historyManager, _mapFormat );
 
-            if ( !_setObjectOnTile( tile, Maps::ObjectGroup::LANDSCAPE_TOWN_BASEMENTS, basementId ) ) {
+            if ( !placeCastle( tilePos.x, tilePos.y, Color::IndexToColor( color ), type ) ) {
                 return;
             }
-
-            // Since the whole object consists of multiple "objects" we have to put the same ID for all of them.
-            // Every time an object is being placed on a map the counter is going to be increased by 1.
-            // Therefore, we set the counter by 1 less for each object to match object UID for all of them.
-            assert( Maps::getLastObjectUID() > 0 );
-            const uint32_t objectId = Maps::getLastObjectUID() - 1;
-
-            Maps::setLastObjectUID( objectId );
-
-            if ( !_setObjectOnTile( tile, groupType, type ) ) {
-                return;
-            }
-
-            const int32_t bottomIndex = Maps::GetDirectionIndex( tile.GetIndex(), Direction::BOTTOM );
-
-            if ( Maps::isValidAbsIndex( bottomIndex ) && Maps::doesContainRoads( _mapFormat.tiles[bottomIndex] ) ) {
-                // Update road if there is one in front of the town/castle entrance.
-                Maps::updateRoadSpriteOnTile( _mapFormat, bottomIndex, false );
-            }
-
-            // By default use random (default) army for the neutral race town/castle.
-            if ( Color::IndexToColor( color ) == PlayerColor::NONE ) {
-                Maps::setDefaultCastleDefenderArmy( _mapFormat.castleMetadata[Maps::getLastObjectUID()] );
-            }
-
-            // Add flags.
-            assert( tile.GetIndex() > 0 && tile.GetIndex() < world.w() * world.h() - 1 );
-            Maps::setLastObjectUID( objectId );
-
-            if ( !_setObjectOnTile( world.getTile( tile.GetIndex() - 1 ), Maps::ObjectGroup::LANDSCAPE_FLAGS, color * 2 ) ) {
-                return;
-            }
-
-            Maps::setLastObjectUID( objectId );
-
-            if ( !_setObjectOnTile( world.getTile( tile.GetIndex() + 1 ), Maps::ObjectGroup::LANDSCAPE_FLAGS, color * 2 + 1 ) ) {
-                return;
-            }
-
-            world.addCastle( tile.GetIndex(), Race::IndexToRace( static_cast<int>( townObjectInfo.metadata[0] ) ), Color::IndexToColor( color ) );
 
             action.commit();
 
@@ -2186,6 +2176,32 @@ namespace Interface
         return false;
     }
 
+    bool EditorInterface::_updateRandomMapConfiguration()
+    {
+        Maps::Random_Generator::Configuration temp{ _randomMapConfig };
+
+        if ( !Dialog::SelectCount( _( "Pick player count" ), 2, 6, temp.playerCount ) ) {
+            return false;
+        }
+
+        if ( !Dialog::SelectCount( _( "Limit region size" ), 200, 10000, temp.regionSizeLimit ) ) {
+            return false;
+        }
+
+        _randomMapConfig = temp;
+
+        return true;
+    }
+
+    bool EditorInterface::generateRandomMap( const int32_t mapWidth )
+    {
+        if ( !_updateRandomMapConfiguration() ) {
+            return false;
+        }
+
+        return Maps::Random_Generator::generateMap( _mapFormat, _randomMapConfig, mapWidth, mapWidth );
+    }
+
     bool EditorInterface::generateNewMap( const int32_t mapWidth )
     {
         if ( mapWidth <= 0 ) {
@@ -2219,9 +2235,8 @@ namespace Interface
 
         for ( int32_t i = 0; i < tilesCount; ++i ) {
             world.getTile( i ).setIndex( i );
+            Maps::setTerrainOnTile( _mapFormat, i, Maps::Ground::WATER );
         }
-
-        Maps::setTerrainOnTiles( _mapFormat, 0, tilesCount - 1, Maps::Ground::WATER );
 
         Maps::resetObjectUID();
 
@@ -2340,6 +2355,68 @@ namespace Interface
         else {
             _mapFormat = std::move( mapBackup );
         }
+    }
+
+    bool EditorInterface::placeCastle( const int32_t posX, const int32_t posY, const PlayerColor color, const int32_t type )
+    {
+        if ( type < 0 ) {
+            // Check your logic!
+            assert( 0 );
+            return false;
+        }
+
+        auto & tile = world.getTile( posX, posY );
+
+        const int32_t basementId = fheroes2::getTownBasementId( tile.GetGround() );
+
+        if ( !_setObjectOnTile( tile, Maps::ObjectGroup::LANDSCAPE_TOWN_BASEMENTS, basementId ) ) {
+            return false;
+        }
+
+        // Since the whole object consists of multiple "objects" we have to put the same ID for all of them.
+        // Every time an object is being placed on a map the counter is going to be increased by 1.
+        // Therefore, we set the counter by 1 less for each object to match object UID for all of them.
+        assert( Maps::getLastObjectUID() > 0 );
+        const uint32_t objectId = Maps::getLastObjectUID() - 1;
+
+        Maps::setLastObjectUID( objectId );
+
+        if ( !_setObjectOnTile( tile, Maps::ObjectGroup::KINGDOM_TOWNS, type ) ) {
+            return false;
+        }
+
+        const int32_t bottomIndex = Maps::GetDirectionIndex( tile.GetIndex(), Direction::BOTTOM );
+
+        if ( Maps::isValidAbsIndex( bottomIndex ) && Maps::doesContainRoads( _mapFormat.tiles[bottomIndex] ) ) {
+            // Update road if there is one in front of the town/castle entrance.
+            Maps::updateRoadSpriteOnTile( _mapFormat, bottomIndex, false );
+        }
+
+        // By default use random (default) army for the neutral race town/castle.
+        if ( color == PlayerColor::NONE ) {
+            Maps::setDefaultCastleDefenderArmy( _mapFormat.castleMetadata[Maps::getLastObjectUID()] );
+        }
+
+        // Add flags.
+        assert( tile.GetIndex() > 0 && tile.GetIndex() < world.w() * world.h() - 1 );
+        Maps::setLastObjectUID( objectId );
+
+        if ( !_setObjectOnTile( world.getTile( tile.GetIndex() - 1 ), Maps::ObjectGroup::LANDSCAPE_FLAGS, Color::GetIndex( color ) * 2 ) ) {
+            return false;
+        }
+
+        Maps::setLastObjectUID( objectId );
+
+        if ( !_setObjectOnTile( world.getTile( tile.GetIndex() + 1 ), Maps::ObjectGroup::LANDSCAPE_FLAGS, Color::GetIndex( color ) * 2 + 1 ) ) {
+            return false;
+        }
+
+        const Maps::ObjectInfo & townObjectInfo = Maps::getObjectInfo( Maps::ObjectGroup::KINGDOM_TOWNS, type );
+        const uint8_t race = Race::IndexToRace( static_cast<int>( townObjectInfo.metadata[0] ) );
+
+        world.addCastle( tile.GetIndex(), race, color );
+
+        return true;
     }
 
     void EditorInterface::_validateObjectsOnTerrainUpdate()
