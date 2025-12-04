@@ -38,7 +38,7 @@ namespace GameCheats
     bool isPlayersCheating();
     bool redrawHeroesDialog();
     Interface::StatusType redrawStatus();
-    bool setMaxExperience();
+    bool getBlockExperience();
     void onKeyPressed( const fheroes2::Key key, const int32_t modifier );
     void gameCheatsReset();
 }

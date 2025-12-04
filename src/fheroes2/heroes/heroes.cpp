@@ -42,6 +42,7 @@
 #include "castle.h"
 #include "dialog.h"
 #include "direction.h"
+#include "game_cheats.h"
 #include "game_io.h"
 #include "game_static.h"
 #include "ground.h"
@@ -1463,20 +1464,27 @@ bool Heroes::PickupArtifact( const Artifact & art )
 
 void Heroes::IncreaseExperience( const uint32_t amount, const bool autoselect /* = false */ )
 {
-    const int oldLevel = GetLevelFromExperience( _experience );
-    const int newLevel = GetLevelFromExperience( _experience + amount );
-
-    const uint32_t updatedExperience = _experience + amount;
-
-    for ( int level = oldLevel; level < newLevel - 1; ++level ) {
-        _experience = GetExperienceFromLevel( level );
-        _levelUp( false, autoselect );
+    if (GameCheats::getBlockExperience())
+    {
+        return;
     }
+    else
+    {
+        const int oldLevel = GetLevelFromExperience( _experience );
+        const int newLevel = GetLevelFromExperience( _experience + amount );
 
-    _experience = updatedExperience;
+        const uint32_t updatedExperience = _experience + amount;
 
-    if ( newLevel > oldLevel ) {
-        _levelUp( false, autoselect );
+        for ( int level = oldLevel; level < newLevel - 1; ++level ) {
+            _experience = GetExperienceFromLevel( level );
+            _levelUp( false, autoselect );
+        }
+
+        _experience = updatedExperience;
+
+        if ( newLevel > oldLevel ) {
+            _levelUp( false, autoselect );
+        }
     }
 }
 

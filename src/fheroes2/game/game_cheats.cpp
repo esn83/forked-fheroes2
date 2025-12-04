@@ -54,7 +54,7 @@ namespace GameCheats
     bool redrawStatusFlagSetArmy = false;
     bool redrawStatusFlagSetFunds = false;
     bool freeBuildings = false;
-    bool setMaxExperienceFlag = false;
+    bool setBlockExperienceFlag = false;
 
     const size_t MAX_BUFFER = 32;
 
@@ -304,7 +304,7 @@ namespace GameCheats
                         hero->LearnSkill(Skill::Secondary(selected_skills[i], Skill::Level::EXPERT));
                     }
 
-                    setMaxExperienceFlag = true;
+                    setBlockExperienceFlag = true;
                     redrawHeroesDialogFlag = true;
                 }
             }},
@@ -471,13 +471,9 @@ namespace GameCheats
         return Interface::StatusType::STATUS_UNKNOWN;
     }
 
-    bool setMaxExperience()
+    bool getBlockExperience()
     {
-        if (setMaxExperienceFlag) {
-            setMaxExperienceFlag = false;
-            return true;
-        }
-        return false;
+        return setBlockExperienceFlag;
     }
 
     void gameCheatsReset()

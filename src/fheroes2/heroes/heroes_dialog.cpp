@@ -510,14 +510,6 @@ int Heroes::OpenDialog( const bool readonly, const bool fade, const bool disable
             selectArtifacts.Redraw( display );                      // Cheat 99999 adds a spellbook if not owned
             needRedraw = true;
         }
-        // If cheat 66666 is used set experience to max to prevent further level ups.
-        if (GameCheats::setMaxExperience())
-        {
-            _experience = static_cast<int32_t>( Heroes::getExperienceMaxValue() );
-            experienceInfo.Redraw();
-            drawTitleText( _name, _race, true );
-            needRedraw = true;
-        }
 
         if ( le.isMouseCursorPosInArea( moraleIndicator.GetArea() ) ) {
             MoraleIndicator::QueueEventProcessing( moraleIndicator );
