@@ -1,6 +1,6 @@
 /***************************************************************************
  *   fheroes2: https://github.com/ihhub/fheroes2                           *
- *   Copyright (C) 2021 - 2025                                             *
+ *   Copyright (C) 2025                                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -20,10 +20,14 @@
 
 #pragma once
 
-#define MAJOR_VERSION 1
-#define MINOR_VERSION 1
-#define INTERMEDIATE_VERSION 12
+#include <cstdint>
 
-#ifndef BUILD_VERSION
-#define BUILD_VERSION 0
-#endif
+namespace Maps::Random_Generator
+{
+    struct Configuration;
+}
+
+namespace fheroes2
+{
+    bool randomMapGeneratorDialog( Maps::Random_Generator::Configuration & configuration, const int32_t mapWidth );
+}

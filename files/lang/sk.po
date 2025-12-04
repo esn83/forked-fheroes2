@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fheroes2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-02 13:40+0000\n"
+"POT-Creation-Date: 2025-12-02 07:11+0000\n"
 "PO-Revision-Date: 2025-03-12 23:48+0100\n"
 "Last-Translator: fheroes2 team <fhomm2@gmail.com>\n"
 "Language-Team: \n"
@@ -1125,6 +1125,14 @@ msgstr ""
 
 msgid "Please select another hero."
 msgstr "Prosím zvoľ ďalšieho hrdinu."
+
+#, fuzzy
+msgid "Click to set this hero to be human-controlled."
+msgstr "Klikni sem a vyber scenár, ktorý chceš hrať."
+
+#, fuzzy
+msgid "Click to set this hero to be AI-controlled."
+msgstr "Klikni sem a vyber scenár, ktorý chceš hrať."
 
 #, fuzzy
 msgid "%{race1} %{name1} vs %{race2} %{name2}"
@@ -2799,26 +2807,6 @@ msgstr ""
 "nemáš miesto pre knihu kúziel. Skús dať jeden zo svojich artefaktov inému "
 "hrdinovi."
 
-#, fuzzy
-msgid "Click to show the next town."
-msgstr "Kliknutím zobraz ďalšie mesto."
-
-msgid "Show next town"
-msgstr "Ukáž ďalšie mesto"
-
-#, fuzzy
-msgid "Click to show the previous town."
-msgstr "Kliknutím zobraz predošlé mesto."
-
-msgid "Show previous town"
-msgstr "Ukáž predošlé mesto"
-
-msgid "This town may not be upgraded to a castle."
-msgstr "Toto mesto nemôže byť povýšené na hrad."
-
-msgid "Town"
-msgstr "Mesto"
-
 msgid "Exit Castle"
 msgstr "Preč z hradu"
 
@@ -2828,8 +2816,28 @@ msgstr "Preč z mesta"
 msgid "Show Income"
 msgstr "Ukáž príjem"
 
+msgid "Show previous town"
+msgstr "Ukáž predošlé mesto"
+
+msgid "Show next town"
+msgstr "Ukáž ďalšie mesto"
+
 msgid "View Hero"
 msgstr "Ukáž hrdinu"
+
+#, fuzzy
+msgid "Click to show the next town."
+msgstr "Kliknutím zobraz ďalšie mesto."
+
+#, fuzzy
+msgid "Click to show the previous town."
+msgstr "Kliknutím zobraz predošlé mesto."
+
+msgid "This town may not be upgraded to a castle."
+msgstr "Toto mesto nemôže byť povýšené na hrad."
+
+msgid "Town"
+msgstr "Mesto"
 
 msgid "The above spells are available here."
 msgstr "Vyššie uvedené kúzla sú tu dostupné."
@@ -3518,6 +3526,39 @@ msgstr "Body pohybu:"
 msgid "Uncharted Territory"
 msgstr "Nepreskúmané územie"
 
+#, fuzzy
+msgid "Random Map Generator"
+msgstr "Náhodný tvor"
+
+#, fuzzy
+msgid "rmg|Player count"
+msgstr "Ikona hráča"
+
+msgid "rmg|Map layout"
+msgstr ""
+
+#, fuzzy
+msgid "rmg|Water percentage"
+msgstr "Vodný elementál"
+
+#, fuzzy
+msgid "rmg|Monster strength"
+msgstr "Náhodný tvor - silný"
+
+msgid "rmg|Resource availability"
+msgstr ""
+
+msgid "rmg|Map seed"
+msgstr ""
+
+#, fuzzy
+msgid "Click to generate a new map."
+msgstr "Klikni sem a vyber scenár, ktorý chceš hrať."
+
+#, fuzzy
+msgid "Return to the previous menu."
+msgstr "Kliknutím sa vrátiš do hlavnej ponuky."
+
 msgid "Cost per troop:"
 msgstr "Cena za jednotku:"
 
@@ -3655,6 +3696,13 @@ msgstr "Nahrať súbor:"
 msgid "Terrain object"
 msgstr "Režim terénu"
 
+msgid "There is nothing to select from."
+msgstr ""
+
+#, fuzzy
+msgid "There are no castles to select from."
+msgstr "Názov momentálne zvolenej mapy."
+
 msgid "Accept the choice made."
 msgstr "Prijať uskutočnený výber."
 
@@ -3674,17 +3722,35 @@ msgstr "Klikni pre výber zvoleného rozlíšenia."
 msgid "Disable All Items"
 msgstr "Zobraz kúzla"
 
+msgid "There are no secondary skills to select from."
+msgstr ""
+
 msgid "Select Skill:"
 msgstr "Zvoľ zručnosť:"
+
+#, fuzzy
+msgid "There are no spells to select."
+msgstr "Žiadne kúzla na čarovanie."
 
 msgid "Select Spell:"
 msgstr "Zvoľ kúzlo:"
 
+msgid "There are no artifacts to select from."
+msgstr ""
+
 msgid "Select Artifact:"
 msgstr "Zvoľ artefakt:"
 
+#, fuzzy
+msgid "There are no monsters to select from."
+msgstr "Názov momentálne zvolenej mapy."
+
 msgid "Select Monster:"
 msgstr "Zvoľ bojovníka:"
+
+#, fuzzy
+msgid "There are no heroes to select from."
+msgstr "Názov momentálne zvolenej mapy."
 
 msgid "Select Hero:"
 msgstr "Zvoľ hrdinu:"
@@ -3834,20 +3900,6 @@ msgstr ""
 msgid "Size Icon"
 msgstr "Ikona veľkosti"
 
-msgid "Map Type"
-msgstr "Typ mapy"
-
-#, fuzzy
-msgid ""
-"Indicates whether the map is made for \"The Succession Wars\", \"The Price "
-"of Loyalty\" or \"Resurrection\" version of the game."
-msgstr ""
-"Značí, či je mapa tvorená pre verziu hry \"The Succession Wars\" alebo \"The "
-"Price of Loyalty\"."
-
-msgid "Map Type:\n"
-msgstr "Typ mapy:\n"
-
 msgid "The Succession Wars"
 msgstr "Vojna o dedičstvo"
 
@@ -3857,6 +3909,15 @@ msgstr "Cena vernosti"
 #, fuzzy
 msgid "Resurrection"
 msgstr "Vzkriesenie"
+
+msgid "This map is made for \"%{game-version}\" version of the game."
+msgstr ""
+
+msgid "Map Type"
+msgstr "Typ mapy"
+
+msgid "Map Type:\n"
+msgstr "Typ mapy:\n"
 
 #, fuzzy
 msgid ""
@@ -4524,13 +4585,6 @@ msgid "A maximum of %{count} obelisks can be placed on the map."
 msgstr ""
 
 #, fuzzy
-msgid "Pick player count"
-msgstr "Ikona hráča"
-
-msgid "Limit region size"
-msgstr ""
-
-#, fuzzy
 msgid "The map is corrupted."
 msgstr "Uložený súbor je poškodený."
 
@@ -4821,6 +4875,9 @@ msgid "View the editor system options, which let you customize the editor."
 msgstr ""
 "Zobraziť systémové možnosti editora, ktoré umožňujú prispôsobiť editor."
 
+msgid "Failed to generate a random map with given parameters."
+msgstr ""
+
 msgid ""
 "Create a new map, either from scratch or using the random map generator."
 msgstr ""
@@ -4828,10 +4885,6 @@ msgstr ""
 #, fuzzy
 msgid "Exit the Editor and return to the game's Main Menu."
 msgstr "Kliknutím sa vrátiš do hlavnej ponuky."
-
-#, fuzzy
-msgid "Warning!"
-msgstr "Pozor"
 
 msgid "From Scratch"
 msgstr "Od nuly"
@@ -5768,6 +5821,9 @@ msgstr "ďalší hrdina"
 #, fuzzy
 msgid "hotkey|change to hero under cursor"
 msgstr "ďalší hrdina"
+
+msgid "hotkey|hold and left click to move hero portrait to top of list"
+msgstr ""
 
 #, fuzzy
 msgid "hotkey|start hero movement"
@@ -9474,6 +9530,43 @@ msgstr "Tráva"
 msgid "Ocean"
 msgstr "Oceán"
 
+msgid "map_layout|Mirrored"
+msgstr ""
+
+msgid "map_layout|Balanced"
+msgstr ""
+
+msgid "map_layout|Islands"
+msgstr ""
+
+msgid "map_layout|Pyramid"
+msgstr ""
+
+msgid "map_layout|Quest"
+msgstr ""
+
+msgid "resource_density|Scarce"
+msgstr ""
+
+msgid "resource_density|Normal"
+msgstr ""
+
+msgid "resource_density|Abundant"
+msgstr ""
+
+msgid "monster_strength|Weak"
+msgstr ""
+
+#, fuzzy
+msgid "monster_strength|Normal"
+msgstr "Normálna"
+
+msgid "monster_strength|Strong"
+msgstr ""
+
+msgid "monster_strength|Deadly"
+msgstr ""
+
 msgid "maps|Small"
 msgstr "Malá"
 
@@ -12653,6 +12746,18 @@ msgstr "Povedal jej: Jada jada jada... a ona na to že: Blá, blá, blá..."
 
 msgid "An unknown force is being resurrected..."
 msgstr "Neznáma sila je vzkriesená..."
+
+#, fuzzy
+#~ msgid ""
+#~ "Indicates whether the map is made for \"The Succession Wars\", \"The "
+#~ "Price of Loyalty\" or \"Resurrection\" version of the game."
+#~ msgstr ""
+#~ "Značí, či je mapa tvorená pre verziu hry \"The Succession Wars\" alebo "
+#~ "\"The Price of Loyalty\"."
+
+#, fuzzy
+#~ msgid "Warning!"
+#~ msgstr "Pozor"
 
 #~ msgid "The description of the currently selected map."
 #~ msgstr "Opis aktuálne zvolenej mapy."

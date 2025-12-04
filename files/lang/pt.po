@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fheroes2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-02 13:40+0000\n"
+"POT-Creation-Date: 2025-12-02 07:11+0000\n"
 "PO-Revision-Date: 2025-09-05 14:15-0300\n"
 "Last-Translator: fheroes2 team <fhomm2@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <pt_BR@li.org>\n"
@@ -1120,6 +1120,14 @@ msgstr "Restaurar as configurações padrões."
 
 msgid "Please select another hero."
 msgstr "Por favor, selecione outro herói."
+
+#, fuzzy
+msgid "Click to set this hero to be human-controlled."
+msgstr "Clique para selecionar esta cor."
+
+#, fuzzy
+msgid "Click to set this hero to be AI-controlled."
+msgstr "Clique para selecionar esta cor."
 
 msgid "%{race1} %{name1} vs %{race2} %{name2}"
 msgstr "%{race1} %{name1} vs %{race2} %{name2}"
@@ -2775,24 +2783,6 @@ msgstr ""
 "Você deve comprar um grimório para usar a guilda dos magos, mas atualmente "
 "você não tem espaço para ele. Tente dar um de seus artefatos a outro herói."
 
-msgid "Click to show the next town."
-msgstr "Clique para mostrar a próxima cidade."
-
-msgid "Show next town"
-msgstr "Mostrar a cidade seguinte"
-
-msgid "Click to show the previous town."
-msgstr "Clique para mostrar a cidade anterior."
-
-msgid "Show previous town"
-msgstr "Mostrar cidade anterior"
-
-msgid "This town may not be upgraded to a castle."
-msgstr "Esta cidade não pode ser transformada em castelo."
-
-msgid "Town"
-msgstr "Cidade"
-
 msgid "Exit Castle"
 msgstr "Sair do Castelo"
 
@@ -2802,8 +2792,26 @@ msgstr "Sair da Cidade"
 msgid "Show Income"
 msgstr "Mostrar Renda"
 
+msgid "Show previous town"
+msgstr "Mostrar cidade anterior"
+
+msgid "Show next town"
+msgstr "Mostrar a cidade seguinte"
+
 msgid "View Hero"
 msgstr "Ver Herói"
+
+msgid "Click to show the next town."
+msgstr "Clique para mostrar a próxima cidade."
+
+msgid "Click to show the previous town."
+msgstr "Clique para mostrar a cidade anterior."
+
+msgid "This town may not be upgraded to a castle."
+msgstr "Esta cidade não pode ser transformada em castelo."
+
+msgid "Town"
+msgstr "Cidade"
 
 msgid "The above spells are available here."
 msgstr "Os feitiços acima estão disponíveis aqui."
@@ -3497,6 +3505,39 @@ msgstr "Movimento:"
 msgid "Uncharted Territory"
 msgstr "Território Desconhecido"
 
+#, fuzzy
+msgid "Random Map Generator"
+msgstr "Monstro Aleatório"
+
+#, fuzzy
+msgid "rmg|Player count"
+msgstr "Ícone dos Jogadores"
+
+msgid "rmg|Map layout"
+msgstr ""
+
+#, fuzzy
+msgid "rmg|Water percentage"
+msgstr "Elemental da Água"
+
+#, fuzzy
+msgid "rmg|Monster strength"
+msgstr "Monstro Aleatório - Forte"
+
+msgid "rmg|Resource availability"
+msgstr ""
+
+msgid "rmg|Map seed"
+msgstr ""
+
+#, fuzzy
+msgid "Click to generate a new map."
+msgstr "Clique para ativar o modo de patrulha do herói."
+
+#, fuzzy
+msgid "Return to the previous menu."
+msgstr "Retornar às opções do menu principal do Editor."
+
 msgid "Cost per troop:"
 msgstr "Custo por tropa:"
 
@@ -3635,6 +3676,13 @@ msgstr "Arquivo à ser carregado:"
 msgid "Terrain object"
 msgstr "Objeto do terreno"
 
+msgid "There is nothing to select from."
+msgstr ""
+
+#, fuzzy
+msgid "There are no castles to select from."
+msgstr "O nome do mapa atualmente selecionado."
+
 msgid "Accept the choice made."
 msgstr "Aceitar a escolha feita."
 
@@ -3654,17 +3702,35 @@ msgstr "Clique para editar eventos diários."
 msgid "Disable All Items"
 msgstr "Ver Feitiços"
 
+msgid "There are no secondary skills to select from."
+msgstr ""
+
 msgid "Select Skill:"
 msgstr "Selecionar Habilidade:"
+
+#, fuzzy
+msgid "There are no spells to select."
+msgstr "Sem feitiços para lançar."
 
 msgid "Select Spell:"
 msgstr "Selecionar Feitiço:"
 
+msgid "There are no artifacts to select from."
+msgstr ""
+
 msgid "Select Artifact:"
 msgstr "Selecionar Artefato:"
 
+#, fuzzy
+msgid "There are no monsters to select from."
+msgstr "O nome do mapa atualmente selecionado."
+
 msgid "Select Monster:"
 msgstr "Selecionar Monstro:"
+
+#, fuzzy
+msgid "There are no heroes to select from."
+msgstr "O nome do mapa atualmente selecionado."
 
 msgid "Select Hero:"
 msgstr "Selecionar Herói:"
@@ -3793,19 +3859,6 @@ msgstr ""
 msgid "Size Icon"
 msgstr "Tamanho do Ícone"
 
-msgid "Map Type"
-msgstr "Tipo de Mapa"
-
-msgid ""
-"Indicates whether the map is made for \"The Succession Wars\", \"The Price "
-"of Loyalty\" or \"Resurrection\" version of the game."
-msgstr ""
-"Indica se o mapa é feito para a versão \"As Guerras de Sucessão\", \"O Preço "
-"da Lealdade\" ou  \"Ressurreição\" do jogo."
-
-msgid "Map Type:\n"
-msgstr "Tipo de Mapa:\n"
-
 msgid "The Succession Wars"
 msgstr "As Guerras de Sucessão"
 
@@ -3814,6 +3867,15 @@ msgstr "O Preço da Lealdade"
 
 msgid "Resurrection"
 msgstr "Ressurreição"
+
+msgid "This map is made for \"%{game-version}\" version of the game."
+msgstr ""
+
+msgid "Map Type"
+msgstr "Tipo de Mapa"
+
+msgid "Map Type:\n"
+msgstr "Tipo de Mapa:\n"
 
 msgid ""
 "\n"
@@ -4445,13 +4507,6 @@ msgstr "Apenas um Artefato Definitivo Aleatório pode ser colocado no mapa."
 msgid "A maximum of %{count} obelisks can be placed on the map."
 msgstr "É possível colocar no máximo %{count} obeliscos no mapa."
 
-#, fuzzy
-msgid "Pick player count"
-msgstr "Ícone dos Jogadores"
-
-msgid "Limit region size"
-msgstr ""
-
 msgid "The map is corrupted."
 msgstr "O mapa está corrompido."
 
@@ -4733,16 +4788,15 @@ msgstr ""
 "Visualizar as opções do sistema do editor, que permitem personalizar o "
 "editor."
 
+msgid "Failed to generate a random map with given parameters."
+msgstr ""
+
 msgid ""
 "Create a new map, either from scratch or using the random map generator."
 msgstr ""
 
 msgid "Exit the Editor and return to the game's Main Menu."
 msgstr "Sair do Editor e retornar ao Menu Principal do jogo."
-
-#, fuzzy
-msgid "Warning!"
-msgstr "Aviso"
 
 msgid "From Scratch"
 msgstr "Do Zero"
@@ -5636,6 +5690,9 @@ msgstr "próximo herói"
 
 msgid "hotkey|change to hero under cursor"
 msgstr "mudar para o herói sob o cursor"
+
+msgid "hotkey|hold and left click to move hero portrait to top of list"
+msgstr ""
 
 msgid "hotkey|start hero movement"
 msgstr "iniciar movimento do herói"
@@ -9380,6 +9437,43 @@ msgstr "Grama"
 msgid "Ocean"
 msgstr "Oceano"
 
+msgid "map_layout|Mirrored"
+msgstr ""
+
+msgid "map_layout|Balanced"
+msgstr ""
+
+msgid "map_layout|Islands"
+msgstr ""
+
+msgid "map_layout|Pyramid"
+msgstr ""
+
+msgid "map_layout|Quest"
+msgstr ""
+
+msgid "resource_density|Scarce"
+msgstr ""
+
+msgid "resource_density|Normal"
+msgstr ""
+
+msgid "resource_density|Abundant"
+msgstr ""
+
+msgid "monster_strength|Weak"
+msgstr ""
+
+#, fuzzy
+msgid "monster_strength|Normal"
+msgstr "Neutra"
+
+msgid "monster_strength|Strong"
+msgstr ""
+
+msgid "monster_strength|Deadly"
+msgstr ""
+
 msgid "maps|Small"
 msgstr "Pequeno"
 
@@ -12563,6 +12657,17 @@ msgstr ""
 
 msgid "An unknown force is being resurrected..."
 msgstr "Uma força misteriosa está ressuscitando..."
+
+#~ msgid ""
+#~ "Indicates whether the map is made for \"The Succession Wars\", \"The "
+#~ "Price of Loyalty\" or \"Resurrection\" version of the game."
+#~ msgstr ""
+#~ "Indica se o mapa é feito para a versão \"As Guerras de Sucessão\", \"O "
+#~ "Preço da Lealdade\" ou  \"Ressurreição\" do jogo."
+
+#, fuzzy
+#~ msgid "Warning!"
+#~ msgstr "Aviso"
 
 #~ msgid "The description of the currently selected map."
 #~ msgstr "A descrição do mapa atualmente selecionado."

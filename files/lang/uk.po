@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fheroes2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-02 13:40+0000\n"
-"PO-Revision-Date: 2025-09-06 11:43+0300\n"
+"POT-Creation-Date: 2025-12-02 07:11+0000\n"
+"PO-Revision-Date: 2025-11-12 16:04+0200\n"
 "Last-Translator: fheroes2 team <fhomm2@gmail.com>\n"
 "Language-Team: \n"
 "Language: uk\n"
@@ -1142,6 +1142,14 @@ msgstr "Скинути до усталених налаштувань."
 
 msgid "Please select another hero."
 msgstr "Будь ласка, оберіть іншого героя."
+
+#, fuzzy
+msgid "Click to set this hero to be human-controlled."
+msgstr "Тицьніть щоб обрати цей колір."
+
+#, fuzzy
+msgid "Click to set this hero to be AI-controlled."
+msgstr "Тицьніть щоб обрати цей колір."
 
 msgid "%{race1} %{name1} vs %{race2} %{name2}"
 msgstr "%{race1} %{name1} проти %{race2} %{name2}"
@@ -2786,24 +2794,6 @@ msgstr ""
 "у Вас немає вільного місця під книгу. Спробуйте передати один із артефактів "
 "іншому герою."
 
-msgid "Click to show the next town."
-msgstr "Тицьніть щоб показати наступне місто."
-
-msgid "Show next town"
-msgstr "Показати наступне місто"
-
-msgid "Click to show the previous town."
-msgstr "Тицьніть щоб показати попереднє місто."
-
-msgid "Show previous town"
-msgstr "Показати попереднє місто"
-
-msgid "This town may not be upgraded to a castle."
-msgstr "Це Місто не можна покращити до Замку."
-
-msgid "Town"
-msgstr "Місто"
-
 msgid "Exit Castle"
 msgstr "Вийти з замку"
 
@@ -2813,8 +2803,26 @@ msgstr "Вийти з міста"
 msgid "Show Income"
 msgstr "Показати надходження"
 
+msgid "Show previous town"
+msgstr "Показати попереднє місто"
+
+msgid "Show next town"
+msgstr "Показати наступне місто"
+
 msgid "View Hero"
 msgstr "Оглянути героя"
+
+msgid "Click to show the next town."
+msgstr "Тицьніть щоб показати наступне місто."
+
+msgid "Click to show the previous town."
+msgstr "Тицьніть щоб показати попереднє місто."
+
+msgid "This town may not be upgraded to a castle."
+msgstr "Це Місто не можна покращити до Замку."
+
+msgid "Town"
+msgstr "Місто"
 
 msgid "The above spells are available here."
 msgstr "Вищевказані заклинання доступні тут."
@@ -3488,6 +3496,39 @@ msgstr "Очки Руху:"
 msgid "Uncharted Territory"
 msgstr "Незвідана територія"
 
+#, fuzzy
+msgid "Random Map Generator"
+msgstr "Випадковий Монстр"
+
+#, fuzzy
+msgid "rmg|Player count"
+msgstr "Виберіть кількість гравців"
+
+msgid "rmg|Map layout"
+msgstr ""
+
+#, fuzzy
+msgid "rmg|Water percentage"
+msgstr "Встановити відсоток води"
+
+#, fuzzy
+msgid "rmg|Monster strength"
+msgstr "Випадковий Монстр - сильний"
+
+msgid "rmg|Resource availability"
+msgstr ""
+
+msgid "rmg|Map seed"
+msgstr ""
+
+#, fuzzy
+msgid "Click to generate a new map."
+msgstr "Тицьніть, щоб увімкнути всі елементи."
+
+#, fuzzy
+msgid "Return to the previous menu."
+msgstr "Повернутися до попереднього меню налаштувань."
+
 msgid "Cost per troop:"
 msgstr "Вартість істоти:"
 
@@ -3624,36 +3665,57 @@ msgstr "Завантажити файли:"
 msgid "Terrain object"
 msgstr "Об'єкт місцевості"
 
+msgid "There is nothing to select from."
+msgstr ""
+
+#, fuzzy
+msgid "There are no castles to select from."
+msgstr "Назва обраної мапи."
+
 msgid "Accept the choice made."
 msgstr "Підтвердити ваш вибір."
 
-#, fuzzy
 msgid "Click to enable all items."
-msgstr "Тицьніть для увімкнення патрулювання героєм."
+msgstr "Тицьніть, щоб увімкнути всі елементи."
 
-#, fuzzy
 msgid "Enable All Items"
-msgstr "Заборонені заклинання"
+msgstr "Увімкнути Всі елементи"
 
-#, fuzzy
 msgid "Click to disable all items."
-msgstr "Тицьніть, щоб показати лише заклинання %{level} рівня."
+msgstr "Тицьніть, щоб вимкнути усі елементи."
 
-#, fuzzy
 msgid "Disable All Items"
-msgstr "Переглянути заклинання"
+msgstr "Вимкнути Усі елементи"
+
+msgid "There are no secondary skills to select from."
+msgstr ""
 
 msgid "Select Skill:"
 msgstr "Оберіть навичку:"
 
+#, fuzzy
+msgid "There are no spells to select."
+msgstr "Нема чар для використання."
+
 msgid "Select Spell:"
 msgstr "Оберіть закляття:"
+
+msgid "There are no artifacts to select from."
+msgstr ""
 
 msgid "Select Artifact:"
 msgstr "Оберіть артефакт:"
 
+#, fuzzy
+msgid "There are no monsters to select from."
+msgstr "Назва обраної мапи."
+
 msgid "Select Monster:"
 msgstr "Оберіть монстра:"
+
+#, fuzzy
+msgid "There are no heroes to select from."
+msgstr "Назва обраної мапи."
 
 msgid "Select Hero:"
 msgstr "Оберіть героя:"
@@ -3777,19 +3839,6 @@ msgstr ""
 msgid "Size Icon"
 msgstr "Іконка розміру"
 
-msgid "Map Type"
-msgstr "Тип мапи"
-
-msgid ""
-"Indicates whether the map is made for \"The Succession Wars\", \"The Price "
-"of Loyalty\" or \"Resurrection\" version of the game."
-msgstr ""
-"Вказує, чи створена мапа для версії гри \"Війни за спадщину\", \"Ціна "
-"вірності\" або \"Воскресіння\"."
-
-msgid "Map Type:\n"
-msgstr "Тип мапи:\n"
-
 msgid "The Succession Wars"
 msgstr "Війни за Спадщину"
 
@@ -3798,6 +3847,15 @@ msgstr "Ціна Вірності"
 
 msgid "Resurrection"
 msgstr "Воскресіння"
+
+msgid "This map is made for \"%{game-version}\" version of the game."
+msgstr ""
+
+msgid "Map Type"
+msgstr "Тип мапи"
+
+msgid "Map Type:\n"
+msgstr "Тип мапи:\n"
 
 msgid ""
 "\n"
@@ -3906,9 +3964,8 @@ msgstr ""
 "ресурсів або додаткові умови, що можуть зробити гру складнішою для гравця-"
 "людини."
 
-#, fuzzy
 msgid "Selected Map Description"
-msgstr "Опис"
+msgstr "Опис вибраної мапи"
 
 msgid "Jump"
 msgstr "Стрибками"
@@ -4424,12 +4481,6 @@ msgstr "На мапі можна розмістити лише один випа
 msgid "A maximum of %{count} obelisks can be placed on the map."
 msgstr "На мапі можна розмістити максимум %{count} обелісків."
 
-msgid "Pick player count"
-msgstr "Виберіть кількість гравців"
-
-msgid "Limit region size"
-msgstr "Обмежте розмір регіону"
-
 msgid "The map is corrupted."
 msgstr "Мапа пошкоджена."
 
@@ -4709,6 +4760,9 @@ msgstr ""
 "Перегляд системних параметрів редактора, за допомогою яких ви можете "
 "налаштувати редактор."
 
+msgid "Failed to generate a random map with given parameters."
+msgstr "Не вдалося створити випадкову мапу з заданими параметрами."
+
 msgid ""
 "Create a new map, either from scratch or using the random map generator."
 msgstr ""
@@ -4716,9 +4770,6 @@ msgstr ""
 
 msgid "Exit the Editor and return to the game's Main Menu."
 msgstr "Вийти з редактора та повернутися до головного меню."
-
-msgid "Warning!"
-msgstr "Попередження!"
 
 msgid "From Scratch"
 msgstr "З чистого аркуша"
@@ -5089,9 +5140,8 @@ msgstr "Видалити відповідь"
 msgid "Delete an existing answer for the question."
 msgstr "Видалити існуючу відповідь на запитання."
 
-#, fuzzy
 msgid "Riddle"
-msgstr "Загадка:"
+msgstr "Загадка"
 
 msgid "No artifact will be given as a reward."
 msgstr "Жоден артефакт не буде виданий у якості винагороди."
@@ -5595,6 +5645,11 @@ msgstr "наступний герой"
 
 msgid "hotkey|change to hero under cursor"
 msgstr "перейти на героя під курсором"
+
+msgid "hotkey|hold and left click to move hero portrait to top of list"
+msgstr ""
+"клацніть і утримуйте ліву кнопку миші, щоб перемістити портрет героя на "
+"вершину списку"
 
 msgid "hotkey|start hero movement"
 msgstr "почати рух героя"
@@ -9304,6 +9359,43 @@ msgstr "Трава"
 msgid "Ocean"
 msgstr "Океан"
 
+msgid "map_layout|Mirrored"
+msgstr ""
+
+msgid "map_layout|Balanced"
+msgstr ""
+
+msgid "map_layout|Islands"
+msgstr ""
+
+msgid "map_layout|Pyramid"
+msgstr ""
+
+msgid "map_layout|Quest"
+msgstr ""
+
+msgid "resource_density|Scarce"
+msgstr ""
+
+msgid "resource_density|Normal"
+msgstr ""
+
+msgid "resource_density|Abundant"
+msgstr ""
+
+msgid "monster_strength|Weak"
+msgstr ""
+
+#, fuzzy
+msgid "monster_strength|Normal"
+msgstr "Звичайна"
+
+msgid "monster_strength|Strong"
+msgstr ""
+
+msgid "monster_strength|Deadly"
+msgstr ""
+
 msgid "maps|Small"
 msgstr "Мала"
 
@@ -12455,6 +12547,23 @@ msgstr ""
 
 msgid "An unknown force is being resurrected..."
 msgstr "Невідома сила постає знов..."
+
+#~ msgid "Set map seed (set 0 to make the seed random)"
+#~ msgstr ""
+#~ "Встановити початкове значення мапи (встановіть 0 для випадкового значення)"
+
+#~ msgid ""
+#~ "Indicates whether the map is made for \"The Succession Wars\", \"The "
+#~ "Price of Loyalty\" or \"Resurrection\" version of the game."
+#~ msgstr ""
+#~ "Вказує, чи створена мапа для версії гри \"Війни за спадщину\", \"Ціна "
+#~ "вірності\" або \"Воскресіння\"."
+
+#~ msgid "Limit region size"
+#~ msgstr "Обмежте розмір регіону"
+
+#~ msgid "Warning!"
+#~ msgstr "Попередження!"
 
 #~ msgid "The description of the currently selected map."
 #~ msgstr "Опис обраної вами мапи."

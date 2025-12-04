@@ -99,7 +99,7 @@ namespace
         COUT( "Press " << Game::getHotKeyNameByEventId( Game::HotKeyEvent::DEFAULT_CANCEL ) << " to go back to New Map menu." )
     }
 
-    fheroes2::GameMode editNewMapFromScratch( const Maps::MapSize & mapSize )
+    fheroes2::GameMode editNewMapFromScratch( const Maps::MapSize mapSize )
     {
         fheroes2::fadeOutDisplay();
         Game::setDisplayFadeIn();
@@ -111,15 +111,21 @@ namespace
         return fheroes2::GameMode::EDITOR_NEW_MAP;
     }
 
-    fheroes2::GameMode editNewRandomMap( const Maps::MapSize & mapSize )
+    fheroes2::GameMode editNewRandomMap( const Maps::MapSize mapSize )
     {
         fheroes2::fadeOutDisplay();
         Game::setDisplayFadeIn();
 
         Interface::EditorInterface & editorInterface = Interface::EditorInterface::Get();
+        if ( !editorInterface.updateRandomMapConfiguration( mapSize ) ) {
+            return fheroes2::GameMode::EDITOR_NEW_MAP;
+        }
+
         if ( editorInterface.generateRandomMap( mapSize ) ) {
             return editorInterface.startEdit();
         }
+
+        fheroes2::showStandardTextMessage( _( "Warning" ), _( "Failed to generate a random map with given parameters." ), Dialog::OK );
         return fheroes2::GameMode::EDITOR_NEW_MAP;
     }
 }
@@ -284,11 +290,6 @@ namespace Editor
                     generateRandomMap = true;
 
                     prepareMapSizeMenu();
-
-                    fheroes2::showStandardTextMessage(
-                        _( "Warning!" ),
-                        "This feature is still in development and has some limitations. Errors might occur. This feature will continue to change as we are working on improving it.",
-                        Dialog::OK );
                 }
                 else if ( le.MouseClickLeft( buttonBack.area() ) || Game::HotKeyPressEvent( Game::HotKeyEvent::DEFAULT_CANCEL ) ) {
                     mapCreationModeButtons.disable();

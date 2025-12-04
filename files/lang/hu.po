@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fheroes2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-02 13:40+0000\n"
+"POT-Creation-Date: 2025-12-02 07:11+0000\n"
 "PO-Revision-Date: 2025-08-26 00:09+0200\n"
 "Last-Translator: Berda Jenő <big4billy@gmail.com>\n"
 "Language-Team: fheroes2 team <fhomm2@gmail.com>\n"
@@ -1110,6 +1110,14 @@ msgstr "Alapbeállítások visszaállítása."
 
 msgid "Please select another hero."
 msgstr "Kérlek válassz másik hőst."
+
+#, fuzzy
+msgid "Click to set this hero to be human-controlled."
+msgstr "Kattints a szín kiválasztásához."
+
+#, fuzzy
+msgid "Click to set this hero to be AI-controlled."
+msgstr "Kattints a szín kiválasztásához."
 
 msgid "%{race1} %{name1} vs %{race2} %{name2}"
 msgstr "%{race1} %{name1} és %{race2} %{name2} találkozik"
@@ -2756,24 +2764,6 @@ msgstr ""
 "varázskönyvre, de nincs szabad hely a könyv számára. Próbálj meg egy "
 "varázstárgyat átadni egy másik hősnek."
 
-msgid "Click to show the next town."
-msgstr "Kattints a következő város mutatásához."
-
-msgid "Show next town"
-msgstr "Következő város mutatása"
-
-msgid "Click to show the previous town."
-msgstr "Kattints az előző város mutatásához."
-
-msgid "Show previous town"
-msgstr "Előző város mutatása"
-
-msgid "This town may not be upgraded to a castle."
-msgstr "Ezt a várost nem lehet várrá fejleszteni."
-
-msgid "Town"
-msgstr "Város"
-
 msgid "Exit Castle"
 msgstr "Kilépés a várból"
 
@@ -2783,8 +2773,26 @@ msgstr "Kilépés a városból"
 msgid "Show Income"
 msgstr "Jövedelem mutatása"
 
+msgid "Show previous town"
+msgstr "Előző város mutatása"
+
+msgid "Show next town"
+msgstr "Következő város mutatása"
+
 msgid "View Hero"
 msgstr "Hős mutatása"
+
+msgid "Click to show the next town."
+msgstr "Kattints a következő város mutatásához."
+
+msgid "Click to show the previous town."
+msgstr "Kattints az előző város mutatásához."
+
+msgid "This town may not be upgraded to a castle."
+msgstr "Ezt a várost nem lehet várrá fejleszteni."
+
+msgid "Town"
+msgstr "Város"
 
 msgid "The above spells are available here."
 msgstr "A fenti varázslatok érhetők el itt."
@@ -3474,6 +3482,39 @@ msgstr "Mozgáspontok:"
 msgid "Uncharted Territory"
 msgstr "Felderítetlen terület"
 
+#, fuzzy
+msgid "Random Map Generator"
+msgstr "Véletlenszerű lény"
+
+#, fuzzy
+msgid "rmg|Player count"
+msgstr "Játékos ikon"
+
+msgid "rmg|Map layout"
+msgstr ""
+
+#, fuzzy
+msgid "rmg|Water percentage"
+msgstr "Vízelementál"
+
+#, fuzzy
+msgid "rmg|Monster strength"
+msgstr "Véletlenszerű lény - erős"
+
+msgid "rmg|Resource availability"
+msgstr ""
+
+msgid "rmg|Map seed"
+msgstr ""
+
+#, fuzzy
+msgid "Click to generate a new map."
+msgstr "Kattints a hősök járőrözési módjának bekapcsolásához."
+
+#, fuzzy
+msgid "Return to the previous menu."
+msgstr "Visszatérés a szerkesztő főmenüjébe."
+
 msgid "Cost per troop:"
 msgstr "Költség egységenként:"
 
@@ -3610,6 +3651,13 @@ msgstr "Fájl betöltése:"
 msgid "Terrain object"
 msgstr "Szárazföldi objektum"
 
+msgid "There is nothing to select from."
+msgstr ""
+
+#, fuzzy
+msgid "There are no castles to select from."
+msgstr "A kiválasztott térkép neve."
+
 msgid "Accept the choice made."
 msgstr "A választás elfogadása."
 
@@ -3629,17 +3677,35 @@ msgstr "Ide kattintva csak %{level}. szintű varázslatok jelennek meg."
 msgid "Disable All Items"
 msgstr "Varázslatok mutatása"
 
+msgid "There are no secondary skills to select from."
+msgstr ""
+
 msgid "Select Skill:"
 msgstr "Képesség kiválasztása:"
+
+#, fuzzy
+msgid "There are no spells to select."
+msgstr "Nincsenek varázslataid."
 
 msgid "Select Spell:"
 msgstr "Varázslat kiválasztása:"
 
+msgid "There are no artifacts to select from."
+msgstr ""
+
 msgid "Select Artifact:"
 msgstr "Varázstárgy kiválasztása:"
 
+#, fuzzy
+msgid "There are no monsters to select from."
+msgstr "A kiválasztott térkép neve."
+
 msgid "Select Monster:"
 msgstr "Lény kiválasztása:"
+
+#, fuzzy
+msgid "There are no heroes to select from."
+msgstr "A kiválasztott térkép neve."
 
 msgid "Select Hero:"
 msgstr "Hős kiválasztása:"
@@ -3764,19 +3830,6 @@ msgstr ""
 msgid "Size Icon"
 msgstr "Ikon méret"
 
-msgid "Map Type"
-msgstr "Térkép típusa"
-
-msgid ""
-"Indicates whether the map is made for \"The Succession Wars\", \"The Price "
-"of Loyalty\" or \"Resurrection\" version of the game."
-msgstr ""
-"Azt jelzi, hogy a térkép az \"Örökösödési háborúk\" vagy a \"Hűség ára\" "
-"vagy pedig a \"Feltámadás\" verzióhoz készült-e."
-
-msgid "Map Type:\n"
-msgstr "Térképtípus:\n"
-
 msgid "The Succession Wars"
 msgstr "Örökösödési háborúk"
 
@@ -3785,6 +3838,15 @@ msgstr "A hűség ára"
 
 msgid "Resurrection"
 msgstr "Feltámasztás"
+
+msgid "This map is made for \"%{game-version}\" version of the game."
+msgstr ""
+
+msgid "Map Type"
+msgstr "Térkép típusa"
+
+msgid "Map Type:\n"
+msgstr "Térképtípus:\n"
 
 msgid ""
 "\n"
@@ -4408,13 +4470,6 @@ msgstr "Csak egy véletlenszerű Szent Varázstárgy helyezhető el a térképen
 msgid "A maximum of %{count} obelisks can be placed on the map."
 msgstr "Maximum %{count} obeliszk helyezhető el a térképen."
 
-#, fuzzy
-msgid "Pick player count"
-msgstr "Játékos ikon"
-
-msgid "Limit region size"
-msgstr ""
-
 msgid "The map is corrupted."
 msgstr "A térkép fájl sérült."
 
@@ -4694,16 +4749,15 @@ msgstr ""
 "Tekintsd meg a szerkesztő rendszer beállításait, amik lehetővé teszik annak "
 "testreszabását."
 
+msgid "Failed to generate a random map with given parameters."
+msgstr ""
+
 msgid ""
 "Create a new map, either from scratch or using the random map generator."
 msgstr ""
 
 msgid "Exit the Editor and return to the game's Main Menu."
 msgstr "Kilépés a szerkesztőből és visszatérés a játék főmenüjébe."
-
-#, fuzzy
-msgid "Warning!"
-msgstr "Figyelmeztetés"
 
 msgid "From Scratch"
 msgstr "Elölről kezd"
@@ -5592,6 +5646,9 @@ msgstr "következő hős"
 
 msgid "hotkey|change to hero under cursor"
 msgstr "váltás a kurzor alatti hősre"
+
+msgid "hotkey|hold and left click to move hero portrait to top of list"
+msgstr ""
 
 msgid "hotkey|start hero movement"
 msgstr "hős mozgásának megkezdése"
@@ -9269,6 +9326,43 @@ msgstr "Fű"
 msgid "Ocean"
 msgstr "Óceán"
 
+msgid "map_layout|Mirrored"
+msgstr ""
+
+msgid "map_layout|Balanced"
+msgstr ""
+
+msgid "map_layout|Islands"
+msgstr ""
+
+msgid "map_layout|Pyramid"
+msgstr ""
+
+msgid "map_layout|Quest"
+msgstr ""
+
+msgid "resource_density|Scarce"
+msgstr ""
+
+msgid "resource_density|Normal"
+msgstr ""
+
+msgid "resource_density|Abundant"
+msgstr ""
+
+msgid "monster_strength|Weak"
+msgstr ""
+
+#, fuzzy
+msgid "monster_strength|Normal"
+msgstr "Normál"
+
+msgid "monster_strength|Strong"
+msgstr ""
+
+msgid "monster_strength|Deadly"
+msgstr ""
+
 msgid "maps|Small"
 msgstr "Kicsi"
 
@@ -12411,6 +12505,17 @@ msgstr "A férfi üres fecsegésére a nő így válaszolt: bla-bla-bla..."
 
 msgid "An unknown force is being resurrected..."
 msgstr "Egy ismeretlen erő kelt új életre ..."
+
+#~ msgid ""
+#~ "Indicates whether the map is made for \"The Succession Wars\", \"The "
+#~ "Price of Loyalty\" or \"Resurrection\" version of the game."
+#~ msgstr ""
+#~ "Azt jelzi, hogy a térkép az \"Örökösödési háborúk\" vagy a \"Hűség ára\" "
+#~ "vagy pedig a \"Feltámadás\" verzióhoz készült-e."
+
+#, fuzzy
+#~ msgid "Warning!"
+#~ msgstr "Figyelmeztetés"
 
 #~ msgid "The description of the currently selected map."
 #~ msgstr "A kiválasztott térkép leírása."

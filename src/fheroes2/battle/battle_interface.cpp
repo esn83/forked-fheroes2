@@ -1317,6 +1317,11 @@ void Battle::TurnOrder::redraw( const Unit * current, const uint8_t currentUnitC
             _restorer = std::make_unique<fheroes2::ImageRestorer>( display, _renderingRoi.x, _renderingRoi.y, _renderingRoi.width, _renderingRoi.height );
         }
     }
+    else if ( !_restorer && !_isInsideBattleField ) {
+        // This can happen when the option is being toggled on and off.
+        // We need to create the restorer.
+        _restorer = std::make_unique<fheroes2::ImageRestorer>( display, _renderingRoi.x, _renderingRoi.y, _renderingRoi.width, _renderingRoi.height );
+    }
 
     int32_t unitRectIndex = 0;
     int32_t unitsProcessed = 0;
@@ -1611,6 +1616,11 @@ void Battle::Interface::redrawPreRender()
         }
         _turnOrder.redraw( _currentUnit, _contourColor, unit, _mainSurface, border.GetRect() );
     }
+    else {
+        // If the option is being turned off we need to restore the background and clear the restorer to avoid repeating the same image operation.
+        _turnOrder.restore();
+        _turnOrder.clear();
+    }
 
 #ifdef WITH_DEBUG
     if ( IS_DEVEL() ) {
@@ -1876,7 +1886,8 @@ void Battle::Interface::RedrawArmies()
                 if ( _movingUnit != unitOnCell && unitOnCell->isValid() ) {
                     const int unitAnimState = unitOnCell->GetAnimationState();
                     const bool isStaticUnit = unitAnimState == Monster_Info::STATIC || unitAnimState == Monster_Info::IDLE;
-                    if ( isStaticUnit ) {
+                    // Either the unit is not moving or the unit is not being summoned.
+                    if ( isStaticUnit && ( !unitOnCell->Modes( CAP_SUMMONELEM ) || unitOnCell->GetCustomAlpha() == 255 ) ) {
                         troopCounter.emplace_back( unitOnCell );
                     }
 
@@ -2113,7 +2124,7 @@ void Battle::Interface::RedrawCover()
         if ( humanturn_spell.isValid() ) {
             switch ( humanturn_spell.GetID() ) {
             case Spell::COLDRING: {
-                for ( const int32_t & around : Board::GetAroundIndexes( _currentCellIndex ) ) {
+                for ( const int32_t around : Board::GetAroundIndexes( _currentCellIndex ) ) {
                     const Cell * nearbyCell = Board::GetCell( around );
                     if ( nearbyCell != nullptr ) {
                         highlightedCells.emplace( nearbyCell );
@@ -2124,7 +2135,7 @@ void Battle::Interface::RedrawCover()
             case Spell::FIREBALL:
             case Spell::METEORSHOWER: {
                 highlightedCells.emplace( cell );
-                for ( const int32_t & around : Board::GetAroundIndexes( _currentCellIndex ) ) {
+                for ( const int32_t around : Board::GetAroundIndexes( _currentCellIndex ) ) {
                     const Cell * nearbyCell = Board::GetCell( around );
                     if ( nearbyCell != nullptr ) {
                         highlightedCells.emplace( nearbyCell );
@@ -2134,7 +2145,7 @@ void Battle::Interface::RedrawCover()
             }
             case Spell::FIREBLAST: {
                 highlightedCells.emplace( cell );
-                for ( const int32_t & around : Board::GetDistanceIndexes( _currentCellIndex, 2 ) ) {
+                for ( const int32_t around : Board::GetDistanceIndexes( _currentCellIndex, 2 ) ) {
                     const Cell * nearbyCell = Board::GetCell( around );
                     if ( nearbyCell != nullptr ) {
                         highlightedCells.emplace( nearbyCell );
@@ -2182,7 +2193,7 @@ void Battle::Interface::RedrawCover()
         else if ( _currentUnit->isAbilityPresent( fheroes2::MonsterAbilityType::AREA_SHOT )
                   && ( cursorType == Cursor::WAR_ARROW || cursorType == Cursor::WAR_BROKENARROW ) ) {
             highlightedCells.emplace( cell );
-            for ( const int32_t & around : Board::GetAroundIndexes( _currentCellIndex ) ) {
+            for ( const int32_t around : Board::GetAroundIndexes( _currentCellIndex ) ) {
                 const Cell * nearbyCell = Board::GetCell( around );
                 if ( nearbyCell != nullptr ) {
                     highlightedCells.emplace( nearbyCell );
@@ -2669,7 +2680,7 @@ void Battle::Interface::_redrawHighObjects( const int32_t cellId )
 void Battle::Interface::RedrawKilled()
 {
     // Redraw killed troops.
-    for ( const int32_t & cell : arena.getCellsOccupiedByGraveyard() ) {
+    for ( const int32_t cell : arena.getCellsOccupiedByGraveyard() ) {
         for ( const Unit * unit : arena.getGraveyardUnits( cell ) ) {
             if ( unit && cell != unit->GetTailIndex() ) {
                 RedrawTroopSprite( *unit );
@@ -6860,6 +6871,7 @@ void Battle::Interface::CheckGlobalEvents( LocalEvent & le )
     // Animation of the currently active unit's contour
     if ( Game::validateAnimationDelay( Game::BATTLE_SELECTED_UNIT_DELAY ) ) {
         UpdateContourColor();
+        humanturn_redraw = true;
     }
 
     // Animation of flags and heroes idle.

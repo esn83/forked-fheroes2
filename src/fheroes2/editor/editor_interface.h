@@ -22,6 +22,7 @@
 
 #include <cstdint>
 #include <functional>
+#include <set>
 #include <string>
 #include <utility>
 
@@ -62,7 +63,7 @@ namespace Interface
         static fheroes2::GameMode eventFileDialog();
         void eventViewWorld();
 
-        bool useMouseDragMovement() override
+        bool useMouseDragMovement() const override
         {
             return _editorPanel.useMouseDragMovement();
         }
@@ -107,12 +108,10 @@ namespace Interface
 
         void openMapSpecificationsDialog();
 
-        // TODO: move this function into map_format_helper.h|cpp files as it belongs there.
-        //       This is needed for the future support of random map generation from the Main Menu screen.
-        bool placeCastle( const int32_t posX, const int32_t posY, const PlayerColor color, const int32_t type );
+        bool updateRandomMapConfiguration( const int32_t mapWidth );
 
     private:
-        class WarningMessage
+        class WarningMessage final
         {
         public:
             explicit WarningMessage( EditorInterface & interface )
@@ -173,12 +172,14 @@ namespace Interface
 
         void _updateObjectUID( const uint32_t oldObjectUID, const uint32_t newObjectUID );
 
-        bool _updateRandomMapConfiguration();
+        bool _placeCastle( const int32_t posX, const int32_t posY, const PlayerColor color, const int32_t type );
 
         EditorPanel _editorPanel;
 
         int32_t _areaSelectionStartTileId{ -1 };
         int32_t _tileUnderCursor{ -1 };
+
+        std::set<int32_t> _brushTiles;
 
         Maps::Random_Generator::Configuration _randomMapConfig;
 

@@ -98,6 +98,7 @@
     <ClCompile Include="src\fheroes2\dialog\dialog_levelup.cpp" />
     <ClCompile Include="src\fheroes2\dialog\dialog_marketplace.cpp" />
     <ClCompile Include="src\fheroes2\dialog\dialog_quickinfo.cpp" />
+    <ClCompile Include="src\fheroes2\dialog\dialog_random_map_generator.cpp" />
     <ClCompile Include="src\fheroes2\dialog\dialog_recruit.cpp" />
     <ClCompile Include="src\fheroes2\dialog\dialog_resolution.cpp" />
     <ClCompile Include="src\fheroes2\dialog\dialog_selectcount.cpp" />
@@ -209,6 +210,8 @@
     <ClCompile Include="src\fheroes2\maps\map_format_info.cpp" />
     <ClCompile Include="src\fheroes2\maps\map_object_info.cpp" />
     <ClCompile Include="src\fheroes2\maps\map_random_generator.cpp" />
+    <ClCompile Include="src\fheroes2\maps\map_random_generator_helper.cpp" />
+    <ClCompile Include="src\fheroes2\maps\map_random_generator_info.cpp" />
     <ClCompile Include="src\fheroes2\maps\maps.cpp" />
     <ClCompile Include="src\fheroes2\maps\maps_fileinfo.cpp" />
     <ClCompile Include="src\fheroes2\maps\maps_objects.cpp" />
@@ -316,6 +319,7 @@
     <ClInclude Include="src\fheroes2\dialog\dialog_hotkeys.h" />
     <ClInclude Include="src\fheroes2\dialog\dialog_interface_settings.h" />
     <ClInclude Include="src\fheroes2\dialog\dialog_language_selection.h" />
+    <ClInclude Include="src\fheroes2\dialog\dialog_random_map_generator.h" />
     <ClInclude Include="src\fheroes2\dialog\dialog_resolution.h" />
     <ClInclude Include="src\fheroes2\dialog\dialog_selectitems.h" />
     <ClInclude Include="src\fheroes2\dialog\dialog_selectscenario.h" />
@@ -416,6 +420,8 @@
     <ClInclude Include="src\fheroes2\maps\map_format_info.h" />
     <ClInclude Include="src\fheroes2\maps\map_object_info.h" />
     <ClInclude Include="src\fheroes2\maps\map_random_generator.h" />
+    <ClInclude Include="src\fheroes2\maps\map_random_generator_helper.h" />
+    <ClInclude Include="src\fheroes2\maps\map_random_generator_info.h" />
     <ClInclude Include="src\fheroes2\maps\maps.h" />
     <ClInclude Include="src\fheroes2\maps\maps_fileinfo.h" />
     <ClInclude Include="src\fheroes2\maps\maps_objects.h" />

@@ -397,6 +397,78 @@ Castle::CastleDialogReturnValue Castle::OpenDialog( const bool openConstructionW
     buttonNextCastle.draw();
     buttonExit.draw();
 
+    std::string statusMessage;
+    LocalEvent & le = LocalEvent::Get();
+    auto updateStatusBar = [&]() {
+        bool isRedrawNeeded{ false };
+
+        // Army bar events processing.
+        if ( ( bottomArmyBar.isValid()
+               && ( ( le.isMouseCursorPosInArea( topArmyBar.GetArea() ) && topArmyBar.QueueEventProcessing( bottomArmyBar, &statusMessage ) )
+                    || ( le.isMouseCursorPosInArea( bottomArmyBar.GetArea() ) && bottomArmyBar.QueueEventProcessing( topArmyBar, &statusMessage ) ) ) )
+             || ( !bottomArmyBar.isValid() && le.isMouseCursorPosInArea( topArmyBar.GetArea() ) && topArmyBar.QueueEventProcessing( &statusMessage ) ) ) {
+            isRedrawNeeded = true;
+        }
+
+        // Update status bar. It doesn't depend on animation status.
+        // Animation queue starts from the lowest by Z-value buildings which means that they draw first and most likely overlap by the top buildings in the queue.
+        // In this case we must revert the queue and finding the first suitable building.
+        for ( auto it = cacheBuildings.crbegin(); it != cacheBuildings.crend(); ++it ) {
+            if ( !isBuild( it->id ) ) {
+                continue;
+            }
+
+            bool isMouseInArea{ false };
+            for ( const auto & area : it->areas ) {
+                if ( le.isMouseCursorPosInArea( area ) ) {
+                    isMouseInArea = true;
+                    break;
+                }
+            }
+
+            if ( !isMouseInArea ) {
+                continue;
+            }
+
+            statusMessage = buildingStatusMessage( _race, it->id );
+            break;
+        }
+
+        if ( le.isMouseCursorPosInArea( buttonExit.area() ) ) {
+            statusMessage = isCastle() ? _( "Exit Castle" ) : _( "Exit Town" );
+        }
+        else if ( le.isMouseCursorPosInArea( resActiveArea ) ) {
+            statusMessage = _( "Show Income" );
+        }
+        else if ( buttonPrevCastle.isEnabled() && le.isMouseCursorPosInArea( buttonPrevCastle.area() ) ) {
+            statusMessage = _( "Show previous town" );
+        }
+        else if ( buttonNextCastle.isEnabled() && le.isMouseCursorPosInArea( buttonNextCastle.area() ) ) {
+            statusMessage = _( "Show next town" );
+        }
+        else if ( hero && le.isMouseCursorPosInArea( rectSign2 ) ) {
+            statusMessage = _( "View Hero" );
+        }
+
+        fheroes2::Rect area;
+
+        if ( statusMessage.empty() ) {
+            area = statusBar.updateMessage( currentDate );
+        }
+        else {
+            area = statusBar.updateMessage( statusMessage );
+            statusMessage.clear();
+        }
+
+        if ( area != fheroes2::Rect{} ) {
+            display.updateNextRenderRoi( area );
+        }
+
+        return isRedrawNeeded || area != fheroes2::Rect{};
+    };
+
+    updateStatusBar();
+
     // Fade-in castle dialog.
     if ( fade ) {
         if ( renderBackgroundDialog && !isDefaultScreenSize ) {
@@ -414,12 +486,10 @@ Castle::CastleDialogReturnValue Castle::OpenDialog( const bool openConstructionW
     CastleDialogReturnValue result = CastleDialogReturnValue::DoNothing;
 
     // This variable must be declared out of the loop for performance reasons.
-    std::string statusMessage;
     uint32_t castleAnimationIndex = 1;
 
     Game::passAnimationDelay( Game::CASTLE_AROUND_DELAY );
 
-    LocalEvent & le = LocalEvent::Get();
     while ( le.HandleEvents() && result == CastleDialogReturnValue::DoNothing ) {
         bool needRedraw = false;
         bool needFadeIn = false;
@@ -492,13 +562,7 @@ Castle::CastleDialogReturnValue Castle::OpenDialog( const bool openConstructionW
                 display.render( fheroes2::getBoundaryRect( topArmyBar.GetArea(), bottomArmyBar.GetArea() ) );
             }
 
-            // Army bar events processing.
-            if ( ( bottomArmyBar.isValid()
-                   && ( ( le.isMouseCursorPosInArea( topArmyBar.GetArea() ) && topArmyBar.QueueEventProcessing( bottomArmyBar, &statusMessage ) )
-                        || ( le.isMouseCursorPosInArea( bottomArmyBar.GetArea() ) && bottomArmyBar.QueueEventProcessing( topArmyBar, &statusMessage ) ) ) )
-                 || ( !bottomArmyBar.isValid() && le.isMouseCursorPosInArea( topArmyBar.GetArea() ) && topArmyBar.QueueEventProcessing( &statusMessage ) ) ) {
-                needRedraw = true;
-            }
+            needRedraw = needRedraw || updateStatusBar();
 
             // Actions with hero army.
             if ( hero ) {
@@ -558,7 +622,15 @@ Castle::CastleDialogReturnValue Castle::OpenDialog( const bool openConstructionW
                 const uint32_t monsterDwelling = GetActualDwelling( it->id );
                 const bool isMonsterDwelling = ( monsterDwelling != BUILD_NOTHING );
 
-                if ( le.isMouseRightButtonPressedInArea( it->coord ) ) {
+                bool isRightButtonInArea{ false };
+                for ( const auto & area : it->areas ) {
+                    if ( le.isMouseRightButtonPressedInArea( area ) ) {
+                        isRightButtonInArea = true;
+                        break;
+                    }
+                }
+
+                if ( isRightButtonInArea ) {
                     // Check mouse right click.
                     if ( isMonsterDwelling ) {
                         Dialog::DwellingInfo( Monster( _race, it->id ), getMonstersInDwelling( it->id ) );
@@ -573,7 +645,17 @@ Castle::CastleDialogReturnValue Castle::OpenDialog( const bool openConstructionW
 
                 const bool isMagicGuild = ( BUILD_MAGEGUILD & it->id ) != 0;
 
-                if ( le.MouseClickLeft( it->coord ) || hotKeyBuilding == it->id || ( isMagicGuild && hotKeyBuilding == BUILD_MAGEGUILD ) ) {
+                bool isBuildingClicked = ( hotKeyBuilding == it->id || ( isMagicGuild && hotKeyBuilding == BUILD_MAGEGUILD ) );
+                if ( !isBuildingClicked ) {
+                    for ( const auto & area : it->areas ) {
+                        if ( le.MouseClickLeft( area ) ) {
+                            isBuildingClicked = true;
+                            break;
+                        }
+                    }
+                }
+
+                if ( isBuildingClicked ) {
                     if ( topArmyBar.isSelected() ) {
                         topArmyBar.ResetSelected();
                     }
@@ -732,40 +814,6 @@ Castle::CastleDialogReturnValue Castle::OpenDialog( const bool openConstructionW
             else {
                 display.render( dialogRoi );
             }
-        }
-
-        // Update status bar. It doesn't depend on animation status.
-        // Animation queue starts from the lowest by Z-value buildings which means that they draw first and most likely overlap by the top buildings in the queue.
-        // In this case we must revert the queue and finding the first suitable building.
-        for ( auto it = cacheBuildings.crbegin(); it != cacheBuildings.crend(); ++it ) {
-            if ( isBuild( it->id ) && le.isMouseCursorPosInArea( it->coord ) ) {
-                statusMessage = buildingStatusMessage( _race, it->id );
-                break;
-            }
-        }
-
-        if ( le.isMouseCursorPosInArea( buttonExit.area() ) ) {
-            statusMessage = isCastle() ? _( "Exit Castle" ) : _( "Exit Town" );
-        }
-        else if ( le.isMouseCursorPosInArea( resActiveArea ) ) {
-            statusMessage = _( "Show Income" );
-        }
-        else if ( buttonPrevCastle.isEnabled() && le.isMouseCursorPosInArea( buttonPrevCastle.area() ) ) {
-            statusMessage = _( "Show previous town" );
-        }
-        else if ( buttonNextCastle.isEnabled() && le.isMouseCursorPosInArea( buttonNextCastle.area() ) ) {
-            statusMessage = _( "Show next town" );
-        }
-        else if ( hero && le.isMouseCursorPosInArea( rectSign2 ) ) {
-            statusMessage = _( "View Hero" );
-        }
-
-        if ( statusMessage.empty() ) {
-            statusBar.ShowMessage( currentDate );
-        }
-        else {
-            statusBar.ShowMessage( statusMessage );
-            statusMessage.clear();
         }
 
         needRedraw = fadeBuilding.updateFadeAlpha();
