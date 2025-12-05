@@ -32,15 +32,17 @@ namespace GameCheats
     extern std::unordered_set<uint8_t> cheatingColors;
     extern std::unordered_set<uint8_t> winningColors;
     extern bool freeBuildings;
+    extern std::unordered_set<const Heroes*> blockedExperienceHeroes;
 
     void enableCheats( bool cheatsEnabled );
     bool areCheatsEnabled();
     bool isPlayersCheating();
     bool redrawHeroesDialog();
     Interface::StatusType redrawStatus();
-    bool getBlockExperience();
     void onKeyPressed( const fheroes2::Key key, const int32_t modifier );
     void gameCheatsReset();
+    bool isExperienceBlockedFor(const Heroes* hero);
+    void blockExperienceFor(const Heroes* hero);
 }
 
 // serialization of cheatingColors so it can be added to save games and loaded from load games

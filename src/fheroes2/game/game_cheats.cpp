@@ -54,7 +54,7 @@ namespace GameCheats
     bool redrawStatusFlagSetArmy = false;
     bool redrawStatusFlagSetFunds = false;
     bool freeBuildings = false;
-    bool setBlockExperienceFlag = false;
+    std::unordered_set<const Heroes*> GameCheats::blockedExperienceHeroes;
 
     const size_t MAX_BUFFER = 32;
 
@@ -304,7 +304,7 @@ namespace GameCheats
                         hero->LearnSkill(Skill::Secondary(selected_skills[i], Skill::Level::EXPERT));
                     }
 
-                    setBlockExperienceFlag = true;
+                    blockExperienceFor(hero);
                     redrawHeroesDialogFlag = true;
                 }
             }},
@@ -471,9 +471,14 @@ namespace GameCheats
         return Interface::StatusType::STATUS_UNKNOWN;
     }
 
-    bool getBlockExperience()
+    bool GameCheats::isExperienceBlockedFor(const Heroes* hero)
     {
-        return setBlockExperienceFlag;
+        return blockedExperienceHeroes.count(hero) > 0;
+    }
+
+    void GameCheats::blockExperienceFor(const Heroes* hero)
+    {
+        blockedExperienceHeroes.insert(hero);
     }
 
     void gameCheatsReset()

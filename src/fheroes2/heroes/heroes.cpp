@@ -1462,29 +1462,26 @@ bool Heroes::PickupArtifact( const Artifact & art )
     return true;
 }
 
-void Heroes::IncreaseExperience( const uint32_t amount, const bool autoselect /* = false */ )
+void Heroes::IncreaseExperience( const uint32_t amount, const bool autoselect )
 {
-    if (GameCheats::getBlockExperience())
-    {
+    if ( GameCheats::isExperienceBlockedFor(this) ) {
         return;
     }
-    else
-    {
-        const int oldLevel = GetLevelFromExperience( _experience );
-        const int newLevel = GetLevelFromExperience( _experience + amount );
 
-        const uint32_t updatedExperience = _experience + amount;
+    const int oldLevel = GetLevelFromExperience( _experience );
+    const int newLevel = GetLevelFromExperience( _experience + amount );
 
-        for ( int level = oldLevel; level < newLevel - 1; ++level ) {
-            _experience = GetExperienceFromLevel( level );
-            _levelUp( false, autoselect );
-        }
+    const uint32_t updatedExperience = _experience + amount;
 
-        _experience = updatedExperience;
+    for ( int level = oldLevel; level < newLevel - 1; ++level ) {
+        _experience = GetExperienceFromLevel( level );
+        _levelUp( false, autoselect );
+    }
 
-        if ( newLevel > oldLevel ) {
-            _levelUp( false, autoselect );
-        }
+    _experience = updatedExperience;
+
+    if ( newLevel > oldLevel ) {
+        _levelUp( false, autoselect );
     }
 }
 
