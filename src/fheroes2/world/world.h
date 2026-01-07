@@ -1,6 +1,6 @@
 /***************************************************************************
  *   fheroes2: https://github.com/ihhub/fheroes2                           *
- *   Copyright (C) 2019 - 2025                                             *
+ *   Copyright (C) 2019 - 2026                                             *
  *                                                                         *
  *   Free Heroes2 Engine: http://sourceforge.net/projects/fheroes2         *
  *   Copyright (C) 2009 by Andrey Afletdinov <fheroes2@gmail.com>          *
@@ -208,7 +208,9 @@ public:
     bool loadResurrectionMap( const std::string & filename );
 
     // Generate 2x2 map for Battle Only mode.
-    void generateBattleOnlyMap();
+    void generateBattleOnlyMap( const int32_t groundType );
+
+    void setUniformTerrain( const int32_t groundType );
 
     // Generates a map without initializing tiles.
     // WARNING: call this method only when reading a map from a file
@@ -493,8 +495,8 @@ private:
     uint32_t week = 0;
     uint32_t month = 0;
 
-    int heroIdAsWinCondition = Heroes::UNKNOWN;
-    int heroIdAsLossCondition = Heroes::UNKNOWN;
+    int32_t heroIdAsWinCondition = Heroes::UNKNOWN;
+    int32_t heroIdAsLossCondition = Heroes::UNKNOWN;
 
     MapObjects map_objects;
 

@@ -1,6 +1,6 @@
 /***************************************************************************
  *   fheroes2: https://github.com/ihhub/fheroes2                           *
- *   Copyright (C) 2019 - 2025                                             *
+ *   Copyright (C) 2019 - 2026                                             *
  *                                                                         *
  *   Free Heroes2 Engine: http://sourceforge.net/projects/fheroes2         *
  *   Copyright (C) 2009 by Andrey Afletdinov <fheroes2@gmail.com>          *
@@ -339,18 +339,23 @@ void World::Reset()
     _seed = 0;
 }
 
-void World::generateBattleOnlyMap()
+void World::generateBattleOnlyMap( const int32_t groundType )
 {
-    const std::vector<int> terrainTypes{ Maps::Ground::DESERT, Maps::Ground::SNOW, Maps::Ground::SWAMP, Maps::Ground::WASTELAND, Maps::Ground::BEACH,
-                                         Maps::Ground::LAVA,   Maps::Ground::DIRT, Maps::Ground::GRASS, Maps::Ground::WATER };
-
     generateUninitializedMap( 2 );
-
-    const int groundType = Rand::Get( terrainTypes );
 
     for ( size_t i = 0; i < vec_tiles.size(); ++i ) {
         vec_tiles[i].setIndex( static_cast<int32_t>( i ) );
-        vec_tiles[i].setTerrain( Maps::Ground::getTerrainStartImageIndex( groundType ), 0 );
+    }
+
+    setUniformTerrain( groundType );
+}
+
+void World::setUniformTerrain( const int32_t groundType )
+{
+    const uint16_t terrainImageIndex = Maps::Ground::getTerrainStartImageIndex( groundType );
+
+    for ( auto & tile : vec_tiles ) {
+        tile.setTerrain( terrainImageIndex, 0 );
     }
 }
 
@@ -1490,7 +1495,7 @@ IStreamBase & operator>>( IStreamBase & stream, MapObjects & objs )
 
         static_assert( LAST_SUPPORTED_FORMAT_VERSION < FORMAT_VERSION_PRE2_1103_RELEASE, "Remove the logic below." );
         if ( Game::GetVersionOfCurrentSaveFile() < FORMAT_VERSION_PRE2_1103_RELEASE ) {
-            int temp{ MP2::OBJ_NONE };
+            int32_t temp{ MP2::OBJ_NONE };
             stream >> temp;
 
             type = static_cast<MP2::MapObjectType>( temp );
@@ -1786,7 +1791,7 @@ IStreamBase & operator>>( IStreamBase & stream, EventDate & obj )
 
     static_assert( LAST_SUPPORTED_FORMAT_VERSION < FORMAT_VERSION_1109_RELEASE, "Remove the logic below." );
     if ( Game::GetVersionOfCurrentSaveFile() < FORMAT_VERSION_1109_RELEASE ) {
-        int temp;
+        int32_t temp;
         stream >> temp;
         obj.colors = static_cast<PlayerColorsSet>( temp );
     }
