@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fheroes2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-15 02:18+0000\n"
+"POT-Creation-Date: 2026-04-05 13:11+0000\n"
 "PO-Revision-Date: 2024-02-20 08:49+0700\n"
 "Last-Translator: fheroes2 team <fhomm2@gmail.com>\n"
 "Language-Team: \n"
@@ -19,6 +19,9 @@ msgstr ""
 
 msgid "SELECT"
 msgstr "CHỌN"
+
+msgid "ABOUT"
+msgstr ""
 
 msgid "S"
 msgstr "S"
@@ -533,11 +536,13 @@ msgstr ""
 "Hào giảm -%{count} kỹ năng phòng thủ của bất kỳ đơn vị nào và làm chậm một "
 "nửa tốc độ di chuyển."
 
-msgid "Speed: %{speed}"
+#, fuzzy
+msgid "battleAnimation|Speed: %{speed}"
 msgstr "Tốc độ: %{speed}"
 
-msgid "Speed"
-msgstr "Tốc độ"
+#, fuzzy
+msgid "battleAnimation|Speed"
+msgstr "Thôn tính"
 
 msgid "Interface"
 msgstr "Giao diện"
@@ -1042,6 +1047,12 @@ msgstr "Chết %{max}"
 msgid "Perish: %{min} - %{max}"
 msgstr "Chết: %{min} - %{max}"
 
+msgid "battle_turn_order|Top"
+msgstr ""
+
+msgid "battle_turn_order|Bottom"
+msgstr ""
+
 msgid "Turn Order"
 msgstr "Thứ tự Xếp hàng"
 
@@ -1086,7 +1097,7 @@ msgid ""
 msgstr ""
 "Bật hoặc tắt bóng hiển thị vị trí của con trỏ chuột trên lưới lục giác."
 
-msgid "Toggle showing the movement area of a highlighted creature on or off ."
+msgid "Toggle showing the movement area of a highlighted creature on or off."
 msgstr ""
 
 msgid ""
@@ -1099,12 +1110,12 @@ msgstr ""
 msgid "Human"
 msgstr "Con người"
 
-msgid "AI"
-msgstr "AI"
-
 #, fuzzy
 msgid "Terrain"
 msgstr "Chế độ Địa hình"
+
+msgid "Battle Only"
+msgstr "Chỉ Chiến đấu"
 
 #, fuzzy
 msgid "Start"
@@ -1137,11 +1148,16 @@ msgid "Please select another hero."
 msgstr "Hãy chọn một tướng khác."
 
 #, fuzzy
-msgid "Click to set this hero to be human-controlled."
+msgid "Click to select a hero."
 msgstr "Nhấp để chọn màu này."
 
 #, fuzzy
-msgid "Click to set this hero to be AI-controlled."
+msgid "Hero"
+msgstr "Tướng"
+
+#, fuzzy
+msgid ""
+"If this checkbox is checked, the defending hero is going be human-controlled."
 msgstr "Nhấp để chọn màu này."
 
 msgid "%{race1} %{name1} vs %{race2} %{name2}"
@@ -2965,6 +2981,9 @@ msgstr "Sát thương"
 msgid "HP"
 msgstr "Máu"
 
+msgid "Speed"
+msgstr "Tốc độ"
+
 msgid "Growth"
 msgstr "Sinh trưởng"
 
@@ -3267,6 +3286,13 @@ msgid ""
 msgstr ""
 "Điều kiện\n"
 "Thua"
+
+msgid "About"
+msgstr ""
+
+#, fuzzy
+msgid "Click to read notes from the map creator."
+msgstr "Nhấp để quay lại màn hình chính."
 
 #, fuzzy
 msgid "Map Description"
@@ -3800,6 +3826,10 @@ msgstr "Chọn Tướng:"
 #, fuzzy
 msgid "Select Monsters:"
 msgstr "Chọn Quái vật:"
+
+#, fuzzy
+msgid "Select Artifacts:"
+msgstr "Chọn Bảo vật:"
 
 msgid "race|Random"
 msgstr "Ngẫu nhiên"
@@ -5123,18 +5153,12 @@ msgstr ""
 msgid "LANGUAGE"
 msgstr ""
 
-msgid "ABOUT"
-msgstr ""
-
 msgid "Change Map Name"
 msgstr ""
 
 #, fuzzy
 msgid "Change Map Description"
 msgstr "Chọn Mô tả"
-
-msgid "About"
-msgstr ""
 
 #, fuzzy
 msgid "Click to edit custom rumors."
@@ -5807,6 +5831,10 @@ msgstr "bản đồ mới ngẫu nhiên"
 msgid "hotkey|re-configure random map"
 msgstr "bản đồ mới ngẫu nhiên"
 
+#, fuzzy
+msgid "hotkey|output all text"
+msgstr "cuộn trái"
+
 msgid "hotkey|roland campaign"
 msgstr "chiến dịch roland"
 
@@ -6221,9 +6249,6 @@ msgid ""
 msgstr ""
 "Một trò chơi nhiều người chơi, trong đó một số người chơi sẽ đấu với nhau "
 "trên một bản đồ."
-
-msgid "Battle Only"
-msgstr "Chỉ Chiến đấu"
 
 msgid "Setup and play a battle without loading any map."
 msgstr ""
@@ -6879,13 +6904,56 @@ msgstr "Phòng thủ"
 msgid "The available values range from %{min} to %{max}."
 msgstr ""
 
+msgid "Uppercase"
+msgstr ""
+
+#, fuzzy
+msgid "Click to switch to uppercase letters."
+msgstr "Nhấp để lưu trò chơi hiện tại."
+
 msgid "Keyboard|123"
+msgstr ""
+
+msgid "Keyboard type"
+msgstr ""
+
+msgid "Click to switch between keyboard types."
 msgstr ""
 
 msgid "Keyboard|SPACE"
 msgstr ""
 
+#, fuzzy
+msgid "Change language"
+msgstr "Thay đổi ngôn ngữ của trò chơi."
+
+#, fuzzy
+msgid "Click to switch between languages."
+msgstr "Bấm để chọn ngôn ngữ đã chọn."
+
+msgid "Backspace"
+msgstr ""
+
+#, fuzzy
+msgid "Click to remove characters."
+msgstr "Nhấp để áp dụng độ phân giải đã chọn."
+
+#, fuzzy
+msgid "Lowercase"
+msgstr "Hoa"
+
+#, fuzzy
+msgid "Click to switch to lowercase letters."
+msgstr "Nhấp để lưu trò chơi hiện tại."
+
 msgid "Keyboard|ABC"
+msgstr ""
+
+#, fuzzy
+msgid "Swap sign"
+msgstr "Thiết kế Bản đồ"
+
+msgid "Click to switch between signed and unsigned numbers."
 msgstr ""
 
 msgid "The entered value is invalid."
@@ -8625,13 +8693,13 @@ msgstr "Chỉ có tướng mới có thể niệm phép này."
 msgid "This hero is not able to cast adventure spells."
 msgstr "Tướng này không thể sử dụng phép thuật phiêu lưu."
 
+msgid "This spell cannot be cast on a boat."
+msgstr "Phép này không thể dùng trên thuyền."
+
 msgid "Your hero is too tired to cast this spell today. Try again tomorrow."
 msgstr ""
 "Tướng của ngươi đã quá mệt mỏi để sử dụng câu thần chú này ngày hôm nay. Hãy "
 "thử lại vào ngày mai."
-
-msgid "This spell cannot be cast on a boat."
-msgstr "Phép này không thể dùng trên thuyền."
 
 msgid "This spell can only be cast near an ocean."
 msgstr "Phép này chỉ sử dụng nơi gần đại dương."
@@ -9413,23 +9481,23 @@ msgstr ""
 
 #, fuzzy
 msgid ""
-"Negative luck sometimes falls on the hero's units in combat, causing their "
-"attacks to only do half damage."
+"%{luck-type} luck sometimes falls on the hero's units in combat, causing "
+"their attacks to only do half damage."
 msgstr ""
 "Vận rủi đôi khi rơi vào quân đội của ngươi trong chiến đấu, khiến đòn tấn "
 "công của họ chỉ gây sát thương một nửa."
 
 #, fuzzy
 msgid ""
-"Neutral luck means the hero's units will never get lucky or unlucky attacks "
-"on the enemy."
+"%{luck-type} luck means the hero's units will never get lucky or unlucky "
+"attacks on the enemy."
 msgstr ""
 "May mắn trung tính có nghĩa là quân đội của ngươi sẽ không bao giờ gặp may "
 "mắn hoặc xui xẻo tấn công kẻ thù."
 
 #, fuzzy
 msgid ""
-"Positive luck sometimes lets the hero's units get lucky attacks (double "
+"%{luck-type} luck sometimes lets the hero's units get lucky attacks (double "
 "strength) in combat."
 msgstr ""
 "May mắn tốt đôi khi giúp quân đội của ngươi nhận được những đòn tấn công may "
@@ -9457,23 +9525,28 @@ msgid "morale|Blood!"
 msgstr "Máu chiến!"
 
 #, fuzzy
-msgid "Negative morale may cause the hero's units to freeze in combat."
+msgid "%{morale-type} morale may cause the hero's units to freeze in combat."
 msgstr ""
 "Tinh thần tồi tệ có thể khiến quân đội của ngươi tê liệt trong chiến đấu."
 
 #, fuzzy
 msgid ""
-"Neutral morale means the hero's units will never be blessed with extra "
-"attacks or freeze in combat."
+"%{morale-type} morale means the hero's units will never be blessed with "
+"extra attacks or freeze in combat."
 msgstr ""
 "Tinh thần trung lập có nghĩa là quân đội của ngươi sẽ không bao giờ được ban "
 "phước với các cuộc tấn công bổ sung hoặc đóng băng trong chiến đấu."
 
 #, fuzzy
-msgid "Positive morale may give the hero's units extra attacks in combat."
+msgid ""
+"%{morale-type} morale may give the hero's units extra attacks in combat."
 msgstr ""
 "Tinh thần tốt có thể mang lại cho quân đội của ngươi nhiều đòn tấn công hơn "
 "trong chiến đấu."
+
+#, fuzzy
+msgid "Blood"
+msgstr "Bloodreign"
 
 msgid "Knight"
 msgstr "Hiệp sĩ"
@@ -9899,10 +9972,6 @@ msgstr "Ngẫu nhiên Quái vật - mạnh"
 
 msgid "Random Monster - very strong"
 msgstr "Ngẫu nhiên Quái vật - rất mạnh"
-
-#, fuzzy
-msgid "Hero"
-msgstr "Tướng"
 
 msgid "Nothing Special"
 msgstr "Không có gì Đặc biệt"
@@ -12956,3 +13025,10 @@ msgstr ""
 
 msgid "An unknown force is being resurrected..."
 msgstr "Một lực lượng bóng tối đang hồi sinh..."
+
+#~ msgid "AI"
+#~ msgstr "AI"
+
+#, fuzzy
+#~ msgid "Click to set this hero to be AI-controlled."
+#~ msgstr "Nhấp để chọn màu này."

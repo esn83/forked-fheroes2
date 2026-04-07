@@ -1,45 +1,55 @@
 # Greek translation of fheroes2
-# Copyright (C) 2022-2025 fheroes2 team <fhomm2@gmail.com>
+# Copyright (C) 2025-2026 fheroes2 team <fhomm2@gmail.com>
 # This file is distributed under the same license as the fheroes2 package.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: fheroes2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-15 02:18+0000\n"
-"PO-Revision-Date: 2025-05-19 07:06+0200\n"
-"Last-Translator: PlatoHero <platozp@gmail.com>\n"
-"Language-Team: platozp@gmail.com\n"
+"POT-Creation-Date: 2026-04-05 13:11+0000\n"
+"PO-Revision-Date: 2026-04-01 14:30+0100\n"
+"Last-Translator: Yannis Anthymidis <yannis-foss@anth.me.uk>\n"
+"Language-Team: Greek\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.6\n"
+"X-Generator: Poedit 3.9\n"
 
 msgid "SELECT"
-msgstr ""
+msgstr "ΕΠΙΛΟΓΗ"
 
+# η λέξη «ΠΛΗΡΟΦΟΡΙΕΣ» είναι πιο σωστή, αλλά ήταν υπερβολικά μεγάλη
+msgid "ABOUT"
+msgstr "ΣΧΕΤΙΚΑ"
+
+# δεν υπάρχει ελληνικό αντίστοιχο, και S, M, L, X-L είναι πλήρως κατανοητά
 msgid "S"
-msgstr ""
+msgstr "S"
 
+# δεν υπάρχει ελληνικό αντίστοιχο, και S, M, L, X-L είναι πλήρως κατανοητά
 msgid "M"
-msgstr ""
+msgstr "M"
 
+# δεν υπάρχει ελληνικό αντίστοιχο, και S, M, L, X-L είναι πλήρως κατανοητά
 msgid "L"
-msgstr ""
+msgstr "L"
 
+# δεν υπάρχει ελληνικό αντίστοιχο, και S, M, L, X-L είναι πλήρως κατανοητά
 msgid "X-L"
-msgstr ""
+msgstr "X-L"
 
+# (οι χάρτες)
 msgid "ALL"
-msgstr ""
+msgstr "ΟΛΟΙ"
 
 msgid "EXIT"
-msgstr ""
+msgstr "ΕΞΟΔΟΣ"
 
+# ΕΞΟΔΟΣ δεν χωράει για έναν χαρακτήρα. Μπορούμε εναλλακτικά να το γράψουμε ως ΤΕΛΟΣ, αλλά αυτό χάνει το θεματικό στοιχείο του κουμπιού, επείδη π.χ. «παίρνεις την έξοδο» του κάστρου
 msgid "smallerButton|EXIT"
-msgstr ""
+msgstr "ΕΞΟΔ."
 
 msgid "OKAY"
 msgstr "ΕΝΤΑΞΕΙ"
@@ -55,7 +65,7 @@ msgstr ""
 "ΚΑΣΤΡΑ"
 
 msgid "CANCEL"
-msgstr "ΑΚΥΡΩΣΗ"
+msgstr "ΑΚΥΡΟ"
 
 msgid "ACCEPT"
 msgstr "ΑΠΟΔΟΧΗ"
@@ -76,22 +86,24 @@ msgid "NO"
 msgstr "ΟΧΙ"
 
 msgid "DISMISS"
-msgstr ""
+msgstr "ΑΠΟΛΥΣΗ"
 
 msgid "UPGRADE"
-msgstr ""
+msgstr "ΑΝΑΒΑΘΜΙΣΗ"
 
+# εναλλακτικά «ΠΡΟΣΦΟΡΑ», αλλά επέλεξα δώρο επειδή δεν χρειάζεται να την αποδεχτεί ο παραλήπτης
 msgid "GIFT"
-msgstr ""
+msgstr "ΔΩΡΟ"
 
+# ταιριάζει με «ΕΝΑΡΞΗ»
 msgid "RESTART"
-msgstr ""
+msgstr "ΕΠΑΝΕΝΑΡΞΗ"
 
 msgid "MAX"
-msgstr ""
+msgstr "ΜΕΓ"
 
 msgid "MIN"
-msgstr ""
+msgstr "ΕΛΑΧ"
 
 msgid ""
 "D\n"
@@ -102,6 +114,13 @@ msgid ""
 "S\n"
 "S"
 msgstr ""
+"Α\n"
+"Π\n"
+"Ο\n"
+"Λ\n"
+"Υ\n"
+"Σ\n"
+"Η"
 
 msgid ""
 "E\n"
@@ -109,6 +128,12 @@ msgid ""
 "I\n"
 "T"
 msgstr ""
+"Ε\n"
+"Ξ\n"
+"Ο\n"
+"Δ\n"
+"Ο\n"
+"Σ"
 
 msgid ""
 "C\n"
@@ -120,6 +145,13 @@ msgid ""
 "G\n"
 "N"
 msgstr ""
+"Ι\n"
+"Σ\n"
+"Τ\n"
+"Ο\n"
+"Ρ\n"
+"Ι\n"
+"Α"
 
 msgid ""
 "S\n"
@@ -131,137 +163,184 @@ msgid ""
 "R\n"
 "D"
 msgstr ""
+"Κ\n"
+"Α\n"
+"Ν\n"
+"Ο\n"
+"Ν\n"
+"Ι\n"
+"Κ\n"
+"Ο"
 
 msgid ""
 "NEW\n"
 "GAME"
 msgstr ""
+"ΝΕΟ\n"
+"ΠΑΙΧΝΙΔΙ"
 
 msgid ""
 "LOAD\n"
 "GAME"
 msgstr ""
+"ΦΟΡΤΩΣΗ\n"
+"ΠΑΙΧΝΙΔΙΟΥ"
 
+# ταιριάζει με «ΕΝΑΡΞΗ»
 msgid ""
 "RESTART\n"
 "GAME"
 msgstr ""
+"ΕΠΑΝΕΝΑΡΞΗ\n"
+"ΠΑΙΧΝΙΔΙΟΥ"
 
 msgid ""
 "SAVE\n"
 "GAME"
 msgstr ""
+"ΑΠΟΘΗΚΕΥΣΗ\n"
+"ΠΑΙΧΝΙΔΙΟΥ"
 
 msgid ""
 "QUICK\n"
 "SAVE"
 msgstr ""
+"ΓΡΗΓΟΡΗ\n"
+"ΑΠΟΘΗΚΕΥΣΗ"
 
 msgid "QUIT"
-msgstr ""
+msgstr "ΕΓΚΑΤΑΛΕΙΨΗ"
 
 msgid ""
 "START\n"
 "MAP"
 msgstr ""
+"ΠΑΙΞΕ\n"
+"ΣΤΟΝ\n"
+"ΧΑΡΤΗ"
 
 msgid ""
 "MAIN\n"
 "MENU"
 msgstr ""
+"ΚΥΡΙΟ\n"
+"ΜΕΝΟΥ"
 
 msgid ""
 "NEW\n"
 "MAP"
 msgstr ""
+"ΝΕΟΣ\n"
+"ΧΑΡΤΗΣ"
 
 msgid ""
 "LOAD\n"
 "MAP"
 msgstr ""
+"ΦΟΡΤΩΣΗ\n"
+"ΧΑΡΤΗ"
 
 msgid ""
 "SAVE\n"
 "MAP"
 msgstr ""
+"ΑΠΟΘΗΚΕΥΣΗ\n"
+"ΧΑΡΤΗ"
 
 msgid "INFO"
-msgstr ""
+msgstr "ΠΛΗΡΟΦΟΡΙΕΣ"
 
 msgid ""
 "BATTLE\n"
 "ONLY"
 msgstr ""
+"ΜΟΝΟ\n"
+"ΜΑΧΗ"
 
 msgid "SETTINGS"
-msgstr ""
+msgstr "ΡΥΘΜΙΣΕΙΣ"
 
 msgid ""
 "STANDARD\n"
 "GAME"
 msgstr ""
+"ΚΑΝΟΝΙΚΟ\n"
+"ΠΑΙΧΝΙΔΙ"
 
 msgid ""
 "CAMPAIGN\n"
 "GAME"
 msgstr ""
+"ΙΣΤΟΡΙΑ\n"
+"ΠΑΙΧΝΙΔΙΟΥ"
 
 msgid ""
 "MULTI-\n"
 "PLAYER\n"
 "GAME"
 msgstr ""
+"ΠΑΙΧΝΙΔΙ\n"
+"ΠΟΛΛΩΝ\n"
+"ΠΑΙΚΤΩΝ"
 
 msgid "HOT SEAT"
-msgstr ""
+msgstr "ΤΟΠΙΚΟ ΠΑΙΧΝΙΔΙ"
 
 msgid "2 PLAYERS"
-msgstr ""
+msgstr "2 ΠΑΙΚΤΕΣ"
 
 msgid "3 PLAYERS"
-msgstr ""
+msgstr "3 ΠΑΙΚΤΕΣ"
 
 msgid "4 PLAYERS"
-msgstr ""
+msgstr "4 ΠΑΙΚΤΕΣ"
 
 msgid "5 PLAYERS"
-msgstr ""
+msgstr "5 ΠΑΙΚΤΕΣ"
 
 msgid "6 PLAYERS"
-msgstr ""
+msgstr "6 ΠΑΙΚΤΕΣ"
 
 msgid ""
 "ORIGINAL\n"
 "CAMPAIGN"
 msgstr ""
+"ΑΡΧΙΚΗ\n"
+"ΙΣΤΟΡΙΑ"
 
 msgid ""
 "EXPANSION\n"
 "CAMPAIGN"
 msgstr ""
+"ΙΣΤΟΡΙΑ\n"
+"ΕΠΕΚΤΑΣΗΣ"
 
 msgid "editorMainMenu|BACK"
-msgstr ""
+msgstr "ΕΠΙΣΤΡΟΦΗ"
 
 msgid ""
 "newMap|FROM\n"
 "SCRATCH"
 msgstr ""
+"ΑΠΟ\n"
+"ΤΗΝ ΑΡΧΗ"
 
+# Η επόμενη οθόνη ξεκαθαρίζει πως μιλάμε για γεννήτρια χαρτών, επομένως επέλεξα «τυχαίος»
 msgid "newMap|RANDOM"
-msgstr ""
+msgstr "ΤΥΧΑΙΟΣ"
 
 msgid "DIFFICULTY"
-msgstr ""
+msgstr "ΔΥΣΚΟΛΙΑ"
 
+# ΠΡΟΒΟΛΗ ΕΙΣΑΓΩΓΗΣ ήταν σε δύο γραμμές επομένως πρέπει αναγκαστικά να το μειώσουμε
 msgid "VIEW INTRO"
-msgstr ""
+msgstr "ΕΙΣΑΓΩΓΗ"
 
 msgid "RESET"
-msgstr ""
+msgstr "ΕΠΑΝΑΦΟΡΑ"
 
 msgid "START"
-msgstr ""
+msgstr "ΕΝΑΡΞΗ"
 
 msgid ""
 "P\n"
@@ -271,6 +350,15 @@ msgid ""
 "O\n"
 "L"
 msgstr ""
+"Π\n"
+"Ε\n"
+"Ρ\n"
+"Ι\n"
+"Π\n"
+"Ο\n"
+"Λ\n"
+"Ι\n"
+"Α"
 
 msgid "army|Few"
 msgstr ""
@@ -446,10 +534,10 @@ msgid ""
 "troops present in it by %{count}."
 msgstr ""
 
-msgid "Speed: %{speed}"
+msgid "battleAnimation|Speed: %{speed}"
 msgstr ""
 
-msgid "Speed"
+msgid "battleAnimation|Speed"
 msgstr ""
 
 msgid "Interface"
@@ -757,11 +845,15 @@ msgid ""
 "AUTO\n"
 "COMBAT"
 msgstr ""
+"ΑΥΤΟΜΑΤΗ\n"
+"ΜΑΧΗ"
 
 msgid ""
 "QUICK\n"
 "COMBAT"
 msgstr ""
+"ΓΡΗΓΟΡΗ\n"
+"ΜΑΧΗ"
 
 msgid "The computer continues the combat for you."
 msgstr ""
@@ -927,6 +1019,12 @@ msgstr ""
 msgid "Perish: %{min} - %{max}"
 msgstr ""
 
+msgid "battle_turn_order|Top"
+msgstr ""
+
+msgid "battle_turn_order|Bottom"
+msgstr ""
+
 msgid "Turn Order"
 msgstr ""
 
@@ -965,7 +1063,7 @@ msgid ""
 "cursor."
 msgstr ""
 
-msgid "Toggle showing the movement area of a highlighted creature on or off ."
+msgid "Toggle showing the movement area of a highlighted creature on or off."
 msgstr ""
 
 msgid ""
@@ -976,10 +1074,10 @@ msgstr ""
 msgid "Human"
 msgstr ""
 
-msgid "AI"
+msgid "Terrain"
 msgstr ""
 
-msgid "Terrain"
+msgid "Battle Only"
 msgstr ""
 
 msgid "Start"
@@ -1010,10 +1108,14 @@ msgstr ""
 msgid "Please select another hero."
 msgstr ""
 
-msgid "Click to set this hero to be human-controlled."
+msgid "Click to select a hero."
 msgstr ""
 
-msgid "Click to set this hero to be AI-controlled."
+msgid "Hero"
+msgstr ""
+
+msgid ""
+"If this checkbox is checked, the defending hero is going be human-controlled."
 msgstr ""
 
 msgid "%{race1} %{name1} vs %{race2} %{name2}"
@@ -2608,6 +2710,9 @@ msgstr ""
 msgid "HP"
 msgstr ""
 
+msgid "Speed"
+msgstr ""
+
 msgid "Growth"
 msgstr ""
 
@@ -2872,6 +2977,12 @@ msgstr ""
 msgid ""
 "Loss\n"
 "Conditions"
+msgstr ""
+
+msgid "About"
+msgstr ""
+
+msgid "Click to read notes from the map creator."
 msgstr ""
 
 msgid "Map Description"
@@ -3355,6 +3466,9 @@ msgstr ""
 msgid "Select Monsters:"
 msgstr ""
 
+msgid "Select Artifacts:"
+msgstr ""
+
 msgid "race|Random"
 msgstr ""
 
@@ -3386,10 +3500,10 @@ msgid "doubleLinedRace|Neutral"
 msgstr ""
 
 msgid "TOWN"
-msgstr ""
+msgstr "ΠΟΛΗ"
 
 msgid "CASTLE"
-msgstr ""
+msgstr "ΚΑΣΤΡΟ"
 
 msgid "Click to start placing the selected castle/town."
 msgstr ""
@@ -3706,7 +3820,7 @@ msgid "Random Town Name"
 msgstr ""
 
 msgid "BANNED SPELLS"
-msgstr ""
+msgstr "ΑΠΟΚΛΕΙΣΜΕΝΑ ΞΟΡΚΙΑ"
 
 msgid "Click to accept the changes made."
 msgstr ""
@@ -3724,7 +3838,7 @@ msgid "Select spells that will appear in the Mage Guild."
 msgstr ""
 
 msgid "SET SPELLS"
-msgstr ""
+msgstr "ΟΡΙΣΤΕ ΞΟΡΚΙΑ"
 
 msgid "Allow Castle build"
 msgstr ""
@@ -3732,8 +3846,9 @@ msgstr ""
 msgid "Default Buildings"
 msgstr ""
 
+# ΠΕΡΙΟΡΙΣΜΟΣ δεν χωράει ενώ «ΠΕΡΙΟΡΙΣΗ» είναι αρχαία (και αγγράματη!) λέξη
 msgid "RESTRICT"
-msgstr ""
+msgstr "ΑΠΟΚΛΙΣΗ"
 
 msgid "Default Army"
 msgstr ""
@@ -4490,24 +4605,18 @@ msgid "Map Difficulty"
 msgstr ""
 
 msgid "RUMORS"
-msgstr ""
+msgstr "ΦΗΜΕΣ"
 
 msgid "EVENTS"
-msgstr ""
+msgstr "ΣΥΜΒΑΝΤΑ"
 
 msgid "LANGUAGE"
-msgstr ""
-
-msgid "ABOUT"
-msgstr ""
+msgstr "ΓΛΩΣΣΑ"
 
 msgid "Change Map Name"
 msgstr ""
 
 msgid "Change Map Description"
-msgstr ""
-
-msgid "About"
 msgstr ""
 
 msgid "Click to edit custom rumors."
@@ -5108,6 +5217,9 @@ msgstr ""
 msgid "hotkey|re-configure random map"
 msgstr ""
 
+msgid "hotkey|output all text"
+msgstr ""
+
 msgid "hotkey|roland campaign"
 msgstr ""
 
@@ -5493,9 +5605,6 @@ msgstr ""
 msgid ""
 "A multi-player game, with several human players competing against each other "
 "on a single map."
-msgstr ""
-
-msgid "Battle Only"
 msgstr ""
 
 msgid "Setup and play a battle without loading any map."
@@ -6054,13 +6163,50 @@ msgstr ""
 msgid "The available values range from %{min} to %{max}."
 msgstr ""
 
+msgid "Uppercase"
+msgstr ""
+
+msgid "Click to switch to uppercase letters."
+msgstr ""
+
 msgid "Keyboard|123"
+msgstr "123"
+
+#, fuzzy
+msgid "Keyboard type"
+msgstr "123"
+
+msgid "Click to switch between keyboard types."
 msgstr ""
 
 msgid "Keyboard|SPACE"
+msgstr "ΚΕΝΟ"
+
+msgid "Change language"
+msgstr ""
+
+msgid "Click to switch between languages."
+msgstr ""
+
+msgid "Backspace"
+msgstr ""
+
+msgid "Click to remove characters."
+msgstr ""
+
+msgid "Lowercase"
+msgstr ""
+
+msgid "Click to switch to lowercase letters."
 msgstr ""
 
 msgid "Keyboard|ABC"
+msgstr "ΑΒΓ"
+
+msgid "Swap sign"
+msgstr ""
+
+msgid "Click to switch between signed and unsigned numbers."
 msgstr ""
 
 msgid "The entered value is invalid."
@@ -7379,10 +7525,10 @@ msgstr ""
 msgid "This hero is not able to cast adventure spells."
 msgstr ""
 
-msgid "Your hero is too tired to cast this spell today. Try again tomorrow."
+msgid "This spell cannot be cast on a boat."
 msgstr ""
 
-msgid "This spell cannot be cast on a boat."
+msgid "Your hero is too tired to cast this spell today. Try again tomorrow."
 msgstr ""
 
 msgid "This spell can only be cast near an ocean."
@@ -8058,17 +8204,17 @@ msgid "luck|Irish"
 msgstr ""
 
 msgid ""
-"Negative luck sometimes falls on the hero's units in combat, causing their "
-"attacks to only do half damage."
+"%{luck-type} luck sometimes falls on the hero's units in combat, causing "
+"their attacks to only do half damage."
 msgstr ""
 
 msgid ""
-"Neutral luck means the hero's units will never get lucky or unlucky attacks "
-"on the enemy."
+"%{luck-type} luck means the hero's units will never get lucky or unlucky "
+"attacks on the enemy."
 msgstr ""
 
 msgid ""
-"Positive luck sometimes lets the hero's units get lucky attacks (double "
+"%{luck-type} luck sometimes lets the hero's units get lucky attacks (double "
 "strength) in combat."
 msgstr ""
 
@@ -8093,15 +8239,19 @@ msgstr ""
 msgid "morale|Blood!"
 msgstr ""
 
-msgid "Negative morale may cause the hero's units to freeze in combat."
+msgid "%{morale-type} morale may cause the hero's units to freeze in combat."
 msgstr ""
 
 msgid ""
-"Neutral morale means the hero's units will never be blessed with extra "
-"attacks or freeze in combat."
+"%{morale-type} morale means the hero's units will never be blessed with "
+"extra attacks or freeze in combat."
 msgstr ""
 
-msgid "Positive morale may give the hero's units extra attacks in combat."
+msgid ""
+"%{morale-type} morale may give the hero's units extra attacks in combat."
+msgstr ""
+
+msgid "Blood"
 msgstr ""
 
 msgid "Knight"
@@ -8527,9 +8677,6 @@ msgid "Random Monster - strong"
 msgstr ""
 
 msgid "Random Monster - very strong"
-msgstr ""
-
-msgid "Hero"
 msgstr ""
 
 msgid "Nothing Special"

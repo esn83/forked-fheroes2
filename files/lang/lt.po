@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fheroes2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-15 02:18+0000\n"
+"POT-Creation-Date: 2026-04-05 13:11+0000\n"
 "PO-Revision-Date: 2022-09-23 16:14+0200\n"
 "Last-Translator: fheroes2 team <fhomm2@gmail.com>\n"
 "Language-Team: Lithuanian <lt@li.org>\n"
@@ -21,6 +21,9 @@ msgstr ""
 "X-Generator: Poedit 3.1.1\n"
 
 msgid "SELECT"
+msgstr ""
+
+msgid "ABOUT"
 msgstr ""
 
 msgid "S"
@@ -459,11 +462,11 @@ msgid ""
 "troops present in it by %{count}."
 msgstr ""
 
-msgid "Speed: %{speed}"
+msgid "battleAnimation|Speed: %{speed}"
 msgstr ""
 
-msgid "Speed"
-msgstr "Greitis"
+msgid "battleAnimation|Speed"
+msgstr ""
 
 msgid "Interface"
 msgstr ""
@@ -968,6 +971,12 @@ msgstr ""
 msgid "Perish: %{min} - %{max}"
 msgstr ""
 
+msgid "battle_turn_order|Top"
+msgstr ""
+
+msgid "battle_turn_order|Bottom"
+msgstr ""
+
 msgid "Turn Order"
 msgstr ""
 
@@ -1007,7 +1016,7 @@ msgid ""
 "cursor."
 msgstr ""
 
-msgid "Toggle showing the movement area of a highlighted creature on or off ."
+msgid "Toggle showing the movement area of a highlighted creature on or off."
 msgstr ""
 
 msgid ""
@@ -1018,10 +1027,10 @@ msgstr ""
 msgid "Human"
 msgstr ""
 
-msgid "AI"
+msgid "Terrain"
 msgstr ""
 
-msgid "Terrain"
+msgid "Battle Only"
 msgstr ""
 
 msgid "Start"
@@ -1055,11 +1064,15 @@ msgid "Please select another hero."
 msgstr ""
 
 #, fuzzy
-msgid "Click to set this hero to be human-controlled."
+msgid "Click to select a hero."
 msgstr "Rodyti kitą miestą"
 
+msgid "Hero"
+msgstr ""
+
 #, fuzzy
-msgid "Click to set this hero to be AI-controlled."
+msgid ""
+"If this checkbox is checked, the defending hero is going be human-controlled."
 msgstr "Rodyti kitą miestą"
 
 #, fuzzy
@@ -2759,6 +2772,9 @@ msgstr ""
 msgid "HP"
 msgstr ""
 
+msgid "Speed"
+msgstr "Greitis"
+
 msgid "Growth"
 msgstr ""
 
@@ -3035,6 +3051,13 @@ msgid ""
 "Loss\n"
 "Conditions"
 msgstr ""
+
+msgid "About"
+msgstr ""
+
+#, fuzzy
+msgid "Click to read notes from the map creator."
+msgstr "Rodyti kitą miestą"
 
 msgid "Map Description"
 msgstr ""
@@ -3544,6 +3567,10 @@ msgstr "Pasirinkti %{name}"
 #, fuzzy
 msgid "Select Monsters:"
 msgstr "Pasirinkti %{name}"
+
+#, fuzzy
+msgid "Select Artifacts:"
+msgstr "Magiškas artefaktas"
 
 msgid "race|Random"
 msgstr ""
@@ -4800,16 +4827,10 @@ msgstr ""
 msgid "LANGUAGE"
 msgstr ""
 
-msgid "ABOUT"
-msgstr ""
-
 msgid "Change Map Name"
 msgstr ""
 
 msgid "Change Map Description"
-msgstr ""
-
-msgid "About"
 msgstr ""
 
 #, fuzzy
@@ -5452,6 +5473,10 @@ msgstr "Rodyti kitą miestą"
 msgid "hotkey|re-configure random map"
 msgstr "Rodyti kitą miestą"
 
+#, fuzzy
+msgid "hotkey|output all text"
+msgstr "Rodyti kitą miestą"
+
 msgid "hotkey|roland campaign"
 msgstr ""
 
@@ -5853,9 +5878,6 @@ msgstr ""
 msgid ""
 "A multi-player game, with several human players competing against each other "
 "on a single map."
-msgstr ""
-
-msgid "Battle Only"
 msgstr ""
 
 msgid "Setup and play a battle without loading any map."
@@ -6444,13 +6466,54 @@ msgstr "Gynybos įgūdis"
 msgid "The available values range from %{min} to %{max}."
 msgstr ""
 
+msgid "Uppercase"
+msgstr ""
+
+#, fuzzy
+msgid "Click to switch to uppercase letters."
+msgstr "Rodyti kitą miestą"
+
 msgid "Keyboard|123"
+msgstr ""
+
+msgid "Keyboard type"
+msgstr ""
+
+msgid "Click to switch between keyboard types."
 msgstr ""
 
 msgid "Keyboard|SPACE"
 msgstr ""
 
+#, fuzzy
+msgid "Change language"
+msgstr "Pasirinkti %{name}"
+
+#, fuzzy
+msgid "Click to switch between languages."
+msgstr "Rodyti kitą miestą"
+
+msgid "Backspace"
+msgstr ""
+
+#, fuzzy
+msgid "Click to remove characters."
+msgstr "Rodyti kitą miestą"
+
+msgid "Lowercase"
+msgstr ""
+
+#, fuzzy
+msgid "Click to switch to lowercase letters."
+msgstr "Rodyti kitą miestą"
+
 msgid "Keyboard|ABC"
+msgstr ""
+
+msgid "Swap sign"
+msgstr ""
+
+msgid "Click to switch between signed and unsigned numbers."
 msgstr ""
 
 msgid "The entered value is invalid."
@@ -7792,10 +7855,10 @@ msgstr ""
 msgid "This hero is not able to cast adventure spells."
 msgstr ""
 
-msgid "Your hero is too tired to cast this spell today. Try again tomorrow."
+msgid "This spell cannot be cast on a boat."
 msgstr ""
 
-msgid "This spell cannot be cast on a boat."
+msgid "Your hero is too tired to cast this spell today. Try again tomorrow."
 msgstr ""
 
 msgid "This spell can only be cast near an ocean."
@@ -8498,17 +8561,17 @@ msgid "luck|Irish"
 msgstr ""
 
 msgid ""
-"Negative luck sometimes falls on the hero's units in combat, causing their "
-"attacks to only do half damage."
+"%{luck-type} luck sometimes falls on the hero's units in combat, causing "
+"their attacks to only do half damage."
 msgstr ""
 
 msgid ""
-"Neutral luck means the hero's units will never get lucky or unlucky attacks "
-"on the enemy."
+"%{luck-type} luck means the hero's units will never get lucky or unlucky "
+"attacks on the enemy."
 msgstr ""
 
 msgid ""
-"Positive luck sometimes lets the hero's units get lucky attacks (double "
+"%{luck-type} luck sometimes lets the hero's units get lucky attacks (double "
 "strength) in combat."
 msgstr ""
 
@@ -8533,15 +8596,19 @@ msgstr ""
 msgid "morale|Blood!"
 msgstr ""
 
-msgid "Negative morale may cause the hero's units to freeze in combat."
+msgid "%{morale-type} morale may cause the hero's units to freeze in combat."
 msgstr ""
 
 msgid ""
-"Neutral morale means the hero's units will never be blessed with extra "
-"attacks or freeze in combat."
+"%{morale-type} morale means the hero's units will never be blessed with "
+"extra attacks or freeze in combat."
 msgstr ""
 
-msgid "Positive morale may give the hero's units extra attacks in combat."
+msgid ""
+"%{morale-type} morale may give the hero's units extra attacks in combat."
+msgstr ""
+
+msgid "Blood"
 msgstr ""
 
 msgid "Knight"
@@ -8981,9 +9048,6 @@ msgstr "Atsitiktinė pilis"
 #, fuzzy
 msgid "Random Monster - very strong"
 msgstr "Atsitiktinė pilis"
-
-msgid "Hero"
-msgstr ""
 
 msgid "Nothing Special"
 msgstr ""
@@ -11591,3 +11655,7 @@ msgstr ""
 
 msgid "An unknown force is being resurrected..."
 msgstr ""
+
+#, fuzzy
+#~ msgid "Click to set this hero to be AI-controlled."
+#~ msgstr "Rodyti kitą miestą"

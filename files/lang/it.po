@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fheroes2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-15 02:18+0000\n"
+"POT-Creation-Date: 2026-04-05 13:11+0000\n"
 "PO-Revision-Date: 2022-12-03 04:36+0100\n"
 "Last-Translator: fheroes2 team <fhomm2@gmail.com>\n"
 "Language-Team: <it@li.org>\n"
@@ -19,6 +19,9 @@ msgstr ""
 "X-Generator: Poedit 3.2\n"
 
 msgid "SELECT"
+msgstr ""
+
+msgid "ABOUT"
 msgstr ""
 
 msgid "S"
@@ -472,11 +475,13 @@ msgid ""
 "troops present in it by %{count}."
 msgstr ""
 
-msgid "Speed: %{speed}"
+#, fuzzy
+msgid "battleAnimation|Speed: %{speed}"
 msgstr "Velocità: %{speed}"
 
-msgid "Speed"
-msgstr "Velocità"
+#, fuzzy
+msgid "battleAnimation|Speed"
+msgstr "Navigazione"
 
 msgid "Interface"
 msgstr "Interfaccia"
@@ -989,6 +994,12 @@ msgstr "Periti: %{max}"
 msgid "Perish: %{min} - %{max}"
 msgstr "Periti: %{min} - %{max}"
 
+msgid "battle_turn_order|Top"
+msgstr ""
+
+msgid "battle_turn_order|Bottom"
+msgstr ""
+
 msgid "Turn Order"
 msgstr ""
 
@@ -1029,7 +1040,7 @@ msgid ""
 "cursor."
 msgstr ""
 
-msgid "Toggle showing the movement area of a highlighted creature on or off ."
+msgid "Toggle showing the movement area of a highlighted creature on or off."
 msgstr ""
 
 msgid ""
@@ -1040,12 +1051,12 @@ msgstr ""
 msgid "Human"
 msgstr "Umano"
 
-msgid "AI"
-msgstr "Computer"
-
 #, fuzzy
 msgid "Terrain"
 msgstr "Nessun oggetto"
+
+msgid "Battle Only"
+msgstr ""
 
 msgid "Start"
 msgstr ""
@@ -1077,11 +1088,16 @@ msgid "Please select another hero."
 msgstr "Per favore, scegli un altro eroe."
 
 #, fuzzy
-msgid "Click to set this hero to be human-controlled."
+msgid "Click to select a hero."
 msgstr "Clicca per andare alla città succ."
 
 #, fuzzy
-msgid "Click to set this hero to be AI-controlled."
+msgid "Hero"
+msgstr "Eroi"
+
+#, fuzzy
+msgid ""
+"If this checkbox is checked, the defending hero is going be human-controlled."
 msgstr "Clicca per andare alla città succ."
 
 #, fuzzy
@@ -2790,6 +2806,9 @@ msgstr "Danni"
 msgid "HP"
 msgstr "PF"
 
+msgid "Speed"
+msgstr "Velocità"
+
 msgid "Growth"
 msgstr "Crescita"
 
@@ -3094,6 +3113,13 @@ msgid ""
 msgstr ""
 "Condizioni\n"
 "Sconfitta"
+
+msgid "About"
+msgstr ""
+
+#, fuzzy
+msgid "Click to read notes from the map creator."
+msgstr "Clicca per salvare la partita in corso."
 
 #, fuzzy
 msgid "Map Description"
@@ -3623,6 +3649,10 @@ msgstr "Scegli eroe:"
 #, fuzzy
 msgid "Select Monsters:"
 msgstr "Scegli mostro:"
+
+#, fuzzy
+msgid "Select Artifacts:"
+msgstr "Scegli artefatto:"
 
 msgid "race|Random"
 msgstr "Casuale"
@@ -4925,18 +4955,12 @@ msgstr ""
 msgid "LANGUAGE"
 msgstr ""
 
-msgid "ABOUT"
-msgstr ""
-
 msgid "Change Map Name"
 msgstr ""
 
 #, fuzzy
 msgid "Change Map Description"
 msgstr "Descrizione scelta"
-
-msgid "About"
-msgstr ""
 
 #, fuzzy
 msgid "Click to edit custom rumors."
@@ -5603,6 +5627,10 @@ msgstr "Sommario Regno"
 msgid "hotkey|re-configure random map"
 msgstr "Sommario Regno"
 
+#, fuzzy
+msgid "hotkey|output all text"
+msgstr "Inizia una partita singola o multigiocatore."
+
 msgid "hotkey|roland campaign"
 msgstr ""
 
@@ -6020,9 +6048,6 @@ msgstr ""
 msgid ""
 "A multi-player game, with several human players competing against each other "
 "on a single map."
-msgstr ""
-
-msgid "Battle Only"
 msgstr ""
 
 msgid "Setup and play a battle without loading any map."
@@ -6615,13 +6640,55 @@ msgstr "Difesa"
 msgid "The available values range from %{min} to %{max}."
 msgstr ""
 
+msgid "Uppercase"
+msgstr ""
+
+#, fuzzy
+msgid "Click to switch to uppercase letters."
+msgstr "Clicca per salvare la partita in corso."
+
 msgid "Keyboard|123"
+msgstr ""
+
+msgid "Keyboard type"
+msgstr ""
+
+msgid "Click to switch between keyboard types."
 msgstr ""
 
 msgid "Keyboard|SPACE"
 msgstr ""
 
+#, fuzzy
+msgid "Change language"
+msgstr "Cambia la lingua del gioco."
+
+#, fuzzy
+msgid "Click to switch between languages."
+msgstr "Clicca per salvare la partita in corso."
+
+msgid "Backspace"
+msgstr ""
+
+#, fuzzy
+msgid "Click to remove characters."
+msgstr "Clicca per salvare la partita in corso."
+
+#, fuzzy
+msgid "Lowercase"
+msgstr "Fiori"
+
+#, fuzzy
+msgid "Click to switch to lowercase letters."
+msgstr "Clicca per salvare la partita in corso."
+
 msgid "Keyboard|ABC"
+msgstr ""
+
+msgid "Swap sign"
+msgstr ""
+
+msgid "Click to switch between signed and unsigned numbers."
 msgstr ""
 
 msgid "The entered value is invalid."
@@ -8001,10 +8068,10 @@ msgstr ""
 msgid "This hero is not able to cast adventure spells."
 msgstr "Lancia una magia avventura."
 
-msgid "Your hero is too tired to cast this spell today. Try again tomorrow."
+msgid "This spell cannot be cast on a boat."
 msgstr ""
 
-msgid "This spell cannot be cast on a boat."
+msgid "Your hero is too tired to cast this spell today. Try again tomorrow."
 msgstr ""
 
 msgid "This spell can only be cast near an ocean."
@@ -8705,23 +8772,23 @@ msgstr "Irlandese"
 
 #, fuzzy
 msgid ""
-"Negative luck sometimes falls on the hero's units in combat, causing their "
-"attacks to only do half damage."
+"%{luck-type} luck sometimes falls on the hero's units in combat, causing "
+"their attacks to only do half damage."
 msgstr ""
 "La fortuna cattiva potrebbe accadere al tuo esercito in combattimento, "
 "facendo sì che i danni che fanno si dimezzano."
 
 #, fuzzy
 msgid ""
-"Neutral luck means the hero's units will never get lucky or unlucky attacks "
-"on the enemy."
+"%{luck-type} luck means the hero's units will never get lucky or unlucky "
+"attacks on the enemy."
 msgstr ""
 "La fortuna normale non dà la possibiltà di fare ne colpi fortunati ne "
 "sfortunati al tuo esercito."
 
 #, fuzzy
 msgid ""
-"Positive luck sometimes lets the hero's units get lucky attacks (double "
+"%{luck-type} luck sometimes lets the hero's units get lucky attacks (double "
 "strength) in combat."
 msgstr "La buona fortuna potrebbe radoppiare i danni che fanno le tue forze."
 
@@ -8747,23 +8814,28 @@ msgid "morale|Blood!"
 msgstr "Sangue!"
 
 #, fuzzy
-msgid "Negative morale may cause the hero's units to freeze in combat."
+msgid "%{morale-type} morale may cause the hero's units to freeze in combat."
 msgstr ""
 "Il morale negativo potrebbe far perdere il turno alle tue unità in battagla."
 
 #, fuzzy
 msgid ""
-"Neutral morale means the hero's units will never be blessed with extra "
-"attacks or freeze in combat."
+"%{morale-type} morale means the hero's units will never be blessed with "
+"extra attacks or freeze in combat."
 msgstr ""
 "Il morale normale vuol dire che il tuo esercito non avrà mai la fortuna di "
 "avere turni in più mai il vantaggio di attacchi o paralisi supplementari in "
 "battaglia."
 
 #, fuzzy
-msgid "Positive morale may give the hero's units extra attacks in combat."
+msgid ""
+"%{morale-type} morale may give the hero's units extra attacks in combat."
 msgstr ""
 "Il morale positivo potrebbe dare turni in più alle tue unità in battaglia."
+
+#, fuzzy
+msgid "Blood"
+msgstr "Morale Sangue"
 
 msgid "Knight"
 msgstr "Cavaliere"
@@ -9196,10 +9268,6 @@ msgstr "Mostro casuale - forte"
 
 msgid "Random Monster - very strong"
 msgstr "Mostra casuale - molto forte"
-
-#, fuzzy
-msgid "Hero"
-msgstr "Eroi"
 
 msgid "Nothing Special"
 msgstr "Niente particolare"
@@ -11897,3 +11965,10 @@ msgstr ""
 
 msgid "An unknown force is being resurrected..."
 msgstr "Una forza sconosciuta sta risorgendo..."
+
+#~ msgid "AI"
+#~ msgstr "Computer"
+
+#, fuzzy
+#~ msgid "Click to set this hero to be AI-controlled."
+#~ msgstr "Clicca per andare alla città succ."

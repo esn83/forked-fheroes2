@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fheroes2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-15 02:18+0000\n"
+"POT-Creation-Date: 2026-04-05 13:11+0000\n"
 "PO-Revision-Date: 2025-03-12 23:47+0100\n"
 "Last-Translator: fheroes2 team <fhomm2@gmail.com>\n"
 "Language-Team: \n"
@@ -19,6 +19,9 @@ msgstr ""
 
 msgid "SELECT"
 msgstr "ENDRE"
+
+msgid "ABOUT"
+msgstr ""
 
 msgid "S"
 msgstr "L"
@@ -519,11 +522,13 @@ msgstr ""
 "Vollgraven reduserer forsvarsevnen til krigere som befinner seg i den med "
 "%{count} og halverer skrittene deres."
 
-msgid "Speed: %{speed}"
+#, fuzzy
+msgid "battleAnimation|Speed: %{speed}"
 msgstr "Hurtighet : %{speed}"
 
-msgid "Speed"
-msgstr "Hurtighet"
+#, fuzzy
+msgid "battleAnimation|Speed"
+msgstr "Underleggelse"
 
 msgid "Interface"
 msgstr "Grensesnitt"
@@ -1051,6 +1056,12 @@ msgstr "Dødstall : %{max}"
 msgid "Perish: %{min} - %{max}"
 msgstr "Dødstall : %{min} - %{max}"
 
+msgid "battle_turn_order|Top"
+msgstr ""
+
+msgid "battle_turn_order|Bottom"
+msgstr ""
+
 #, fuzzy
 msgid "Turn Order"
 msgstr ""
@@ -1109,7 +1120,7 @@ msgstr ""
 "Velg om den ruten du peker på med markøren din skal utheves ved å gjøres "
 "mørkere."
 
-msgid "Toggle showing the movement area of a highlighted creature on or off ."
+msgid "Toggle showing the movement area of a highlighted creature on or off."
 msgstr ""
 
 msgid ""
@@ -1122,12 +1133,12 @@ msgstr ""
 msgid "Human"
 msgstr "Menneske"
 
-msgid "AI"
-msgstr "Datamaskin"
-
 #, fuzzy
 msgid "Terrain"
 msgstr "Terrengmodus"
+
+msgid "Battle Only"
+msgstr "Kampmodus"
 
 #, fuzzy
 msgid "Start"
@@ -1160,11 +1171,16 @@ msgid "Please select another hero."
 msgstr "Vennligst velg en annen helt."
 
 #, fuzzy
-msgid "Click to set this hero to be human-controlled."
+msgid "Click to select a hero."
 msgstr "Klikk her for å velge hvilket kart du vil spille."
 
 #, fuzzy
-msgid "Click to set this hero to be AI-controlled."
+msgid "Hero"
+msgstr "Helter"
+
+#, fuzzy
+msgid ""
+"If this checkbox is checked, the defending hero is going be human-controlled."
 msgstr "Klikk her for å velge hvilket kart du vil spille."
 
 #, fuzzy
@@ -3013,6 +3029,9 @@ msgstr "Skade"
 msgid "HP"
 msgstr "Liv"
 
+msgid "Speed"
+msgstr "Hurtighet"
+
 msgid "Growth"
 msgstr "Vekst"
 
@@ -3322,6 +3341,13 @@ msgid ""
 msgstr ""
 "Taps-\n"
 "vilkår"
+
+msgid "About"
+msgstr ""
+
+#, fuzzy
+msgid "Click to read notes from the map creator."
+msgstr "Klikk her for å dra tilbake til hovedmenyen."
 
 #, fuzzy
 msgid "Map Description"
@@ -3854,6 +3880,10 @@ msgstr "Velg helt:"
 #, fuzzy
 msgid "Select Monsters:"
 msgstr "Velg monster:"
+
+#, fuzzy
+msgid "Select Artifacts:"
+msgstr "Velg en skatt:"
 
 msgid "race|Random"
 msgstr "Tilfeldig"
@@ -5200,18 +5230,12 @@ msgstr ""
 msgid "LANGUAGE"
 msgstr ""
 
-msgid "ABOUT"
-msgstr ""
-
 msgid "Change Map Name"
 msgstr ""
 
 #, fuzzy
 msgid "Change Map Description"
 msgstr "Kartbeskrivelse"
-
-msgid "About"
-msgstr ""
 
 #, fuzzy
 msgid "Click to edit custom rumors."
@@ -5891,6 +5915,10 @@ msgstr "Nytt automatisk kart"
 msgid "hotkey|re-configure random map"
 msgstr "Nytt automatisk kart"
 
+#, fuzzy
+msgid "hotkey|output all text"
+msgstr "Panorer til venstre"
+
 msgid "hotkey|roland campaign"
 msgstr "Rolands felttog"
 
@@ -6309,9 +6337,6 @@ msgid ""
 msgstr ""
 "Et flerspillerparti hvor flere menneskelige spillere konkurrerer mot "
 "hverandre på et enkelt kart."
-
-msgid "Battle Only"
-msgstr "Kampmodus"
 
 msgid "Setup and play a battle without loading any map."
 msgstr "Sett opp og spill en kamp uten å laste inn et kart."
@@ -6987,13 +7012,56 @@ msgstr "Forsvar"
 msgid "The available values range from %{min} to %{max}."
 msgstr ""
 
+msgid "Uppercase"
+msgstr ""
+
+#, fuzzy
+msgid "Click to switch to uppercase letters."
+msgstr "Klikk for å lagre det nåværende spillet."
+
 msgid "Keyboard|123"
+msgstr ""
+
+msgid "Keyboard type"
+msgstr ""
+
+msgid "Click to switch between keyboard types."
 msgstr ""
 
 msgid "Keyboard|SPACE"
 msgstr "MELLOMROM"
 
+#, fuzzy
+msgid "Change language"
+msgstr "Endre språket til spillet."
+
+#, fuzzy
+msgid "Click to switch between languages."
+msgstr "Trykk for å velge et språk."
+
+msgid "Backspace"
+msgstr ""
+
+#, fuzzy
+msgid "Click to remove characters."
+msgstr "Trykk for å bruke den valgte oppløsningen."
+
+#, fuzzy
+msgid "Lowercase"
+msgstr "Blomster"
+
+#, fuzzy
+msgid "Click to switch to lowercase letters."
+msgstr "Klikk for å lagre det nåværende spillet."
+
 msgid "Keyboard|ABC"
+msgstr ""
+
+#, fuzzy
+msgid "Swap sign"
+msgstr "Karttegnere"
+
+msgid "Click to switch between signed and unsigned numbers."
 msgstr ""
 
 msgid "The entered value is invalid."
@@ -8744,13 +8812,13 @@ msgstr "Kun helter kan bruke denne trolldommen."
 msgid "This hero is not able to cast adventure spells."
 msgstr "Denne helten er ikke i stand til å bruke kartmagi."
 
+msgid "This spell cannot be cast on a boat."
+msgstr "Denne trolldommen kan ikke brukes på et skip."
+
 msgid "Your hero is too tired to cast this spell today. Try again tomorrow."
 msgstr ""
 "Din helt er for sliten til å bruke denne trolldommen i dag. Prøv igjen i "
 "morgen."
-
-msgid "This spell cannot be cast on a boat."
-msgstr "Denne trolldommen kan ikke brukes på et skip."
 
 msgid "This spell can only be cast near an ocean."
 msgstr "Denne trolldommen kan kun bli brukt i nærheten av sjø."
@@ -9537,23 +9605,23 @@ msgstr "Heldiggris"
 
 #, fuzzy
 msgid ""
-"Negative luck sometimes falls on the hero's units in combat, causing their "
-"attacks to only do half damage."
+"%{luck-type} luck sometimes falls on the hero's units in combat, causing "
+"their attacks to only do half damage."
 msgstr ""
 "Uflaks kan av og til føre til at styrkene dine kun skader halvparten av det "
 "vanlige."
 
 #, fuzzy
 msgid ""
-"Neutral luck means the hero's units will never get lucky or unlucky attacks "
-"on the enemy."
+"%{luck-type} luck means the hero's units will never get lucky or unlucky "
+"attacks on the enemy."
 msgstr ""
 "Nøytral flaks gjør at styrkene dine aldri vil få heldige eller uheldige slag "
 "når de angriper fienden."
 
 #, fuzzy
 msgid ""
-"Positive luck sometimes lets the hero's units get lucky attacks (double "
+"%{luck-type} luck sometimes lets the hero's units get lucky attacks (double "
 "strength) in combat."
 msgstr ""
 "Positiv flaks gjør at styrkene dine av og til gjør heldige slag (dobbel "
@@ -9581,21 +9649,26 @@ msgid "morale|Blood!"
 msgstr "Blod!"
 
 #, fuzzy
-msgid "Negative morale may cause the hero's units to freeze in combat."
+msgid "%{morale-type} morale may cause the hero's units to freeze in combat."
 msgstr ""
 "Negativ kampånd kan føre til at styrkene dine stivner til av panikk i kamp."
 
 #, fuzzy
 msgid ""
-"Neutral morale means the hero's units will never be blessed with extra "
-"attacks or freeze in combat."
+"%{morale-type} morale means the hero's units will never be blessed with "
+"extra attacks or freeze in combat."
 msgstr ""
 "Nøytral kampånd betyr at styrkene dine aldri verken vil bli velsignet med en "
 "ekstra tur eller stivne til av panikk i kamp."
 
 #, fuzzy
-msgid "Positive morale may give the hero's units extra attacks in combat."
+msgid ""
+"%{morale-type} morale may give the hero's units extra attacks in combat."
 msgstr "Positiv kampånd kan av og til gi styrkene dine en ekstra tur i kamp."
+
+#, fuzzy
+msgid "Blood"
+msgstr "Bloddømme"
 
 msgid "Knight"
 msgstr "Ridder"
@@ -10054,10 +10127,6 @@ msgstr "Tilfeldig monster - sterk"
 
 msgid "Random Monster - very strong"
 msgstr "Tilfeldig monster - veldig sterk"
-
-#, fuzzy
-msgid "Hero"
-msgstr "Helter"
 
 msgid "Nothing Special"
 msgstr "Ingenting spesielt"
@@ -13140,3 +13209,10 @@ msgstr ""
 
 msgid "An unknown force is being resurrected..."
 msgstr "En ukjent styrke holder på å komme tilbake..."
+
+#~ msgid "AI"
+#~ msgstr "Datamaskin"
+
+#, fuzzy
+#~ msgid "Click to set this hero to be AI-controlled."
+#~ msgstr "Klikk her for å velge hvilket kart du vil spille."

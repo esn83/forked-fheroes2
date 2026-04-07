@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fheroes2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-15 02:18+0000\n"
+"POT-Creation-Date: 2026-04-05 13:11+0000\n"
 "PO-Revision-Date: 2026-02-24 17:38+0100\n"
 "Last-Translator: fheroes2 team <fhomm2@gmail.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
@@ -20,6 +20,9 @@ msgstr ""
 
 msgid "SELECT"
 msgstr "VÄLJ"
+
+msgid "ABOUT"
+msgstr "OM"
 
 msgid "S"
 msgstr "S"
@@ -540,11 +543,13 @@ msgstr ""
 "Vallgraven sänker en varelses Försvar med %{count} och avbryter dennes "
 "rörelser genom vallgraven."
 
-msgid "Speed: %{speed}"
+#, fuzzy
+msgid "battleAnimation|Speed: %{speed}"
 msgstr "Hastighet: %{speed}"
 
-msgid "Speed"
-msgstr "Hastighet"
+#, fuzzy
+msgid "battleAnimation|Speed"
+msgstr "Animering"
 
 msgid "Interface"
 msgstr "Gränssnitt"
@@ -1053,6 +1058,12 @@ msgstr "Stupar: %{max}"
 msgid "Perish: %{min} - %{max}"
 msgstr "Stupar: %{min} - %{max}"
 
+msgid "battle_turn_order|Top"
+msgstr ""
+
+msgid "battle_turn_order|Bottom"
+msgstr ""
+
 msgid "Turn Order"
 msgstr "Turordning"
 
@@ -1099,7 +1110,8 @@ msgstr ""
 "Välj om skuggmarkör skall vara aktiverat. Muspekaren visar en skugga på "
 "stridsfältets rutnät."
 
-msgid "Toggle showing the movement area of a highlighted creature on or off ."
+#, fuzzy
+msgid "Toggle showing the movement area of a highlighted creature on or off."
 msgstr ""
 "Aktivera eller inaktivera visning av förflyttningsområdet för en markerad "
 "varelse."
@@ -1112,11 +1124,11 @@ msgstr "Genom sin falkblick så kan %{name} lära sig besvärjelsen %{spell}."
 msgid "Human"
 msgstr "Spelare"
 
-msgid "AI"
-msgstr "AI"
-
 msgid "Terrain"
 msgstr "Terräng"
+
+msgid "Battle Only"
+msgstr "Endast Strid"
 
 msgid "Start"
 msgstr "Starta"
@@ -1150,11 +1162,17 @@ msgstr ""
 msgid "Please select another hero."
 msgstr "Välj en annan hjälte."
 
-msgid "Click to set this hero to be human-controlled."
-msgstr "Klicka för att ange denna hjälte som spelarkontrollerad."
+#, fuzzy
+msgid "Click to select a hero."
+msgstr "Klicka för att välja färg."
 
-msgid "Click to set this hero to be AI-controlled."
-msgstr "Klicka för att ange denna hjälte som AI-kontrollerad."
+msgid "Hero"
+msgstr "Hjälte"
+
+#, fuzzy
+msgid ""
+"If this checkbox is checked, the defending hero is going be human-controlled."
+msgstr "Klicka för att ange denna hjälte som spelarkontrollerad."
 
 msgid "%{race1} %{name1} vs %{race2} %{name2}"
 msgstr "%{race1} %{name1} mot %{race2} %{name2}"
@@ -2922,6 +2940,9 @@ msgstr "Skada"
 msgid "HP"
 msgstr "HP"
 
+msgid "Speed"
+msgstr "Hastighet"
+
 msgid "Growth"
 msgstr "Tillväxt"
 
@@ -3217,6 +3238,13 @@ msgid ""
 msgstr ""
 "Förlust-\n"
 "villkor"
+
+msgid "About"
+msgstr "Om"
+
+#, fuzzy
+msgid "Click to read notes from the map creator."
+msgstr "Klicka för att gå tillbaka till huvudmenyn."
 
 msgid "Map Description"
 msgstr "Kartbeskrivning"
@@ -3728,6 +3756,10 @@ msgstr "Välj Hjälte:"
 
 msgid "Select Monsters:"
 msgstr "Välj Varelser:"
+
+#, fuzzy
+msgid "Select Artifacts:"
+msgstr "Välj Artefakt:"
 
 msgid "race|Random"
 msgstr "Slumpad"
@@ -4946,17 +4978,11 @@ msgstr "HÄNDELSER"
 msgid "LANGUAGE"
 msgstr "SPRÅK"
 
-msgid "ABOUT"
-msgstr "OM"
-
 msgid "Change Map Name"
 msgstr "Ändra Kartnamn"
 
 msgid "Change Map Description"
 msgstr "Ändra Kartbeskrivning"
-
-msgid "About"
-msgstr "Om"
 
 msgid "Click to edit custom rumors."
 msgstr "Klicka för att redigera anpassade rykten."
@@ -5596,6 +5622,10 @@ msgstr "Återgenerera slumpad karta"
 msgid "hotkey|re-configure random map"
 msgstr "Återkonfigurera slumpad karta"
 
+#, fuzzy
+msgid "hotkey|output all text"
+msgstr "Skrolla vänster"
+
 msgid "hotkey|roland campaign"
 msgstr "Rolands kampanj"
 
@@ -6011,9 +6041,6 @@ msgid ""
 msgstr ""
 "Ett spel med flera spelare, där flera mänskliga spelare som tävlar mot "
 "varandra på en karta."
-
-msgid "Battle Only"
-msgstr "Endast Strid"
 
 msgid "Setup and play a battle without loading any map."
 msgstr "Konfigurera och spela en strid utan någon karta."
@@ -6664,14 +6691,59 @@ msgstr ""
 msgid "The available values range from %{min} to %{max}."
 msgstr "De möjliga värdena går från och med %{min} till och med %{max}."
 
+msgid "Uppercase"
+msgstr ""
+
+#, fuzzy
+msgid "Click to switch to uppercase letters."
+msgstr "Klicka för att spara Händelseegenskaperna."
+
 msgid "Keyboard|123"
 msgstr "123"
+
+#, fuzzy
+msgid "Keyboard type"
+msgstr "123"
+
+msgid "Click to switch between keyboard types."
+msgstr ""
 
 msgid "Keyboard|SPACE"
 msgstr "MELLANSLAG"
 
+#, fuzzy
+msgid "Change language"
+msgstr "Ändra Kartnamn"
+
+#, fuzzy
+msgid "Click to switch between languages."
+msgstr "Klicka för att anta valt språk."
+
+#, fuzzy
+msgid "Backspace"
+msgstr "Tillbaka"
+
+#, fuzzy
+msgid "Click to remove characters."
+msgstr "Klicka här för att lämna stridsresultaten."
+
+#, fuzzy
+msgid "Lowercase"
+msgstr "Blommor"
+
+#, fuzzy
+msgid "Click to switch to lowercase letters."
+msgstr "Klicka för att spara Händelseegenskaperna."
+
 msgid "Keyboard|ABC"
 msgstr "ABC"
+
+#, fuzzy
+msgid "Swap sign"
+msgstr "Kartkreatörer"
+
+msgid "Click to switch between signed and unsigned numbers."
+msgstr ""
 
 msgid "The entered value is invalid."
 msgstr "Värdet är ogiltigt."
@@ -8381,13 +8453,13 @@ msgstr "Endast hjältar kan kasta denna besvärjelsen."
 msgid "This hero is not able to cast adventure spells."
 msgstr "Hjälten kan inte kasta kartbesvärjelser."
 
+msgid "This spell cannot be cast on a boat."
+msgstr "Denna besvärjelse kan inte kastas från skepp."
+
 msgid "Your hero is too tired to cast this spell today. Try again tomorrow."
 msgstr ""
 "Din hjälte är för trött för att kasta en besvärjelse idag. Försök igen "
 "imorgon."
-
-msgid "This spell cannot be cast on a boat."
-msgstr "Denna besvärjelse kan inte kastas från skepp."
 
 msgid "This spell can only be cast near an ocean."
 msgstr "Denna besvärjelse kan bara kastas nära hav."
@@ -9135,22 +9207,25 @@ msgstr "Fantastisk"
 msgid "luck|Irish"
 msgstr "Irländsk"
 
+#, fuzzy
 msgid ""
-"Negative luck sometimes falls on the hero's units in combat, causing their "
-"attacks to only do half damage."
+"%{luck-type} luck sometimes falls on the hero's units in combat, causing "
+"their attacks to only do half damage."
 msgstr ""
 "Otur drabbar ibland hjältens trupper i strid, som får de att bara gör "
 "hälften i skada."
 
+#, fuzzy
 msgid ""
-"Neutral luck means the hero's units will never get lucky or unlucky attacks "
-"on the enemy."
+"%{luck-type} luck means the hero's units will never get lucky or unlucky "
+"attacks on the enemy."
 msgstr ""
 "Normal tur innebär att hjältens trupper kommer varken att få lyckosamma "
 "eller oturliga attacker."
 
+#, fuzzy
 msgid ""
-"Positive luck sometimes lets the hero's units get lucky attacks (double "
+"%{luck-type} luck sometimes lets the hero's units get lucky attacks (double "
 "strength) in combat."
 msgstr ""
 "Tursamhet låter hjältens trupper få tursamma attacker (dubbel styrka) ibland."
@@ -9176,18 +9251,26 @@ msgstr "Fantastisk"
 msgid "morale|Blood!"
 msgstr "Blod!"
 
-msgid "Negative morale may cause the hero's units to freeze in combat."
+#, fuzzy
+msgid "%{morale-type} morale may cause the hero's units to freeze in combat."
 msgstr "Låg stridsmoral kan få hjältens trupper att låsa sig i strid."
 
+#, fuzzy
 msgid ""
-"Neutral morale means the hero's units will never be blessed with extra "
-"attacks or freeze in combat."
+"%{morale-type} morale means the hero's units will never be blessed with "
+"extra attacks or freeze in combat."
 msgstr ""
 "Neutral stridsmoral innebär att hjältens arméer aldrig kommer att bli "
 "välsignade eller låsta i strid."
 
-msgid "Positive morale may give the hero's units extra attacks in combat."
+#, fuzzy
+msgid ""
+"%{morale-type} morale may give the hero's units extra attacks in combat."
 msgstr "Hög stridsmoral kan ge hjältens trupper extra attacker i strid."
+
+#, fuzzy
+msgid "Blood"
+msgstr "Bloodreign"
 
 msgid "Knight"
 msgstr "Riddare"
@@ -9617,9 +9700,6 @@ msgstr "Slumpad Varelse - starkt"
 
 msgid "Random Monster - very strong"
 msgstr "Slumpad Varelse - väldigt starkt"
-
-msgid "Hero"
-msgstr "Hjälte"
 
 msgid "Nothing Special"
 msgstr "Ingenting Speciellt"
@@ -12572,11 +12652,8 @@ msgstr "Han sa till henne: Jag bah... och hon svarade: Du bah..."
 msgid "An unknown force is being resurrected..."
 msgstr "En okänd kraft återuppstår..."
 
-#~ msgid ""
-#~ "You are about to change the map's language from %{oldLanguage} to "
-#~ "%{newLanguage}. Some texts might not be displayed properly after this. Do "
-#~ "you want to proceed?"
-#~ msgstr ""
-#~ "Du tänker ändra kartans språk från %{oldLanguage} till %{newLanguage}. En "
-#~ "del texter kan eventuellt inte visas korrekt efter detta. Vill du "
-#~ "fortfarande ändra språk?"
+#~ msgid "AI"
+#~ msgstr "AI"
+
+#~ msgid "Click to set this hero to be AI-controlled."
+#~ msgstr "Klicka för att ange denna hjälte som AI-kontrollerad."

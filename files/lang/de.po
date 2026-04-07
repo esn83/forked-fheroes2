@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-15 02:18+0000\n"
+"POT-Creation-Date: 2026-04-05 13:11+0000\n"
 "PO-Revision-Date: 2025-03-31 15:35+0200\n"
 "Last-Translator: fheroes2 team <fhomm2@gmail.com>\n"
 "Language-Team: felix-schneider, do-ut-des\n"
@@ -19,6 +19,9 @@ msgstr ""
 
 msgid "SELECT"
 msgstr "AUSW."
+
+msgid "ABOUT"
+msgstr "ÜBER"
 
 msgid "S"
 msgstr "S"
@@ -548,11 +551,13 @@ msgstr ""
 "die Verteidigungsfertigkeit von Truppen, die sich in ihm befinden, um "
 "%{count}."
 
-msgid "Speed: %{speed}"
+#, fuzzy
+msgid "battleAnimation|Speed: %{speed}"
 msgstr "Geschw.: %{speed}"
 
-msgid "Speed"
-msgstr "Bewegung"
+#, fuzzy
+msgid "battleAnimation|Speed"
+msgstr "Animation"
 
 msgid "Interface"
 msgstr "Anzeige"
@@ -1063,6 +1068,12 @@ msgstr "Sterben: %{max}"
 msgid "Perish: %{min} - %{max}"
 msgstr "Sterben: %{min} - %{max}"
 
+msgid "battle_turn_order|Top"
+msgstr ""
+
+msgid "battle_turn_order|Bottom"
+msgstr ""
+
 msgid "Turn Order"
 msgstr "Reihenfolge"
 
@@ -1110,7 +1121,7 @@ msgstr ""
 "Schatten ein-/ausschalten, der die aktuelle Position des Mauszeigers auf dem "
 "Bewegungsfeld visualisiert."
 
-msgid "Toggle showing the movement area of a highlighted creature on or off ."
+msgid "Toggle showing the movement area of a highlighted creature on or off."
 msgstr ""
 
 msgid ""
@@ -1123,11 +1134,11 @@ msgstr ""
 msgid "Human"
 msgstr "Mensch"
 
-msgid "AI"
-msgstr "KI"
-
 msgid "Terrain"
 msgstr "Gelände"
+
+msgid "Battle Only"
+msgstr "Nur Schlacht"
 
 msgid "Start"
 msgstr "Start"
@@ -1161,11 +1172,17 @@ msgstr ""
 msgid "Please select another hero."
 msgstr "Bitte wählt einen anderen Helden aus."
 
-msgid "Click to set this hero to be human-controlled."
-msgstr "Klickt, dass dieser Held menschgesteuert ist."
+#, fuzzy
+msgid "Click to select a hero."
+msgstr "Klickt, um die Farbe auszuwählen."
 
-msgid "Click to set this hero to be AI-controlled."
-msgstr "Klickt, dass dieser Held KI-gesteuert ist."
+msgid "Hero"
+msgstr "Held"
+
+#, fuzzy
+msgid ""
+"If this checkbox is checked, the defending hero is going be human-controlled."
+msgstr "Klickt, dass dieser Held menschgesteuert ist."
 
 msgid "%{race1} %{name1} vs %{race2} %{name2}"
 msgstr "%{race1} %{name1} gegen %{race2} %{name2}"
@@ -2964,6 +2981,9 @@ msgstr "Schaden"
 msgid "HP"
 msgstr "TP"
 
+msgid "Speed"
+msgstr "Bewegung"
+
 msgid "Growth"
 msgstr "Wachstum"
 
@@ -3264,6 +3284,13 @@ msgid ""
 msgstr ""
 "Verlust-\n"
 "bedingungen"
+
+msgid "About"
+msgstr "Über"
+
+#, fuzzy
+msgid "Click to read notes from the map creator."
+msgstr "Klicken, um zum Hauptmenü zurückzukehren."
 
 msgid "Map Description"
 msgstr "Kartenbeschreibung"
@@ -3781,6 +3808,10 @@ msgstr "Held auswählen:"
 
 msgid "Select Monsters:"
 msgstr "Monster auswählen:"
+
+#, fuzzy
+msgid "Select Artifacts:"
+msgstr "Artefakt auswählen:"
 
 msgid "race|Random"
 msgstr "Zufällig"
@@ -5026,17 +5057,11 @@ msgstr "EREIGNISSE"
 msgid "LANGUAGE"
 msgstr "SPRACHE"
 
-msgid "ABOUT"
-msgstr "ÜBER"
-
 msgid "Change Map Name"
 msgstr "Kartennamen ändern"
 
 msgid "Change Map Description"
 msgstr "Kartenbeschreibung ändern"
-
-msgid "About"
-msgstr "Über"
 
 msgid "Click to edit custom rumors."
 msgstr "Klickt, um Gerüchte hinzuzufügen oder zu bearbeiten."
@@ -5679,6 +5704,10 @@ msgstr "Zufällige Karte neu generieren"
 msgid "hotkey|re-configure random map"
 msgstr "Zufällige Karte neu konfigurieren"
 
+#, fuzzy
+msgid "hotkey|output all text"
+msgstr "Links scrollen"
+
 msgid "hotkey|roland campaign"
 msgstr "Roland-Feldzug"
 
@@ -6099,9 +6128,6 @@ msgid ""
 msgstr ""
 "Ein Mehrspieler-Spiel, bei dem mehrere menschliche Spieler auf einer "
 "einzigen Karte gegeneinander antreten."
-
-msgid "Battle Only"
-msgstr "Nur Schlacht"
 
 msgid "Setup and play a battle without loading any map."
 msgstr "Einen Schlacht einrichten und spielen, ohne eine Karte zu laden."
@@ -6777,14 +6803,59 @@ msgstr ""
 msgid "The available values range from %{min} to %{max}."
 msgstr "Die verfügbaren Werte reichen von %{min} bis %{max}."
 
+msgid "Uppercase"
+msgstr ""
+
+#, fuzzy
+msgid "Click to switch to uppercase letters."
+msgstr "Klickt, um die Ereigniseigenschaften zu speichern."
+
 msgid "Keyboard|123"
 msgstr "123"
+
+#, fuzzy
+msgid "Keyboard type"
+msgstr "123"
+
+msgid "Click to switch between keyboard types."
+msgstr ""
 
 msgid "Keyboard|SPACE"
 msgstr "LEERTASTE"
 
+#, fuzzy
+msgid "Change language"
+msgstr "Kartennamen ändern"
+
+#, fuzzy
+msgid "Click to switch between languages."
+msgstr "Klickt, um die ausgewählte Sprache auszuwählen."
+
+#, fuzzy
+msgid "Backspace"
+msgstr "Zurück"
+
+#, fuzzy
+msgid "Click to remove characters."
+msgstr "Klickt, um die Kampfergebnisse zu verlassen."
+
+#, fuzzy
+msgid "Lowercase"
+msgstr "Blumen"
+
+#, fuzzy
+msgid "Click to switch to lowercase letters."
+msgstr "Klickt, um die Ereigniseigenschaften zu speichern."
+
 msgid "Keyboard|ABC"
 msgstr "ABC"
+
+#, fuzzy
+msgid "Swap sign"
+msgstr "Kartendesigner"
+
+msgid "Click to switch between signed and unsigned numbers."
+msgstr ""
 
 msgid "The entered value is invalid."
 msgstr "Der eingegebene Wert ist ungültig."
@@ -8551,13 +8622,13 @@ msgstr "Nur Helden können diesen Zauber sprechen."
 msgid "This hero is not able to cast adventure spells."
 msgstr "Dieser Held ist nicht in der Lage, Abenteuerzauber zu sprechen."
 
+msgid "This spell cannot be cast on a boat."
+msgstr "Dieser Zauber kann nicht auf einem Boot verwendet werden."
+
 msgid "Your hero is too tired to cast this spell today. Try again tomorrow."
 msgstr ""
 "Euer Held ist zu müde, um heute diesen Zauber zu sprechen. Versucht es "
 "morgen erneut."
-
-msgid "This spell cannot be cast on a boat."
-msgstr "Dieser Zauber kann nicht auf einem Boot verwendet werden."
 
 msgid "This spell can only be cast near an ocean."
 msgstr "Dieser Zauber kann nur in der Nähe von Wasser verwendet werden."
@@ -9330,22 +9401,25 @@ msgstr "Wunderbar"
 msgid "luck|Irish"
 msgstr "Himmlisch"
 
+#, fuzzy
 msgid ""
-"Negative luck sometimes falls on the hero's units in combat, causing their "
-"attacks to only do half damage."
+"%{luck-type} luck sometimes falls on the hero's units in combat, causing "
+"their attacks to only do half damage."
 msgstr ""
 "Negatives Glück befällt manchmal die Einheiten des Helden im Kampf, sodass "
 "ihre Angriffe nur halben Schaden anrichten."
 
+#, fuzzy
 msgid ""
-"Neutral luck means the hero's units will never get lucky or unlucky attacks "
-"on the enemy."
+"%{luck-type} luck means the hero's units will never get lucky or unlucky "
+"attacks on the enemy."
 msgstr ""
 "Neutrales Glück bedeutet, dass die Einheiten des Helden niemals Glück oder "
 "Unglück erfahren."
 
+#, fuzzy
 msgid ""
-"Positive luck sometimes lets the hero's units get lucky attacks (double "
+"%{luck-type} luck sometimes lets the hero's units get lucky attacks (double "
 "strength) in combat."
 msgstr ""
 "Positives Glück lässt die Einheiten des Helden manchmal glückliche Angriffe "
@@ -9372,22 +9446,30 @@ msgstr "Wunderbar"
 msgid "morale|Blood!"
 msgstr "\"BLUT!\""
 
-msgid "Negative morale may cause the hero's units to freeze in combat."
+#, fuzzy
+msgid "%{morale-type} morale may cause the hero's units to freeze in combat."
 msgstr ""
 "Negative Moral kann dazu führen, dass die Einheiten des Helden im Kampf "
 "erstarren."
 
+#, fuzzy
 msgid ""
-"Neutral morale means the hero's units will never be blessed with extra "
-"attacks or freeze in combat."
+"%{morale-type} morale means the hero's units will never be blessed with "
+"extra attacks or freeze in combat."
 msgstr ""
 "Neutrale Moral bedeutet, dass die Einheiten des Helden niemals mit "
 "zusätzlichen Angriffen gesegnet werden oder im Kampf erstarren."
 
-msgid "Positive morale may give the hero's units extra attacks in combat."
+#, fuzzy
+msgid ""
+"%{morale-type} morale may give the hero's units extra attacks in combat."
 msgstr ""
 "Positive Moral kann den Einheiten des Helden zusätzliche Angriffe im Kampf "
 "bescheren."
+
+#, fuzzy
+msgid "Blood"
+msgstr "Bloodreign"
 
 msgid "Knight"
 msgstr "Ritter"
@@ -9815,9 +9897,6 @@ msgstr "Zufälliges Monster - stark"
 
 msgid "Random Monster - very strong"
 msgstr "Zufälliges Monster - sehr stark"
-
-msgid "Hero"
-msgstr "Held"
 
 msgid "Nothing Special"
 msgstr "Nichts besonderes"
@@ -12811,3 +12890,9 @@ msgstr "Er sagte ihr: Yada yada yada... und dann sagte sie: Bla, bla, bla..."
 
 msgid "An unknown force is being resurrected..."
 msgstr "Eine unbekannte Macht wird wiederbelebt..."
+
+#~ msgid "AI"
+#~ msgstr "KI"
+
+#~ msgid "Click to set this hero to be AI-controlled."
+#~ msgstr "Klickt, dass dieser Held KI-gesteuert ist."

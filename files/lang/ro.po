@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fheroes2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-15 02:18+0000\n"
+"POT-Creation-Date: 2026-04-05 13:11+0000\n"
 "PO-Revision-Date: 2022-10-25 08:56+0200\n"
 "Last-Translator: fheroes2 team <fhomm2@gmail.com>\n"
 "Language-Team: \n"
@@ -20,6 +20,9 @@ msgstr ""
 
 msgid "SELECT"
 msgstr "SELECTEAZĂ"
+
+msgid "ABOUT"
+msgstr ""
 
 msgid "S"
 msgstr "S"
@@ -535,11 +538,13 @@ msgstr ""
 "Șanțul reduce cu -%{count} abilitatea de apărare a oricărei unități și "
 "reduce la jumătate viteza de mișcare."
 
-msgid "Speed: %{speed}"
+#, fuzzy
+msgid "battleAnimation|Speed: %{speed}"
 msgstr "Viteză: %{speed}"
 
-msgid "Speed"
-msgstr "Viteză"
+#, fuzzy
+msgid "battleAnimation|Speed"
+msgstr "Anexare"
 
 msgid "Interface"
 msgstr "Interfață"
@@ -1070,6 +1075,12 @@ msgstr "Fatalități: %{max}"
 msgid "Perish: %{min} - %{max}"
 msgstr "Fatalități: %{min} - %{max}"
 
+msgid "battle_turn_order|Top"
+msgstr ""
+
+msgid "battle_turn_order|Bottom"
+msgstr ""
+
 #, fuzzy
 msgid "Turn Order"
 msgstr "Ordin al armatei"
@@ -1119,7 +1130,7 @@ msgstr ""
 "Activează sau dezactivează o umbră care arată locația hexagonală curentă a "
 "cursorului mouse-ului."
 
-msgid "Toggle showing the movement area of a highlighted creature on or off ."
+msgid "Toggle showing the movement area of a highlighted creature on or off."
 msgstr ""
 
 msgid ""
@@ -1132,10 +1143,10 @@ msgstr ""
 msgid "Human"
 msgstr "Om"
 
-msgid "AI"
-msgstr "AI"
-
 msgid "Terrain"
+msgstr ""
+
+msgid "Battle Only"
 msgstr ""
 
 msgid "Start"
@@ -1167,12 +1178,16 @@ msgstr ""
 msgid "Please select another hero."
 msgstr "Te rog selectează un alt erou."
 
-msgid "Click to set this hero to be human-controlled."
-msgstr ""
-
 #, fuzzy
-msgid "Click to set this hero to be AI-controlled."
+msgid "Click to select a hero."
 msgstr "Dați click pentru a reîncepe bătălia în mod manual."
+
+msgid "Hero"
+msgstr "Erou"
+
+msgid ""
+"If this checkbox is checked, the defending hero is going be human-controlled."
+msgstr ""
 
 #, fuzzy
 msgid "%{race1} %{name1} vs %{race2} %{name2}"
@@ -2828,6 +2843,9 @@ msgstr ""
 msgid "HP"
 msgstr ""
 
+msgid "Speed"
+msgstr "Viteză"
+
 msgid "Growth"
 msgstr ""
 
@@ -3095,6 +3113,13 @@ msgid ""
 "Loss\n"
 "Conditions"
 msgstr ""
+
+msgid "About"
+msgstr ""
+
+#, fuzzy
+msgid "Click to read notes from the map creator."
+msgstr "Ești sigur că vrei să termini bătălia în modul automat?"
 
 #, fuzzy
 msgid "Map Description"
@@ -3593,6 +3618,10 @@ msgstr ""
 #, fuzzy
 msgid "Select Monsters:"
 msgstr "Selectați ținta vrăjii"
+
+#, fuzzy
+msgid "Select Artifacts:"
+msgstr "Artifact"
 
 msgid "race|Random"
 msgstr "Aleatorie"
@@ -4811,16 +4840,10 @@ msgstr ""
 msgid "LANGUAGE"
 msgstr ""
 
-msgid "ABOUT"
-msgstr ""
-
 msgid "Change Map Name"
 msgstr ""
 
 msgid "Change Map Description"
-msgstr ""
-
-msgid "About"
 msgstr ""
 
 #, fuzzy
@@ -5448,6 +5471,10 @@ msgstr ""
 msgid "hotkey|re-configure random map"
 msgstr ""
 
+#, fuzzy
+msgid "hotkey|output all text"
+msgstr "Personalizează opțiunile sistemului"
+
 msgid "hotkey|roland campaign"
 msgstr ""
 
@@ -5850,9 +5877,6 @@ msgstr ""
 msgid ""
 "A multi-player game, with several human players competing against each other "
 "on a single map."
-msgstr ""
-
-msgid "Battle Only"
 msgstr ""
 
 msgid "Setup and play a battle without loading any map."
@@ -6420,13 +6444,55 @@ msgstr ""
 msgid "The available values range from %{min} to %{max}."
 msgstr ""
 
+msgid "Uppercase"
+msgstr ""
+
+#, fuzzy
+msgid "Click to switch to uppercase letters."
+msgstr "Dați click pentru a reîncepe bătălia în mod manual."
+
 msgid "Keyboard|123"
+msgstr ""
+
+msgid "Keyboard type"
+msgstr ""
+
+msgid "Click to switch between keyboard types."
 msgstr ""
 
 msgid "Keyboard|SPACE"
 msgstr ""
 
+#, fuzzy
+msgid "Change language"
+msgstr "Limbă"
+
+#, fuzzy
+msgid "Click to switch between languages."
+msgstr "Dați click pentru a reîncepe bătălia în mod manual."
+
+msgid "Backspace"
+msgstr ""
+
+#, fuzzy
+msgid "Click to remove characters."
+msgstr "Dați click pentru a reîncepe bătălia în mod manual."
+
+msgid "Lowercase"
+msgstr ""
+
+#, fuzzy
+msgid "Click to switch to lowercase letters."
+msgstr "Dați click pentru a reîncepe bătălia în mod manual."
+
 msgid "Keyboard|ABC"
+msgstr ""
+
+#, fuzzy
+msgid "Swap sign"
+msgstr "Designeri de hărți"
+
+msgid "Click to switch between signed and unsigned numbers."
 msgstr ""
 
 msgid "The entered value is invalid."
@@ -7752,10 +7818,10 @@ msgstr ""
 msgid "This hero is not able to cast adventure spells."
 msgstr ""
 
-msgid "Your hero is too tired to cast this spell today. Try again tomorrow."
+msgid "This spell cannot be cast on a boat."
 msgstr ""
 
-msgid "This spell cannot be cast on a boat."
+msgid "Your hero is too tired to cast this spell today. Try again tomorrow."
 msgstr ""
 
 msgid "This spell can only be cast near an ocean."
@@ -8446,17 +8512,17 @@ msgid "luck|Irish"
 msgstr ""
 
 msgid ""
-"Negative luck sometimes falls on the hero's units in combat, causing their "
-"attacks to only do half damage."
+"%{luck-type} luck sometimes falls on the hero's units in combat, causing "
+"their attacks to only do half damage."
 msgstr ""
 
 msgid ""
-"Neutral luck means the hero's units will never get lucky or unlucky attacks "
-"on the enemy."
+"%{luck-type} luck means the hero's units will never get lucky or unlucky "
+"attacks on the enemy."
 msgstr ""
 
 msgid ""
-"Positive luck sometimes lets the hero's units get lucky attacks (double "
+"%{luck-type} luck sometimes lets the hero's units get lucky attacks (double "
 "strength) in combat."
 msgstr ""
 
@@ -8482,17 +8548,22 @@ msgid "morale|Blood!"
 msgstr ""
 
 #, fuzzy
-msgid "Negative morale may cause the hero's units to freeze in combat."
+msgid "%{morale-type} morale may cause the hero's units to freeze in combat."
 msgstr "Moralul scăzut face ca %{monster} să înghețe de panică."
-
-msgid ""
-"Neutral morale means the hero's units will never be blessed with extra "
-"attacks or freeze in combat."
-msgstr ""
 
 #, fuzzy
-msgid "Positive morale may give the hero's units extra attacks in combat."
+msgid ""
+"%{morale-type} morale means the hero's units will never be blessed with "
+"extra attacks or freeze in combat."
 msgstr "Moralul scăzut face ca %{monster} să înghețe de panică."
+
+#, fuzzy
+msgid ""
+"%{morale-type} morale may give the hero's units extra attacks in combat."
+msgstr "Moralul scăzut face ca %{monster} să înghețe de panică."
+
+msgid "Blood"
+msgstr ""
 
 msgid "Knight"
 msgstr "Cavaler"
@@ -8924,9 +8995,6 @@ msgstr ""
 
 msgid "Random Monster - very strong"
 msgstr ""
-
-msgid "Hero"
-msgstr "Erou"
 
 msgid "Nothing Special"
 msgstr ""
@@ -11486,3 +11554,10 @@ msgstr ""
 
 msgid "An unknown force is being resurrected..."
 msgstr ""
+
+#~ msgid "AI"
+#~ msgstr "AI"
+
+#, fuzzy
+#~ msgid "Click to set this hero to be AI-controlled."
+#~ msgstr "Dați click pentru a reîncepe bătălia în mod manual."

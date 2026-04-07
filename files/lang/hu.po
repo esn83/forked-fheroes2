@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fheroes2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-15 02:18+0000\n"
+"POT-Creation-Date: 2026-04-05 13:11+0000\n"
 "PO-Revision-Date: 2026-02-15 23:50+0100\n"
 "Last-Translator: Berda Jenő <big4billy@gmail.com>\n"
 "Language-Team: fheroes2 team <fhomm2@gmail.com>\n"
@@ -20,6 +20,9 @@ msgstr ""
 
 msgid "SELECT"
 msgstr "VÁLASZT"
+
+msgid "ABOUT"
+msgstr "LEÍRÁS"
 
 msgid "S"
 msgstr "S"
@@ -540,11 +543,13 @@ msgstr ""
 "A várárok megakasztja a keresztülhaladó egységek mozgását és csökkenti a "
 "benne álló egységek védelmi képességét %{count} százalékkal."
 
-msgid "Speed: %{speed}"
+#, fuzzy
+msgid "battleAnimation|Speed: %{speed}"
 msgstr "Sebesség: %{speed}"
 
-msgid "Speed"
-msgstr "Sebesség"
+#, fuzzy
+msgid "battleAnimation|Speed"
+msgstr "Animáció"
 
 msgid "Interface"
 msgstr "Kezelőfelület"
@@ -1051,6 +1056,12 @@ msgstr "Megöl: %{max}"
 msgid "Perish: %{min} - %{max}"
 msgstr "Megöl: %{min} - %{max}"
 
+msgid "battle_turn_order|Top"
+msgstr ""
+
+msgid "battle_turn_order|Bottom"
+msgstr ""
+
 msgid "Turn Order"
 msgstr "Körsorrend"
 
@@ -1091,7 +1102,8 @@ msgid ""
 "cursor."
 msgstr "Be- és kikapcsolja az egérkurzor alatti árnyékot."
 
-msgid "Toggle showing the movement area of a highlighted creature on or off ."
+#, fuzzy
+msgid "Toggle showing the movement area of a highlighted creature on or off."
 msgstr ""
 "A kijelölt teremtmény mozgástere megjelenítésének kapcsolója (BE vagy KI)."
 
@@ -1104,11 +1116,11 @@ msgstr ""
 msgid "Human"
 msgstr "Ember"
 
-msgid "AI"
-msgstr "Gép"
-
 msgid "Terrain"
 msgstr "Talaj"
+
+msgid "Battle Only"
+msgstr "Csak csata"
 
 msgid "Start"
 msgstr "Start"
@@ -1142,11 +1154,17 @@ msgstr ""
 msgid "Please select another hero."
 msgstr "Kérlek válassz másik hőst."
 
-msgid "Click to set this hero to be human-controlled."
-msgstr "Kattints a hős emberi irányításához."
+#, fuzzy
+msgid "Click to select a hero."
+msgstr "Kattints a szín kiválasztásához."
 
-msgid "Click to set this hero to be AI-controlled."
-msgstr "Kattints a hős gépi irányításához."
+msgid "Hero"
+msgstr "Hős"
+
+#, fuzzy
+msgid ""
+"If this checkbox is checked, the defending hero is going be human-controlled."
+msgstr "Kattints a hős emberi irányításához."
 
 msgid "%{race1} %{name1} vs %{race2} %{name2}"
 msgstr "%{race1} %{name1} és %{race2} %{name2} találkozik"
@@ -2917,6 +2935,9 @@ msgstr "Sebzés"
 msgid "HP"
 msgstr "Életerő"
 
+msgid "Speed"
+msgstr "Sebesség"
+
 msgid "Growth"
 msgstr "Szaporulat"
 
@@ -3215,6 +3236,13 @@ msgid ""
 msgstr ""
 "Vesztési\n"
 "feltételek"
+
+msgid "About"
+msgstr "Leírás"
+
+#, fuzzy
+msgid "Click to read notes from the map creator."
+msgstr "Kattints a főmenübe való visszatéréshez."
 
 msgid "Map Description"
 msgstr "Térkép leírása"
@@ -3735,6 +3763,10 @@ msgstr "Hős kiválasztása:"
 
 msgid "Select Monsters:"
 msgstr "Lények kiválasztása:"
+
+#, fuzzy
+msgid "Select Artifacts:"
+msgstr "Varázstárgy kiválasztása:"
 
 msgid "race|Random"
 msgstr "Véletlen"
@@ -4957,17 +4989,11 @@ msgstr "ESEMÉNYEK"
 msgid "LANGUAGE"
 msgstr "NYELV"
 
-msgid "ABOUT"
-msgstr "LEÍRÁS"
-
 msgid "Change Map Name"
 msgstr "Térkép nevének megváltoztatása"
 
 msgid "Change Map Description"
 msgstr "Térképleírás megváltoztatása"
-
-msgid "About"
-msgstr "Leírás"
 
 msgid "Click to edit custom rumors."
 msgstr "Kattints egyéni szóbeszéd szerkesztéséhez."
@@ -5605,6 +5631,10 @@ msgstr "véletlenszerű térkép újragenerálása"
 msgid "hotkey|re-configure random map"
 msgstr "véletlenszerű térkép újrakonfigurálása"
 
+#, fuzzy
+msgid "hotkey|output all text"
+msgstr "görgetés balra"
+
 msgid "hotkey|roland campaign"
 msgstr "roland hadjárata"
 
@@ -6026,9 +6056,6 @@ msgid ""
 msgstr ""
 "Többjátékos játék, több emberi játékos részvételével, akik egymás ellen "
 "küzdenek egyetlen térképen."
-
-msgid "Battle Only"
-msgstr "Csak csata"
 
 msgid "Setup and play a battle without loading any map."
 msgstr "Egyetlen csata beállítása és lejátszása térkép betöltése nélkül."
@@ -6675,14 +6702,59 @@ msgstr ""
 msgid "The available values range from %{min} to %{max}."
 msgstr "Az igénybe vehető álló értéktartomány %{min} és %{max} között van."
 
+msgid "Uppercase"
+msgstr ""
+
+#, fuzzy
+msgid "Click to switch to uppercase letters."
+msgstr "Kattints az esemény beállítások mentéséhez."
+
 msgid "Keyboard|123"
 msgstr "123"
+
+#, fuzzy
+msgid "Keyboard type"
+msgstr "123"
+
+msgid "Click to switch between keyboard types."
+msgstr ""
 
 msgid "Keyboard|SPACE"
 msgstr "SPACE"
 
+#, fuzzy
+msgid "Change language"
+msgstr "Térkép nevének megváltoztatása"
+
+#, fuzzy
+msgid "Click to switch between languages."
+msgstr "Kattints a kijelölt nyelv kiválasztásához."
+
+#, fuzzy
+msgid "Backspace"
+msgstr "Vissza"
+
+#, fuzzy
+msgid "Click to remove characters."
+msgstr "Kattints a csata eredményeiből való kilépéshez."
+
+#, fuzzy
+msgid "Lowercase"
+msgstr "Virágok"
+
+#, fuzzy
+msgid "Click to switch to lowercase letters."
+msgstr "Kattints az esemény beállítások mentéséhez."
+
 msgid "Keyboard|ABC"
 msgstr "ABC"
+
+#, fuzzy
+msgid "Swap sign"
+msgstr "Térkép tervezők"
+
+msgid "Click to switch between signed and unsigned numbers."
+msgstr ""
 
 msgid "The entered value is invalid."
 msgstr "A megadott érték helytelen."
@@ -8369,11 +8441,11 @@ msgstr "Csak hősök idézhetik meg ezt a varázslatot."
 msgid "This hero is not able to cast adventure spells."
 msgstr "A hős nem képes kaland varázslatok megidézésére."
 
-msgid "Your hero is too tired to cast this spell today. Try again tomorrow."
-msgstr "Hősöd ma már túl fáradt ehhez a varázslathoz. Próbáld újra holnap."
-
 msgid "This spell cannot be cast on a boat."
 msgstr "A varázslat nem használható hajón."
+
+msgid "Your hero is too tired to cast this spell today. Try again tomorrow."
+msgstr "Hősöd ma már túl fáradt ehhez a varázslathoz. Próbáld újra holnap."
 
 msgid "This spell can only be cast near an ocean."
 msgstr "A varázslat csak tengerparton használható."
@@ -9124,22 +9196,25 @@ msgstr "Nagyszerű"
 msgid "luck|Irish"
 msgstr "Páratlan"
 
+#, fuzzy
 msgid ""
-"Negative luck sometimes falls on the hero's units in combat, causing their "
-"attacks to only do half damage."
+"%{luck-type} luck sometimes falls on the hero's units in combat, causing "
+"their attacks to only do half damage."
 msgstr ""
 "A Rossz szerencse következtében a csatában a hős egységeinek sebzése "
 "alkalmanként a felére csökken."
 
+#, fuzzy
 msgid ""
-"Neutral luck means the hero's units will never get lucky or unlucky attacks "
-"on the enemy."
+"%{luck-type} luck means the hero's units will never get lucky or unlucky "
+"attacks on the enemy."
 msgstr ""
 "A Semleges szerencse azt jelenti, hogy a csata során se szerencse se "
 "balszerencse nem éri az egységeid támadását."
 
+#, fuzzy
 msgid ""
-"Positive luck sometimes lets the hero's units get lucky attacks (double "
+"%{luck-type} luck sometimes lets the hero's units get lucky attacks (double "
 "strength) in combat."
 msgstr ""
 "Jó szerencse esetén a hős egységeinek alkalmanként esélye van szerencsés "
@@ -9166,20 +9241,28 @@ msgstr "Nagyszerű"
 msgid "morale|Blood!"
 msgstr "Örjöngő!"
 
-msgid "Negative morale may cause the hero's units to freeze in combat."
+#, fuzzy
+msgid "%{morale-type} morale may cause the hero's units to freeze in combat."
 msgstr "Rossz morál a hős egységeinek ledermedését eredményezheti a csatában."
 
+#, fuzzy
 msgid ""
-"Neutral morale means the hero's units will never be blessed with extra "
-"attacks or freeze in combat."
+"%{morale-type} morale means the hero's units will never be blessed with "
+"extra attacks or freeze in combat."
 msgstr ""
 "Semleges morál azt jelenti, hogy a hős egységei nem kapnak lehetőséget extra "
 "támadásra, de nem is maradnak ki."
 
-msgid "Positive morale may give the hero's units extra attacks in combat."
+#, fuzzy
+msgid ""
+"%{morale-type} morale may give the hero's units extra attacks in combat."
 msgstr ""
 "Jó morál esetén a hős egységei extra támadási lehetőséget kaphatnak a "
 "csatában."
+
+#, fuzzy
+msgid "Blood"
+msgstr "Bloodreign"
 
 msgid "Knight"
 msgstr "Lovag"
@@ -9613,9 +9696,6 @@ msgstr "Véletlenszerű lény - erős"
 
 msgid "Random Monster - very strong"
 msgstr "Véletlenszerű lény - nagyon erős"
-
-msgid "Hero"
-msgstr "Hős"
 
 msgid "Nothing Special"
 msgstr "Semmi érdekes"
@@ -12558,11 +12638,8 @@ msgstr "A férfi üres fecsegésére a nő így válaszolt: bla-bla-bla..."
 msgid "An unknown force is being resurrected..."
 msgstr "Egy ismeretlen erő kelt új életre ..."
 
-#~ msgid ""
-#~ "You are about to change the map's language from %{oldLanguage} to "
-#~ "%{newLanguage}. Some texts might not be displayed properly after this. Do "
-#~ "you want to proceed?"
-#~ msgstr ""
-#~ "A térkép nyelvét készülsz megváltoztatni. Régi nyelv: %{oldLanguage}, új "
-#~ "nyelv: %{newLanguage}. Néhány szöveg nem biztos, hogy megfelelően jelenik "
-#~ "meg ezután. Így is végre akarod hajtani a műveletet?"
+#~ msgid "AI"
+#~ msgstr "Gép"
+
+#~ msgid "Click to set this hero to be AI-controlled."
+#~ msgstr "Kattints a hős gépi irányításához."

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fheroes2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-15 02:18+0000\n"
+"POT-Creation-Date: 2026-04-05 13:11+0000\n"
 "PO-Revision-Date: 2022-10-25 08:52+0200\n"
 "Last-Translator: fheroes2 team <fhomm2@gmail.com>\n"
 "Language-Team: Dutch <nl@li.org>\n"
@@ -19,6 +19,9 @@ msgstr ""
 "X-Generator: Poedit 3.1.1\n"
 
 msgid "SELECT"
+msgstr ""
+
+msgid "ABOUT"
 msgstr ""
 
 msgid "S"
@@ -479,11 +482,13 @@ msgstr ""
 "De Moat verminderd by -%{count} de verdedgings vaardigheid van een eenheid "
 "en versloomt naar de helft van de bewegings snelheid"
 
-msgid "Speed: %{speed}"
+#, fuzzy
+msgid "battleAnimation|Speed: %{speed}"
 msgstr "Snelheid: %{speed}"
 
-msgid "Speed"
-msgstr "Snelheid"
+#, fuzzy
+msgid "battleAnimation|Speed"
+msgstr "Annexatie"
 
 msgid "Interface"
 msgstr ""
@@ -1003,6 +1008,12 @@ msgstr "Vergaan: %{max}"
 msgid "Perish: %{min} - %{max}"
 msgstr "Vergaan: %{min} - %{max}"
 
+msgid "battle_turn_order|Top"
+msgstr ""
+
+msgid "battle_turn_order|Bottom"
+msgstr ""
+
 #, fuzzy
 msgid "Turn Order"
 msgstr "Legerorde"
@@ -1052,7 +1063,7 @@ msgstr ""
 "Schakel aan of uit een schaduw die de huidige hex-locatie van de muiscursor "
 "toont."
 
-msgid "Toggle showing the movement area of a highlighted creature on or off ."
+msgid "Toggle showing the movement area of a highlighted creature on or off."
 msgstr ""
 
 msgid ""
@@ -1064,10 +1075,10 @@ msgstr ""
 msgid "Human"
 msgstr "Mens"
 
-msgid "AI"
-msgstr "Computer"
-
 msgid "Terrain"
+msgstr ""
+
+msgid "Battle Only"
 msgstr ""
 
 msgid "Start"
@@ -1099,13 +1110,17 @@ msgstr ""
 msgid "Please select another hero."
 msgstr "Selecteer een andere held."
 
-msgid "Click to set this hero to be human-controlled."
-msgstr ""
-
 #, fuzzy
-msgid "Click to set this hero to be AI-controlled."
+msgid "Click to select a hero."
 msgstr ""
 "Weet je zeker dat je het gevecht in de automatische modus wilt beëindigen?"
+
+msgid "Hero"
+msgstr ""
+
+msgid ""
+"If this checkbox is checked, the defending hero is going be human-controlled."
+msgstr ""
 
 #, fuzzy
 msgid "%{race1} %{name1} vs %{race2} %{name2}"
@@ -2891,6 +2906,9 @@ msgstr ""
 msgid "HP"
 msgstr ""
 
+msgid "Speed"
+msgstr "Snelheid"
+
 msgid "Growth"
 msgstr ""
 
@@ -3158,6 +3176,14 @@ msgid ""
 "Loss\n"
 "Conditions"
 msgstr ""
+
+msgid "About"
+msgstr ""
+
+#, fuzzy
+msgid "Click to read notes from the map creator."
+msgstr ""
+"Weet je zeker dat je het gevecht in de automatische modus wilt beëindigen?"
 
 msgid "Map Description"
 msgstr ""
@@ -3661,6 +3687,10 @@ msgstr ""
 
 #, fuzzy
 msgid "Select Monsters:"
+msgstr "Selecteer spreuk doelwit"
+
+#, fuzzy
+msgid "Select Artifacts:"
 msgstr "Selecteer spreuk doelwit"
 
 msgid "race|Random"
@@ -4879,16 +4909,10 @@ msgstr ""
 msgid "LANGUAGE"
 msgstr ""
 
-msgid "ABOUT"
-msgstr ""
-
 msgid "Change Map Name"
 msgstr ""
 
 msgid "Change Map Description"
-msgstr ""
-
-msgid "About"
 msgstr ""
 
 #, fuzzy
@@ -5524,6 +5548,10 @@ msgstr ""
 msgid "hotkey|re-configure random map"
 msgstr ""
 
+#, fuzzy
+msgid "hotkey|output all text"
+msgstr "Systeem instellingen aanpassen"
+
 msgid "hotkey|roland campaign"
 msgstr ""
 
@@ -5918,9 +5946,6 @@ msgstr ""
 msgid ""
 "A multi-player game, with several human players competing against each other "
 "on a single map."
-msgstr ""
-
-msgid "Battle Only"
 msgstr ""
 
 msgid "Setup and play a battle without loading any map."
@@ -6484,13 +6509,58 @@ msgstr ""
 msgid "The available values range from %{min} to %{max}."
 msgstr ""
 
+msgid "Uppercase"
+msgstr ""
+
+#, fuzzy
+msgid "Click to switch to uppercase letters."
+msgstr ""
+"Weet je zeker dat je het gevecht in de automatische modus wilt beëindigen?"
+
 msgid "Keyboard|123"
+msgstr ""
+
+msgid "Keyboard type"
+msgstr ""
+
+msgid "Click to switch between keyboard types."
 msgstr ""
 
 msgid "Keyboard|SPACE"
 msgstr ""
 
+#, fuzzy
+msgid "Change language"
+msgstr "Selecteer spreuk doelwit"
+
+#, fuzzy
+msgid "Click to switch between languages."
+msgstr ""
+"Weet je zeker dat je het gevecht in de automatische modus wilt beëindigen?"
+
+msgid "Backspace"
+msgstr ""
+
+#, fuzzy
+msgid "Click to remove characters."
+msgstr ""
+"Weet je zeker dat je het gevecht in de automatische modus wilt beëindigen?"
+
+msgid "Lowercase"
+msgstr ""
+
+#, fuzzy
+msgid "Click to switch to lowercase letters."
+msgstr ""
+"Weet je zeker dat je het gevecht in de automatische modus wilt beëindigen?"
+
 msgid "Keyboard|ABC"
+msgstr ""
+
+msgid "Swap sign"
+msgstr ""
+
+msgid "Click to switch between signed and unsigned numbers."
 msgstr ""
 
 msgid "The entered value is invalid."
@@ -7811,10 +7881,10 @@ msgstr ""
 msgid "This hero is not able to cast adventure spells."
 msgstr ""
 
-msgid "Your hero is too tired to cast this spell today. Try again tomorrow."
+msgid "This spell cannot be cast on a boat."
 msgstr ""
 
-msgid "This spell cannot be cast on a boat."
+msgid "Your hero is too tired to cast this spell today. Try again tomorrow."
 msgstr ""
 
 msgid "This spell can only be cast near an ocean."
@@ -8501,17 +8571,17 @@ msgid "luck|Irish"
 msgstr ""
 
 msgid ""
-"Negative luck sometimes falls on the hero's units in combat, causing their "
-"attacks to only do half damage."
+"%{luck-type} luck sometimes falls on the hero's units in combat, causing "
+"their attacks to only do half damage."
 msgstr ""
 
 msgid ""
-"Neutral luck means the hero's units will never get lucky or unlucky attacks "
-"on the enemy."
+"%{luck-type} luck means the hero's units will never get lucky or unlucky "
+"attacks on the enemy."
 msgstr ""
 
 msgid ""
-"Positive luck sometimes lets the hero's units get lucky attacks (double "
+"%{luck-type} luck sometimes lets the hero's units get lucky attacks (double "
 "strength) in combat."
 msgstr ""
 
@@ -8537,17 +8607,23 @@ msgid "morale|Blood!"
 msgstr ""
 
 #, fuzzy
-msgid "Negative morale may cause the hero's units to freeze in combat."
+msgid "%{morale-type} morale may cause the hero's units to freeze in combat."
 msgstr "Een laag moreel zorgt ervoor dat het %{monster} in paniek bevriest."
-
-msgid ""
-"Neutral morale means the hero's units will never be blessed with extra "
-"attacks or freeze in combat."
-msgstr ""
 
 #, fuzzy
-msgid "Positive morale may give the hero's units extra attacks in combat."
+msgid ""
+"%{morale-type} morale means the hero's units will never be blessed with "
+"extra attacks or freeze in combat."
 msgstr "Een laag moreel zorgt ervoor dat het %{monster} in paniek bevriest."
+
+#, fuzzy
+msgid ""
+"%{morale-type} morale may give the hero's units extra attacks in combat."
+msgstr "Een laag moreel zorgt ervoor dat het %{monster} in paniek bevriest."
+
+#, fuzzy
+msgid "Blood"
+msgstr "Eerste Bloed"
 
 msgid "Knight"
 msgstr ""
@@ -8972,9 +9048,6 @@ msgid "Random Monster - strong"
 msgstr ""
 
 msgid "Random Monster - very strong"
-msgstr ""
-
-msgid "Hero"
 msgstr ""
 
 msgid "Nothing Special"
@@ -11534,3 +11607,11 @@ msgstr ""
 
 msgid "An unknown force is being resurrected..."
 msgstr ""
+
+#~ msgid "AI"
+#~ msgstr "Computer"
+
+#, fuzzy
+#~ msgid "Click to set this hero to be AI-controlled."
+#~ msgstr ""
+#~ "Weet je zeker dat je het gevecht in de automatische modus wilt beëindigen?"
