@@ -1,6 +1,6 @@
 /***************************************************************************
  *   fheroes2: https://github.com/ihhub/fheroes2                           *
- *   Copyright (C) 2019 - 2025                                             *
+ *   Copyright (C) 2019 - 2026                                             *
  *                                                                         *
  *   Free Heroes2 Engine: http://sourceforge.net/projects/fheroes2         *
  *   Copyright (C) 2009 by Andrey Afletdinov <fheroes2@gmail.com>          *
@@ -86,6 +86,11 @@ int Heroes::OpenDialog( const bool readonly, const bool fade, const bool disable
     fheroes2::Rect dialogWithShadowRoi;
     std::unique_ptr<fheroes2::StandardWindow> background;
     std::unique_ptr<fheroes2::ImageRestorer> restorer;
+
+    std::unique_ptr<Maps::Map_Format::HeroMetadata> initialHeroMetadata;
+    if ( isEditor ) {
+        initialHeroMetadata = std::make_unique<Maps::Map_Format::HeroMetadata>( getHeroMetadata() );
+    }
 
     if ( renderBackgroundDialog ) {
         background = std::make_unique<fheroes2::StandardWindow>( fheroes2::Display::DEFAULT_WIDTH, fheroes2::Display::DEFAULT_HEIGHT, false );
@@ -528,7 +533,7 @@ int Heroes::OpenDialog( const bool readonly, const bool fade, const bool disable
                     const fheroes2::ExperienceDialogElement tempExperienceUI{ 0 };
                     int32_t value = static_cast<int32_t>( _experience );
 
-                    if ( Dialog::SelectCount( _( "Set Experience value" ), 0, static_cast<int32_t>( Heroes::getExperienceMaxValue() ), value, 1, &tempExperienceUI ) ) {
+                    if ( Dialog::SelectCount( _( "Set Experience value:" ), 0, static_cast<int32_t>( Heroes::getExperienceMaxValue() ), value, 1, &tempExperienceUI ) ) {
                         useDefaultExperience = false;
                         _experience = static_cast<uint32_t>( value );
                         experienceInfo.setDefaultState( useDefaultExperience );
@@ -558,7 +563,7 @@ int Heroes::OpenDialog( const bool readonly, const bool fade, const bool disable
 
                 if ( le.MouseClickLeft() ) {
                     int32_t value = static_cast<int32_t>( GetSpellPoints() );
-                    if ( Dialog::SelectCount( _( "Set Spell Points value" ), 0, std::max( spellPointsMaxValue, value ), value ) ) {
+                    if ( Dialog::SelectCount( _( "Set Spell Points value:" ), 0, std::max( spellPointsMaxValue, value ), value ) ) {
                         useDefaultSpellPoints = false;
                         SetSpellPoints( static_cast<uint32_t>( value ) );
                         spellPointsInfo.setDefaultState( useDefaultSpellPoints );
@@ -634,7 +639,7 @@ int Heroes::OpenDialog( const bool readonly, const bool fade, const bool disable
             if ( le.isMouseLeftButtonPressed() && buttonPatrol->isReleased() && !Modes( PATROL ) ) {
                 buttonPatrol->drawOnPress();
                 int32_t value = static_cast<int32_t>( _patrolDistance );
-                if ( Dialog::SelectCount( _( "Set patrol radius in tiles" ), 0, 255, value ) ) {
+                if ( Dialog::SelectCount( _( "Set patrol radius in tiles:" ), 0, 255, value ) ) {
                     SetModes( PATROL );
                     _patrolDistance = static_cast<uint32_t>( value );
                 }
@@ -653,7 +658,7 @@ int Heroes::OpenDialog( const bool readonly, const bool fade, const bool disable
         else if ( isEditor ) {
             if ( le.MouseClickLeft( titleRoi ) ) {
                 std::string res = _name;
-                const fheroes2::Text body{ _( "Enter hero's name" ), fheroes2::FontType::normalWhite() };
+                const fheroes2::Text body{ _( "Enter hero's name:" ), fheroes2::FontType::normalWhite() };
 
                 if ( Dialog::inputString( fheroes2::Text{}, body, res, Maps::Map_Format::nameCharLimit, false, language ) && !res.empty() ) {
                     _name = std::move( res );
@@ -798,9 +803,6 @@ int Heroes::OpenDialog( const bool readonly, const bool fade, const bool disable
 
     buttonExit.drawOnPress();
 
-    // Fade-out hero dialog.
-    fheroes2::fadeOutDisplay( dialogRoi, !isDefaultScreenSize );
-
     if ( isEditor ) {
         if ( useDefaultExperience ) {
             // Tell Editor that default experience value is set.
@@ -819,7 +821,24 @@ int Heroes::OpenDialog( const bool readonly, const bool fade, const bool disable
             power = -1;
             knowledge = -1;
         }
+
+        assert( initialHeroMetadata.get() != nullptr );
+
+        const auto currentMetadata = getHeroMetadata();
+        if ( currentMetadata != *initialHeroMetadata ) {
+            if ( fheroes2::showStandardTextMessage( GetName(), _( "Do you want to save the changes made?" ), Dialog::YES | Dialog::NO ) == Dialog::NO ) {
+                return Dialog::DISMISS;
+            }
+        }
+        else {
+            // This could happen when we automatically change the location of certain items.
+            // For example, when pushing artifacts we put them to the first position.
+            return Dialog::DISMISS;
+        }
     }
+
+    // Fade-out hero dialog.
+    fheroes2::fadeOutDisplay( dialogRoi, !isDefaultScreenSize );
 
     return Dialog::CANCEL;
 }

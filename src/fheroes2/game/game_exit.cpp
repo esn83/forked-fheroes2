@@ -1,9 +1,6 @@
 /***************************************************************************
  *   fheroes2: https://github.com/ihhub/fheroes2                           *
- *   Copyright (C) 2019 - 2026                                             *
- *                                                                         *
- *   Free Heroes2 Engine: http://sourceforge.net/projects/fheroes2         *
- *   Copyright (C) 2009 by Andrey Afletdinov <fheroes2@gmail.com>          *
+ *   Copyright (C) 2026                                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -21,34 +18,26 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
-#include <memory>
-#include <string>
-#include <utility>
-#include <vector>
+#include "game_exit.h"
 
-#include "castle.h" // IWYU pragma: associated
 #include "dialog.h"
-#include "game_delays.h"
-#include "game_string.h"
-#include "icn.h"
+#include "game_mode.h"
 #include "translations.h"
 #include "ui_dialog.h"
-#include "ui_text.h"
-#include "world.h"
 
-void Castle::_openTavern() const
+namespace Game
 {
-    auto rumor = world.getCurrentRumor();
+    fheroes2::GameMode processExitEvent()
+    {
+#if defined( __IPHONEOS__ )
+        // iOS discourages to exit a running application.
+        fheroes2::showStandardTextMessage( _( "Quit" ), _( "To exit fheroes2, press the Home button or swipe up." ), Dialog::OK );
+#else
+        if ( Dialog::YES & fheroes2::showStandardTextMessage( _( "Quit" ), _( "Are you sure you want to quit?" ), Dialog::YES | Dialog::NO ) ) {
+            return fheroes2::GameMode::QUIT_GAME;
+        }
+#endif
 
-    std::string body( _( "A generous tip for the barkeep yields the following rumor:" ) );
-    body += "\n\n";
-
-    auto text = std::make_shared<fheroes2::MultiFontText>();
-    text->add( fheroes2::Text{ std::move( body ), fheroes2::FontType::normalWhite() } );
-    text->add( fheroes2::Text{ std::move( rumor.text ), fheroes2::FontType::normalWhite(), rumor.language } );
-
-    const fheroes2::AnimationDialogElement imageUI( ICN::TAVWIN, { 0, 1 }, 0, Game::getAnimationDelayValue( Game::DelayType::CASTLE_TAVERN_DELAY ) );
-    const fheroes2::TextDialogElement textBodyUI( text );
-
-    fheroes2::showStandardTextMessage( GetStringBuilding( BUILD_TAVERN ), {}, Dialog::OK, { &imageUI, &textBodyUI } );
+        return fheroes2::GameMode::CANCEL;
+    }
 }
