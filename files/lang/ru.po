@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fheroes2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-07 14:55+0000\n"
-"PO-Revision-Date: 2026-04-11 12:53+0300\n"
+"POT-Creation-Date: 2026-06-03 03:02+0000\n"
+"PO-Revision-Date: 2026-05-17 17:48+0300\n"
 "Last-Translator: fheroes2 team <fhomm2@gmail.com>\n"
 "Language-Team: <ru@li.org> <>\n"
 "Language: ru\n"
@@ -4163,10 +4163,10 @@ msgid "BANNED SPELLS"
 msgstr "ЗАПРЕТИТЬ"
 
 msgid "Click to accept the changes made."
-msgstr "Нажмите, чтобы применить внесённые изменения."
+msgstr "Нажмите, чтобы применить изменения."
 
 msgid "Exit this dialog, discarding the changes made."
-msgstr "Выход из данного диалогового окна с отменой внесённых изменений."
+msgstr "Выход из данного диалогового окна с отменой изменений."
 
 msgid "Click to ban spells from appearing in the Mage Guild."
 msgstr ""
@@ -4199,9 +4199,8 @@ msgstr "Армия замка"
 msgid "Town Army"
 msgstr "Армия города"
 
-#, fuzzy
 msgid "You have unsaved changes. Do you wish to proceed?"
-msgstr "Сколько существ перенести?"
+msgstr "У Вас есть несохранённые изменения. Вы желаете продолжить?"
 
 msgid "Click to change the Castle name."
 msgstr "Нажмите, чтобы изменить название замка."
@@ -4402,16 +4401,32 @@ msgstr ""
 msgid "%{objects} must be placed on water."
 msgstr "%{objects} можно размещать только на воде."
 
-#, fuzzy
 msgid "Action objects cannot be placed outside the map."
-msgstr "Объекты нельзя размещать за пределами карты."
+msgstr "Интерактивные объекты нельзя размещать за пределами карты."
 
 msgid "Action objects must be placed on clear tiles."
-msgstr "Активные объекты можно размещать только в свободных клетках карты."
+msgstr ""
+"Интерактивные объекты можно размещать только в свободных клетках карты."
 
 msgid "A maximum of %{count} %{objects} can be placed on the map."
 msgstr ""
 "На карте можно разместить не более %{count} объектов типа \"%{objects}\"."
+
+#, fuzzy
+msgid ""
+"To exit fheroes2, press the Home button or swipe up. (Any unsaved changes to "
+"the current map will be lost.)"
+msgstr ""
+"Вы действительно хотите загрузить новую карту? (Любые несохранённые "
+"изменения данной карты будут потеряны.)"
+
+#, fuzzy
+msgid ""
+"Are you sure you want to quit? (Any unsaved changes to the current map will "
+"be lost.)"
+msgstr ""
+"Вы действительно хотите создать новую карту? (Любые несохранённые изменения "
+"данной карты будут потеряны.)"
 
 msgid "Not able to generate a map with given parameters."
 msgstr "Не удалось создать карту с указанными параметрами."
@@ -4555,9 +4570,8 @@ msgstr "На одной карте можно разместить только 
 msgid "A maximum of %{count} obelisks can be placed on the map."
 msgstr "На карте можно разместить не более %{count} обелисков."
 
-#, fuzzy
 msgid "The same object exists on the tile."
-msgstr "Такой ответ уже есть в списке."
+msgstr "Такой объект уже есть на этой клетке."
 
 msgid "The map is corrupted."
 msgstr "Карта повреждена."
@@ -4641,33 +4655,26 @@ msgstr "Герои"
 msgid "Towns"
 msgstr "Города"
 
-#, fuzzy
 msgid "editorDetailMode|Edit"
-msgstr "Характеристики"
+msgstr "Редактировать"
 
-#, fuzzy
 msgid "editorDetailMode|Move"
-msgstr "Характеристики"
+msgstr "Переместить"
 
-#, fuzzy
 msgid "editorDetailMode|Copy"
-msgstr "Характеристики"
+msgstr "Копировать"
 
-#, fuzzy
 msgid "editorErasure|Mountains"
-msgstr "Существа"
+msgstr "Горы"
 
-#, fuzzy
 msgid "editorErasure|Rocks"
-msgstr "Дороги"
+msgstr "Камни"
 
-#, fuzzy
 msgid "editorErasure|Trees"
-msgstr "Герои"
+msgstr "Деревья"
 
-#, fuzzy
 msgid "editorErasure|Miscellaneous and Water landscape objects"
-msgstr "Объекты ландшафта"
+msgstr "Объекты воды и прочие объекты"
 
 msgid "editorErasure|Adventure non pickable objects"
 msgstr "Статические интерактивные объекты"
@@ -4735,13 +4742,13 @@ msgid "No special modifiers."
 msgstr "Нет особых модификаторов."
 
 msgid "Edit objects on the Adventure Map."
-msgstr ""
+msgstr "Редактировать параметры объектов на карте приключений."
 
 msgid "Move objects on the Adventure Map."
-msgstr ""
+msgstr "Переместить объекты на карте приключений."
 
 msgid "Copy objects on the Adventure Map."
-msgstr ""
+msgstr "Копировать объекты на карте приключений."
 
 msgid "Toggle the erasure of %{type} objects."
 msgstr "Удаление объектов типа: %{type}."
@@ -4783,9 +4790,10 @@ msgstr ""
 msgid "Detail Mode"
 msgstr "Характеристики"
 
-#, fuzzy
 msgid "Used for moving or customizing objects."
-msgstr "Используется для изменения специальных параметров активных объектов."
+msgstr ""
+"Используется для перемещения, копирования и редактирования параметров "
+"объектов."
 
 msgid "Adventure Objects Mode"
 msgstr "Режим размещения интерактивных объектов"
@@ -5437,7 +5445,7 @@ msgid "Special Thanks to"
 msgstr "Особая благодарность"
 
 msgid "and all the people who have helped make the project possible!"
-msgstr ""
+msgstr "и всем тем, кто помог воплотить этот проект в жизнь!"
 
 msgid "Support us at"
 msgstr "Поддержите нас"
@@ -5941,13 +5949,11 @@ msgstr "экран строительства замка"
 msgid "hotkey|buy all monsters in well"
 msgstr "купить всех существ в колодце"
 
-#, fuzzy
 msgid "hotkey|merge troops with hero"
-msgstr "следующий герой"
+msgstr "объединить войска с героем"
 
-#, fuzzy
 msgid "hotkey|merge troops with garrison"
-msgstr "повторить последнее действие"
+msgstr "объединить войска с гарнизоном"
 
 msgid "hotkey|split stack by half"
 msgstr "разделить отряд пополам"
@@ -6929,7 +6935,7 @@ msgid "Greek"
 msgstr "Греческий"
 
 msgid "Esperanto"
-msgstr ""
+msgstr "Эсперанто"
 
 msgid "Slow"
 msgstr "Медленная"
@@ -8734,9 +8740,8 @@ msgstr ""
 msgid "Click to enable hero's patrol mode."
 msgstr "Нажмите, чтобы установить героя в режим патруля."
 
-#, fuzzy
 msgid "Do you want to save the changes made?"
-msgstr "Нажмите, чтобы применить внесённые изменения."
+msgstr "Вы желаете сохранить изменения?"
 
 msgid "Blood Morale"
 msgstr "В Бой!"
@@ -12734,13 +12739,3 @@ msgstr "Он сказал ей: Бе бе бе... а потом она сказ�
 
 msgid "An unknown force is being resurrected..."
 msgstr "Возрождается неведомая сила..."
-
-#~ msgid ""
-#~ "Cell\n"
-#~ "Details"
-#~ msgstr ""
-#~ "Детали\n"
-#~ "объекта"
-
-#~ msgid "and many-many other contributors and supporters!"
-#~ msgstr "и многим другим, кто участвует в развитии и поддерживает проект!"

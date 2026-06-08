@@ -259,7 +259,7 @@ namespace
         // If there is a map bug the Object Animation destructor is not able to properly remove this object from the map.
         if ( actualObjectType != objectType && actualObjectType != MP2::OBJ_NONE ) {
             // Remove an object by its actual sprite type.
-            removeObjectFromTileByType( tile, actualObjectType );
+            Maps::removeObjectFromTileByType( tile, actualObjectType );
         }
 
         // Update radar in the place of the removed object.
@@ -684,6 +684,7 @@ namespace
         hero.Move2Dest( dst_index );
         hero.ResetMovePoints();
         hero.GetPath().Reset();
+        hero.setAlphaValue( 255 );
 
         // Update the radar map image before changing the direction of the hero.
         Interface::AdventureMap & I = Interface::AdventureMap::Get();
@@ -3655,7 +3656,7 @@ namespace
 
         std::string title = MP2::StringObject( objectType );
 
-        if ( kingdom.IsVisitTravelersTent( getBarrierColorFromTile( tile ) ) ) {
+        if ( kingdom.isTravellerTentVisited( getBarrierColorFromTile( tile ) ) ) {
             AudioManager::PlaySound( M82::EXPERNCE );
 
             fheroes2::showStandardTextMessage(
@@ -3691,7 +3692,7 @@ namespace
             _( "You enter the tent and see an old woman gazing into a magic gem. She looks up and says,\n\"In my travels, I have learned much in the way of arcane magic. A great oracle taught me his skill. I have the answer you seek.\"" ),
             Dialog::OK );
 
-        kingdom.SetVisitTravelersTent( tentColor );
+        kingdom.markTravellerTentVisited( tentColor );
     }
 
     // Black Cat gives +3 morale and -2 luck.

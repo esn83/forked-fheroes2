@@ -333,6 +333,9 @@ namespace
             Interface::AdventureMap::Get().getGameArea().SetCenter( hero.GetCenter() );
             hero.FadeIn( Game::AIHeroAnimSpeedMultiplier() );
         }
+        else {
+            hero.setAlphaValue( 255 );
+        }
 
         AI::Planner::Get().HeroesActionComplete( hero, targetIndex, hero.getObjectTypeUnderHero() );
 
@@ -1013,6 +1016,9 @@ namespace
             Interface::AdventureMap::Get().getGameArea().SetCenter( hero.GetCenter() );
             hero.FadeIn( Game::AIHeroAnimSpeedMultiplier() );
         }
+        else {
+            hero.setAlphaValue( 255 );
+        }
 
         hero.ActionNewPosition( false );
     }
@@ -1080,6 +1086,9 @@ namespace
         if ( AIIsShowAnimationForHero( hero, allianceColors ) ) {
             Interface::AdventureMap::Get().getGameArea().SetCenter( hero.GetCenter() );
             hero.FadeIn( Game::AIHeroAnimSpeedMultiplier() );
+        }
+        else {
+            hero.setAlphaValue( 255 );
         }
 
         hero.ActionNewPosition( false );
@@ -1706,7 +1715,7 @@ namespace
         Maps::Tile & tile = world.getTile( dst_index );
         const Kingdom & kingdom = hero.GetKingdom();
 
-        if ( kingdom.IsVisitTravelersTent( getBarrierColorFromTile( tile ) ) ) {
+        if ( kingdom.isTravellerTentVisited( getBarrierColorFromTile( tile ) ) ) {
             removeMainObjectFromTile( tile );
             resetObjectMetadata( tile );
         }
@@ -1719,7 +1728,7 @@ namespace
         const Maps::Tile & tile = world.getTile( dst_index );
         Kingdom & kingdom = hero.GetKingdom();
 
-        kingdom.SetVisitTravelersTent( getBarrierColorFromTile( tile ) );
+        kingdom.markTravellerTentVisited( getBarrierColorFromTile( tile ) );
     }
 
     void AIToShipwreckSurvivor( Heroes & hero, const MP2::MapObjectType objectType, int32_t dst_index )
@@ -1813,6 +1822,7 @@ namespace
         hero.Move2Dest( dst_index );
         hero.ResetMovePoints();
         hero.GetPath().Reset();
+        hero.setAlphaValue( 255 );
 
         // Set the direction of the hero to the one of the boat as the boat does not move when boarding it
         hero.setDirection( boatDirection );
@@ -2428,6 +2438,9 @@ void AI::HeroesCastDimensionDoor( Heroes & hero, const int32_t targetIndex )
     if ( AIIsShowAnimationForHero( hero, allianceColors ) ) {
         Interface::AdventureMap::Get().getGameArea().SetCenter( hero.GetCenter() );
         hero.FadeIn( Game::AIHeroAnimSpeedMultiplier() );
+    }
+    else {
+        hero.setAlphaValue( 255 );
     }
 
     hero.ActionNewPosition( false );
