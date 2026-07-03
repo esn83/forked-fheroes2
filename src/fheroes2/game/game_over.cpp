@@ -40,6 +40,7 @@
 #include "dialog.h"
 #include "game.h"
 #include "game_cheats.h"
+#include "game_auto_playtest.h"
 #include "game_io.h"
 #include "game_video.h"
 #include "game_video_type.h"
@@ -513,10 +514,11 @@ void GameOver::Result::updateWinningPlayersColors() {
 
 fheroes2::GameMode GameOver::Result::checkGameOver()
 {
-    const PlayerColorsSet humanColors = Players::HumanColors();
+    const Settings & conf = Settings::Get();
+    const bool isAutoPlaytest{ conf.IsGameType( Game::TYPE_AUTO_PLAYTEST ) };
+    const PlayerColorsSet humanColors = isAutoPlaytest ? conf.GetPlayers().GetColors() : Players::HumanColors();
     const bool isSinglePlayer = ( Color::Count( humanColors ) == 1 );
 
-    const Settings & conf = Settings::Get();
     const PlayerColor currentColor = conf.CurrentColor();
 
     // Remembers whether the current player was considered active at the time of calling this function
@@ -529,7 +531,12 @@ fheroes2::GameMode GameOver::Result::checkGameOver()
             // This notification should always be displayed for the AI players. For human players, this should only be displayed in a multiplayer game for a
             // human player who is not currently active - in all other cases, the "you have been eliminated" dialog should be displayed.
             if ( !( humanColors & color ) || ( !isSinglePlayer && color != currentColor ) ) {
-                Game::DialogPlayers( color, _( "Major Event!" ), _( "%{color} player has been vanquished!" ) );
+                if ( isAutoPlaytest ) {
+                    fheroes2::AutoPlaytest::instance().setDefeatedPlayer( color, world.CountDay() );
+                }
+                else {
+                    Game::DialogPlayers( color, _( "Major Event!" ), _( "%{color} player has been vanquished!" ) );
+                }
             }
 
             _colors &= ~color;
@@ -544,14 +551,10 @@ fheroes2::GameMode GameOver::Result::checkGameOver()
 
         const Kingdom & kingdom = world.GetKingdom( static_cast<PlayerColor>( humanColors ) );
 
-#if defined( WITH_DEBUG )
         const Player * player = Players::Get( static_cast<PlayerColor>( humanColors ) );
         assert( player != nullptr );
 
         const bool isAIAutoControlMode = player->isAIAutoControlMode();
-#else
-        const bool isAIAutoControlMode = false;
-#endif
 
         if ( kingdom.isControlHuman() || isAIAutoControlMode ) {
             // First check loss conditions and then victory conditions.
@@ -612,14 +615,10 @@ fheroes2::GameMode GameOver::Result::checkGameOver()
 
             const Kingdom & kingdom = world.GetKingdom( currentColor );
 
-#if defined( WITH_DEBUG )
             const Player * player = Players::Get( currentColor );
             assert( player != nullptr );
 
             const bool isAIAutoControlMode = player->isAIAutoControlMode();
-#else
-            const bool isAIAutoControlMode = false;
-#endif
 
             // Check the win/loss conditions for human-controlled players only
             if ( !kingdom.isControlHuman() && !isAIAutoControlMode ) {
@@ -648,6 +647,10 @@ fheroes2::GameMode GameOver::Result::checkGameOver()
         }();
 
         if ( result & GameOver::LOSS ) {
+            if ( isAutoPlaytest ) {
+                fheroes2::AutoPlaytest::instance().setDefeatedPlayer( currentColor, world.CountDay() );
+            }
+
             const bool showLossDialog = [currentColor, isCurrentPlayerWasActive, this]() {
                 // We shouldn't show the loss notification dialog if there is no active kingdom at the moment
                 if ( !( Color::allPlayerColors() & currentColor ) ) {
@@ -656,14 +659,10 @@ fheroes2::GameMode GameOver::Result::checkGameOver()
 
                 const Kingdom & kingdom = world.GetKingdom( currentColor );
 
-#if defined( WITH_DEBUG )
                 const Player * player = Players::Get( currentColor );
                 assert( player != nullptr );
 
                 const bool isAIAutoControlMode = player->isAIAutoControlMode();
-#else
-                const bool isAIAutoControlMode = false;
-#endif
 
                 // We shouldn't show the loss notification dialog to AI players
                 if ( !kingdom.isControlHuman() && !isAIAutoControlMode ) {
@@ -688,24 +687,34 @@ fheroes2::GameMode GameOver::Result::checkGameOver()
             // LOSS_ALL fulfillment by itself is not a reason to end the multiplayer game, unless all human-controlled players are vanquished
             const bool endGame = ( result != GameOver::LOSS_ALL || activeHumanColors == 0 );
 
-            if ( showLossDialog ) {
+            if ( showLossDialog && !isAutoPlaytest ) {
                 DialogLoss( result );
             }
 
             if ( endGame ) {
                 AudioManager::ResetAudio();
-                Video::ShowVideo( { { "LOSE.SMK", Video::VideoControl::PLAY_CUTSCENE_LOOP } } );
+                if ( !isAutoPlaytest ) {
+                    Video::ShowVideo( { { "LOSE.SMK", Video::VideoControl::PLAY_CUTSCENE_LOOP } } );
+                }
 
                 return fheroes2::GameMode::MAIN_MENU;
             }
         }
         else if ( result & GameOver::WINS ) {
+<<<<<<< HEAD
             updateWinningPlayersColors();
 
             DialogWins( result );
+=======
+            if ( !isAutoPlaytest ) {
+                DialogWins( result );
+            }
+>>>>>>> master
 
             AudioManager::ResetAudio();
-            Video::ShowVideo( { { "WIN.SMK", Video::VideoControl::PLAY_CUTSCENE_WAIT } }, { standardGameResults() }, true );
+            if ( !isAutoPlaytest ) {
+                Video::ShowVideo( { { "WIN.SMK", Video::VideoControl::PLAY_CUTSCENE_WAIT } }, { standardGameResults() }, true );
+            }
 
             return fheroes2::GameMode::HIGHSCORES_STANDARD;
         }

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fheroes2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-03 03:02+0000\n"
-"PO-Revision-Date: 2026-05-17 17:48+0300\n"
+"POT-Creation-Date: 2026-06-10 08:09+0000\n"
+"PO-Revision-Date: 2026-06-28 16:36+0300\n"
 "Last-Translator: fheroes2 team <fhomm2@gmail.com>\n"
 "Language-Team: <ru@li.org> <>\n"
 "Language: ru\n"
@@ -218,6 +218,13 @@ msgid ""
 msgstr ""
 "ГЛАВНОЕ\n"
 "МЕНЮ"
+
+msgid ""
+"AUTO\n"
+"PLAY-TEST"
+msgstr ""
+"АВТО ТЕСТ\n"
+"КАРТЫ"
 
 msgid ""
 "NEW\n"
@@ -4412,21 +4419,19 @@ msgid "A maximum of %{count} %{objects} can be placed on the map."
 msgstr ""
 "На карте можно разместить не более %{count} объектов типа \"%{objects}\"."
 
-#, fuzzy
 msgid ""
 "To exit fheroes2, press the Home button or swipe up. (Any unsaved changes to "
 "the current map will be lost.)"
 msgstr ""
-"Вы действительно хотите загрузить новую карту? (Любые несохранённые "
-"изменения данной карты будут потеряны.)"
+"Для выхода из fheroes2, нажмите кнопку \\\"Домой\\\" или проведите пальцем "
+"вверх. (Любые несохранённые изменения данной карты будут потеряны.)"
 
-#, fuzzy
 msgid ""
 "Are you sure you want to quit? (Any unsaved changes to the current map will "
 "be lost.)"
 msgstr ""
-"Вы действительно хотите создать новую карту? (Любые несохранённые изменения "
-"данной карты будут потеряны.)"
+"Вы уверены, что хотите выйти? (Любые несохранённые изменения данной карты "
+"будут потеряны.)"
 
 msgid "Not able to generate a map with given parameters."
 msgstr "Не удалось создать карту с указанными параметрами."
@@ -4465,30 +4470,6 @@ msgstr ""
 "Вы действительно хотите вернуться в главное меню игры? (Любые несохранённые "
 "изменения данной карты будут потеряны.)"
 
-msgid "Unsaved Changes"
-msgstr "Несохранённые изменения"
-
-msgid ""
-"This map has either terrain changes, undo history or has not yet been saved "
-"to a file.\n"
-"\n"
-"Do you wish to save the current map?"
-msgstr ""
-"На текущей карте могут быть изменения рельефа, объектов и их свойств, либо "
-"карта ещё не сохранена в файл.\n"
-"\n"
-"Вы желаете сохранить текущую карту?"
-
-msgid "Unplayable Map"
-msgstr "Неиграбельная карта"
-
-msgid ""
-"This map is not playable. You need at least one human player for the map to "
-"be playable."
-msgstr ""
-"В данную карту невозможно сыграть. Для игры на карте следует иметь хотя бы "
-"одного игрока-человека."
-
 msgid "Start Map"
 msgstr "Играть карту"
 
@@ -4519,6 +4500,14 @@ msgstr "Сохранить текущую карту."
 
 msgid "Quit out of the map editor."
 msgstr "Выйти из редактора карт."
+
+msgid "Auto Playtest"
+msgstr "Авто тест карты"
+
+msgid "Run an automatic playtest of the map."
+msgstr ""
+"Запустить автоматическое прохождение карты компьютерными игроками для "
+"анализа её игрового процесса."
 
 msgid "Return to the game's Main Menu."
 msgstr "Возврат в главное меню игры."
@@ -4593,6 +4582,30 @@ msgstr "Карта сохранена в: "
 
 msgid "Failed to save the map."
 msgstr "Не удалось сохранить карту."
+
+msgid "Unsaved Changes"
+msgstr "Несохранённые изменения"
+
+msgid ""
+"This map has either terrain changes, undo history or has not yet been saved "
+"to a file.\n"
+"\n"
+"Do you wish to save the current map?"
+msgstr ""
+"На текущей карте могут быть изменения рельефа, объектов и их свойств, либо "
+"карта ещё не сохранена в файл.\n"
+"\n"
+"Вы желаете сохранить текущую карту?"
+
+msgid ""
+"This map is not playable. You need at least one human player for the map to "
+"be playable."
+msgstr ""
+"В данную карту невозможно сыграть. Для игры на карте следует иметь хотя бы "
+"одного игрока-человека."
+
+msgid "Unplayable Map"
+msgstr "Неиграбельная карта"
 
 msgid "Used to place %{object}."
 msgstr "Используется для размещения объектов типа %{object}."
@@ -5311,6 +5324,65 @@ msgstr "Эксперт"
 msgid "difficulty|Impossible"
 msgstr "Невозможная"
 
+msgid "Auto Playtest Results"
+msgstr "Результаты авто теста карты"
+
+msgid "1 playthrough"
+msgid_plural "%{count} playthroughs"
+msgstr[0] "%{count} прогон"
+msgstr[1] "%{count} прогона"
+msgstr[2] "%{count} прогонов"
+
+msgid " playthrough(s) reached the specified time limit"
+msgstr " превышений заданного ограничения времени прогона."
+
+msgid "Click to close the dialog."
+msgstr "Нажмите, чтобы закрыть диалоговое окно."
+
+msgid "Won %{percent}% of playthroughs."
+msgstr "Выиграл %{percent}% прогонов."
+
+msgid "Failed to prepare the map for auto playtest."
+msgstr ""
+"Ошибка подготовки карты для автоматического тестирования игрового процесса."
+
+msgid "autoPlaytest|Number of playthroughs:"
+msgstr "Количество прогонов:"
+
+msgid "autoPlaytest|Max days per playthrough:"
+msgstr "Максимум дней на прогон:"
+
+msgid "autoPlaytest|Animation"
+msgstr "Анимация"
+
+msgid "autoPlaytest|Animation speed:"
+msgstr "Скорость анимации:"
+
+msgid "autoPlaytest|Sound Effects"
+msgstr "Звуковые эффекты"
+
+msgid "Left-clicking at any point will interrupt the playtest."
+msgstr "Нажатие левой кнопки мыши в любой момент прервёт тестирование карты."
+
+msgid "Click to run an automated map playtest."
+msgstr ""
+"Нажмите, чтобы запустить автоматическое тестирование игрового процесса на "
+"карте."
+
+msgid ""
+"Auto playtest\n"
+"(playthrough %{current} of %{total})"
+msgstr ""
+"Авто тест карты\n"
+"(прогон %{current} из %{total})"
+
+msgid ""
+"Do you want to interrupt the automatic playtest? The effect will take place "
+"only on the next turn."
+msgstr ""
+"Хотите ли Вы прервать автоматическое тестирование карты? Тестирование "
+"прервётся только на следующем ходу."
+
 msgid "and more..."
 msgstr "и т.д."
 
@@ -5721,6 +5793,9 @@ msgstr "открыть главное меню"
 
 msgid "hotkey|toggle passability"
 msgstr "переключить отображение проходимости"
+
+msgid "hotkey|auto playtest"
+msgstr "авто тест карты"
 
 msgid "hotkey|re-generate random map"
 msgstr "заново генерировать случайную карту"
