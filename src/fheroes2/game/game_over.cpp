@@ -701,15 +701,10 @@ fheroes2::GameMode GameOver::Result::checkGameOver()
             }
         }
         else if ( result & GameOver::WINS ) {
-<<<<<<< HEAD
             updateWinningPlayersColors();
-
-            DialogWins( result );
-=======
             if ( !isAutoPlaytest ) {
                 DialogWins( result );
             }
->>>>>>> master
 
             AudioManager::ResetAudio();
             if ( !isAutoPlaytest ) {
