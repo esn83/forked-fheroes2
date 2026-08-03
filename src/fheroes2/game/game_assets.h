@@ -1,0 +1,43 @@
+/***************************************************************************
+ *   fheroes2: https://github.com/ihhub/fheroes2                           *
+ *   Copyright (C) 2021 - 2026                                             *
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ *   This program is distributed in the hope that it will be useful,       *
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+ *   GNU General Public License for more details.                          *
+ *                                                                         *
+ *   You should have received a copy of the GNU General Public License     *
+ *   along with this program; if not, write to the                         *
+ *   Free Software Foundation, Inc.,                                       *
+ *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
+ ***************************************************************************/
+
+#pragma once
+
+#include <cstdint>
+
+namespace fheroes2
+{
+    class Image;
+    class Sprite;
+
+    enum class SupportedLanguage : uint8_t;
+}
+
+namespace Assets
+{
+    const fheroes2::Sprite & getImage( int icnId, uint32_t index );
+    uint32_t getImageCount( int icnId );
+
+    // shapeId could be 0, 1, 2 or 3 only
+    const fheroes2::Image & getTileImage( int tilId, uint32_t index, uint32_t shapeId );
+
+    // This function must be called only at the time of setting up a new language.
+    void updateLanguageDependentResources( const fheroes2::SupportedLanguage language, const bool loadOriginalAlphabet );
+}
