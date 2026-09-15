@@ -4264,6 +4264,9 @@ msgstr " "
 msgid "Failed to save the map."
 msgstr ""
 
+msgid "The selected object has been moved to the top layer."
+msgstr ""
+
 msgid "Unsaved Changes"
 msgstr "Незахаваныя змяненні"
 
@@ -5377,37 +5380,44 @@ msgstr ""
 msgid "and more..."
 msgstr "і г. д."
 
-msgid "Easy"
-msgstr "Лёгкая"
-
-msgid "Normal"
-msgstr "Сярэдняя"
-
-msgid "Hard"
-msgstr "Цяжкая"
-
-msgid "Campaign Difficulty"
+#, fuzzy
+msgid "campaignDifficulty|Decreased"
 msgstr "Складанасць кампаніі"
 
+#, fuzzy
+msgid "campaignDifficulty|Default"
+msgstr "Складанасць кампаніі"
+
+#, fuzzy
+msgid "campaignDifficulty|Increased"
+msgstr "Складанасць кампаніі"
+
+#, fuzzy
 msgid ""
-"Choose this difficulty to experience the game's story with less challenge. "
-"The AI will be weaker than at Normal difficulty."
+"Choose this difficulty to experience the game's story with decreased "
+"challenge. The AI will be weaker than at the default difficulty."
 msgstr ""
 "Выбірайце гэты ўзровень складанасці, калі сюжэт для вас важнейшы за выклік. "
 "Камп’ютар будзе гуляць слабей, чым пры звычайным узроўні складанасці."
 
+#, fuzzy
 msgid ""
-"Choose this difficulty to experience the campaign as per the original design."
+"Choose this difficulty to experience the campaign as close to the original "
+"design as possible with the fheroes2 AI."
 msgstr ""
 "Выбірайце гэты ўзровень складанасці, каб спазнаць кампанію такой, якой яна "
 "задумвалася."
 
+#, fuzzy
 msgid ""
-"Choose this difficulty if you want more challenge. The AI will be stronger "
-"than at Normal difficulty."
+"Choose this difficulty if you want more of a challenge. The AI will be "
+"stronger than at the default difficulty."
 msgstr ""
 "Выбірайце гэты ўзровень складанасці, калі шукаеце большага выкліку для сябе. "
 "Камп’ютар будзе гуляць мацней, чым пры звычайным узроўні складанасці."
+
+msgid "Campaign Difficulty"
+msgstr "Складанасць кампаніі"
 
 msgid ""
 "Congratulations!\n"
@@ -7015,6 +7025,9 @@ msgstr ""
 
 msgid "Slow"
 msgstr "Павольныя"
+
+msgid "Normal"
+msgstr "Сярэдняя"
 
 msgid "Fast"
 msgstr "Імклівыя"
@@ -12557,10 +12570,10 @@ msgstr ""
 msgid "Blood Lust"
 msgstr "Крыважэрнасць"
 
-msgid "Increases a unit's attack skill."
+msgid ""
+"Increases a unit's attack skill by 3. The effect lasts for 3 rounds of "
+"combat, regardless of spell power."
 msgstr ""
-"Павышаюць сілу атакі выбранага атрада героя на 3. Чары дзейнічаюць колькасць "
-"раўндаў, роўную сіле магіі героя."
 
 msgid "Animate Dead"
 msgstr "Ажыўленне мёртвых"
@@ -12935,6 +12948,25 @@ msgstr "А ён ёй... А яна яму... А ён ёй на тое..."
 
 msgid "An unknown force is being resurrected..."
 msgstr "Невядомая сіла ўваскрашаецца..."
+
+#~ msgid "Increases a unit's attack skill."
+#~ msgstr ""
+#~ "Павышаюць сілу атакі выбранага атрада героя на 3. Чары дзейнічаюць "
+#~ "колькасць раўндаў, роўную сіле магіі героя."
+
+#~ msgid "Easy"
+#~ msgstr "Лёгкая"
+
+#~ msgid "Hard"
+#~ msgstr "Цяжкая"
+
+#, fuzzy
+#~ msgid ""
+#~ "RESURRECTION\n"
+#~ "CAMPAIGN"
+#~ msgstr ""
+#~ "ЦАНА\n"
+#~ "ВЕРНАСЦІ"
 
 #~ msgid "and many-many other contributors and supporters!"
 #~ msgstr "і ўсім-усім, хто ўдзельнічае ў развіцці і падтрымлівае праект!"

@@ -4259,6 +4259,9 @@ msgstr ""
 msgid "Failed to save the map."
 msgstr "File da Salvare:"
 
+msgid "The selected object has been moved to the top layer."
+msgstr ""
+
 msgid "Unsaved Changes"
 msgstr ""
 
@@ -5351,33 +5354,36 @@ msgstr ""
 msgid "and more..."
 msgstr ""
 
-msgid "Easy"
-msgstr ""
+#, fuzzy
+msgid "campaignDifficulty|Decreased"
+msgstr "Difficoltà Gioco"
 
 #, fuzzy
-msgid "Normal"
-msgstr "Normale"
+msgid "campaignDifficulty|Default"
+msgstr "Difficoltà Gioco"
 
-msgid "Hard"
+#, fuzzy
+msgid "campaignDifficulty|Increased"
+msgstr "Difficoltà Gioco"
+
+msgid ""
+"Choose this difficulty to experience the game's story with decreased "
+"challenge. The AI will be weaker than at the default difficulty."
+msgstr ""
+
+msgid ""
+"Choose this difficulty to experience the campaign as close to the original "
+"design as possible with the fheroes2 AI."
+msgstr ""
+
+msgid ""
+"Choose this difficulty if you want more of a challenge. The AI will be "
+"stronger than at the default difficulty."
 msgstr ""
 
 #, fuzzy
 msgid "Campaign Difficulty"
 msgstr "Difficoltà Gioco"
-
-msgid ""
-"Choose this difficulty to experience the game's story with less challenge. "
-"The AI will be weaker than at Normal difficulty."
-msgstr ""
-
-msgid ""
-"Choose this difficulty to experience the campaign as per the original design."
-msgstr ""
-
-msgid ""
-"Choose this difficulty if you want more challenge. The AI will be stronger "
-"than at Normal difficulty."
-msgstr ""
 
 #, fuzzy
 msgid ""
@@ -6934,6 +6940,10 @@ msgstr ""
 #, fuzzy
 msgid "Slow"
 msgstr "Pianissimo"
+
+#, fuzzy
+msgid "Normal"
+msgstr "Normale"
 
 msgid "Fast"
 msgstr ""
@@ -11765,8 +11775,10 @@ msgstr "Incrementa di tanto i danni contro i draghi."
 msgid "Blood Lust"
 msgstr "Ferocia"
 
-msgid "Increases a unit's attack skill."
-msgstr "Incrementa la capacità d'attacco di un'unità."
+msgid ""
+"Increases a unit's attack skill by 3. The effect lasts for 3 rounds of "
+"combat, regardless of spell power."
+msgstr ""
 
 msgid "Animate Dead"
 msgstr "Anima i Morti"
@@ -12118,6 +12130,9 @@ msgstr ""
 
 msgid "An unknown force is being resurrected..."
 msgstr "Una forza sconosciuta sta risorgendo..."
+
+#~ msgid "Increases a unit's attack skill."
+#~ msgstr "Incrementa la capacità d'attacco di un'unità."
 
 #~ msgid "AI"
 #~ msgstr "Computer"

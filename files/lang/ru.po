@@ -4263,6 +4263,9 @@ msgstr "Карта сохранена в: "
 msgid "Failed to save the map."
 msgstr "Не удалось сохранить карту."
 
+msgid "The selected object has been moved to the top layer."
+msgstr "Выбранный объект перемещён на верхний слой."
+
 msgid "Unsaved Changes"
 msgstr "Несохранённые изменения"
 
@@ -5383,37 +5386,38 @@ msgstr ""
 msgid "and more..."
 msgstr "и т.д."
 
-msgid "Easy"
-msgstr "Лёгкая"
+msgid "campaignDifficulty|Decreased"
+msgstr "Сниженная"
 
-msgid "Normal"
+msgid "campaignDifficulty|Default"
 msgstr "Обычная"
 
-msgid "Hard"
-msgstr "Тяжёлая"
-
-msgid "Campaign Difficulty"
-msgstr "Сложность кампании"
+msgid "campaignDifficulty|Increased"
+msgstr "Повышенная"
 
 msgid ""
-"Choose this difficulty to experience the game's story with less challenge. "
-"The AI will be weaker than at Normal difficulty."
+"Choose this difficulty to experience the game's story with decreased "
+"challenge. The AI will be weaker than at the default difficulty."
 msgstr ""
 "Выберите данный уровень сложности, если Вы предпочитаете сюжет, а не сложные "
 "сражения. ИИ слабее, чем обычно."
 
 msgid ""
-"Choose this difficulty to experience the campaign as per the original design."
+"Choose this difficulty to experience the campaign as close to the original "
+"design as possible with the fheroes2 AI."
 msgstr ""
 "Выберите данный уровень сложности, чтобы насладиться кампанией, как она "
 "первоначально задумывалась."
 
 msgid ""
-"Choose this difficulty if you want more challenge. The AI will be stronger "
-"than at Normal difficulty."
+"Choose this difficulty if you want more of a challenge. The AI will be "
+"stronger than at the default difficulty."
 msgstr ""
 "Выберите данный уровень сложности, если хотите серьёзных сражений. ИИ "
 "сильнее, чем обычно."
+
+msgid "Campaign Difficulty"
+msgstr "Сложность кампании"
 
 msgid ""
 "Congratulations!\n"
@@ -7011,6 +7015,9 @@ msgstr "Эсперанто"
 
 msgid "Slow"
 msgstr "Медленная"
+
+msgid "Normal"
+msgstr "Обычная"
 
 msgid "Fast"
 msgstr "Быстрая"
@@ -12215,7 +12222,7 @@ msgstr "Телепорт"
 
 msgid ""
 "Teleports the creature you select to any open position on the battlefield."
-msgstr "Телепортирует выбранное существо в любую свободную точку на поле."
+msgstr "Телепортирует выбранный отряд в любую свободную точку на поле боя."
 
 msgid "Cure"
 msgstr "Лечение"
@@ -12242,16 +12249,16 @@ msgstr "Оживление"
 
 msgid "Resurrects creatures from a damaged or dead unit until end of combat."
 msgstr ""
-"До конца боя оживляет воинов в отряде, которому был нанесён урон или который "
-"был уничтожен."
+"До конца боя оживляет существ в отряде, которому был нанесён урон или "
+"который был уничтожен."
 
 msgid "Resurrect True"
 msgstr "Воскрешение"
 
 msgid "Resurrects creatures from a damaged or dead unit permanently."
 msgstr ""
-"Навсегда оживляет воинов в отряде, которому был нанесён урон или который был "
-"уничтожен."
+"Навсегда оживляет существ в отряде, которому был нанесён урон или который "
+"был уничтожен."
 
 msgid "Haste"
 msgstr "Ускорение"
@@ -12396,7 +12403,7 @@ msgid ""
 "A rain of rocks strikes an area of the battlefield, damaging all nearby "
 "creatures."
 msgstr ""
-"Призывает дождь из камней, наносящий урон всем существам, находящимся в поле "
+"Призывает дождь из камней, наносящий урон всем отрядам, находящимся в поле "
 "действия заклинания."
 
 msgid "Meteor Shower"
@@ -12462,13 +12469,17 @@ msgid "Dragon Slayer"
 msgstr "Убийца драконов"
 
 msgid "Greatly increases a unit's attack skill vs. Dragons."
-msgstr "Увеличивает атаку выбранного существа в схватке с драконами на 5."
+msgstr "Увеличивает атаку выбранного отряда в схватке с драконами на 5."
 
 msgid "Blood Lust"
 msgstr "Жажда крови"
 
-msgid "Increases a unit's attack skill."
-msgstr "Увеличивает атаку выбранного отряда на 3."
+msgid ""
+"Increases a unit's attack skill by 3. The effect lasts for 3 rounds of "
+"combat, regardless of spell power."
+msgstr ""
+"Увеличивает атаку выбранного отряда на 3. Действует в течение 3 раундов, "
+"независимо от силы магии."
 
 msgid "Animate Dead"
 msgstr "Поднять нежить"
@@ -12504,8 +12515,8 @@ msgid ""
 "Halves damage received from ranged attacks for all of your units. Does not "
 "affect damage received from Turrets or Ballistae."
 msgstr ""
-"Принимает на себя половину урона стрелковых атак врага, направленных на всех "
-"Ваших существ. Не влияет на урон от замковых башен или баллисты."
+"Принимает на себя половину урона стрелковых атак врага, направленных на все "
+"Ваши отряды. Не влияет на урон от замковых башен или баллисты."
 
 msgid "Summon Earth Elemental"
 msgstr "Земной элементаль"
@@ -12811,6 +12822,23 @@ msgstr "Он сказал ей: Бе бе бе... а потом она сказ�
 
 msgid "An unknown force is being resurrected..."
 msgstr "Возрождается неведомая сила..."
+
+#~ msgid "Increases a unit's attack skill."
+#~ msgstr "Увеличивает атаку выбранного отряда на 3."
+
+#~ msgid "Easy"
+#~ msgstr "Лёгкая"
+
+#~ msgid "Hard"
+#~ msgstr "Тяжёлая"
+
+#, fuzzy
+#~ msgid ""
+#~ "RESURRECTION\n"
+#~ "CAMPAIGN"
+#~ msgstr ""
+#~ "ЦЕНА\n"
+#~ "ВЕРНОСТИ"
 
 #~ msgid "Create a new map from scratch."
 #~ msgstr "Создать новую карту с нуля."
